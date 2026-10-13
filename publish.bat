@@ -15,7 +15,7 @@ if not exist logs mkdir logs
 set LOG=logs\publish.log
 
 echo [%date% %time%] publish start >> "%LOG%"
-%PY% -I build_data.py "%PKG%" >> "%LOG%" 2>&1
+%PY% -I build_data.py "%PKG%." >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [%date% %time%] build_data failed >> "%LOG%"
   exit /b 1
