@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 LOG = ROOT / "logs" / "last_run.log"
+LOCK = ROOT / "logs" / "run.lock"        # poll_request.py 와 공유: 두 조회가 동시에 돌지 않게
 HOST, PORT = "127.0.0.1", 8770
 
 state = {"running": False, "started": None, "finished": None, "exit": None}
@@ -21,6 +22,7 @@ lock = threading.Lock()
 
 def worker():
     LOG.parent.mkdir(exist_ok=True)
+    LOCK.write_text(datetime.now().isoformat(), encoding="utf-8")
     with open(LOG, "w", encoding="utf-8", errors="replace") as f:
         f.write(f"[{datetime.now():%H:%M:%S}] 조회 시작\n")
         f.flush()
@@ -32,6 +34,7 @@ def worker():
             f.write(f"[!] 실행 오류: {e}\n")
             code = -1
         f.write(f"[{datetime.now():%H:%M:%S}] 종료 (exit {code})\n")
+    LOCK.unlink(missing_ok=True)
     with lock:
         state.update(running=False, finished=datetime.now().isoformat(timespec="seconds"), exit=code)
 
@@ -78,6 +81,8 @@ class H(SimpleHTTPRequestHandler):
             if origin and origin not in (f"http://{HOST}:{PORT}", f"http://localhost:{PORT}"):
                 return self._json({"ok": False, "msg": "허용되지 않은 요청"}, 403)
             with lock:
+                if not state["running"] and LOCK.exists() and (datetime.now().timestamp() - LOCK.stat().st_mtime) < 90 * 60:
+                    return self._json({"ok": False, "msg": "공개 페이지 요청으로 조회가 진행 중입니다."}, 409)
                 if state["running"]:
                     return self._json({"ok": False, "msg": "이미 조회 중입니다."}, 409)
                 state.update(running=True, started=datetime.now().isoformat(timespec="seconds"), finished=None, exit=None)

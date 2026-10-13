@@ -83,6 +83,7 @@ svg text{fill:var(--muted);font-size:11px}
     </div>
     <div class="bar" style="margin:0">
       <button class="btn" id="checkNow" type="button" hidden style="background:var(--ink);color:var(--surface)">지금 조회하기</button>
+      <button class="btn" id="reqCheck" type="button" hidden style="background:var(--ink);color:var(--surface)">조회 요청</button>
       <button class="btn" id="theme" type="button">테마 전환</button>
     </div>
   </header>
@@ -122,6 +123,7 @@ svg text{fill:var(--muted);font-size:11px}
 <div class="tip" id="tip"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="config.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 let D=null, type='powerlink', runIdx=0, kw=null;
@@ -149,6 +151,40 @@ if(LOCAL){
   poll(true);
 }
 var pollTimer=null;
+
+// 공개 페이지: 조회 요청 (Worker → request.json → 이 PC 가 가져가 조회). 주소(config.js)가 있을 때만 표시
+const API=(window.RANK_API||'').replace(/\/$/,'');
+if(!LOCAL && API){
+  $('#reqCheck').hidden=false;
+  $('#reqCheck').onclick=async()=>{
+    if(!confirm('조회를 요청합니다. 이 PC가 켜져 있으면 10~15분 안에 반영됩니다. 최근 30분 안에 조회했다면 거절될 수 있습니다. 요청할까요?')) return;
+    try{
+      const r=await fetch(API+'/request',{method:'POST'}); const j=await r.json();
+      showReq(j.ok?{status:'pending',message:j.msg}:{status:'rejected',message:j.msg});
+      if(j.ok) watchReq();
+    }catch(e){ showReq({status:'error',message:'요청 서버에 연결하지 못했습니다.'}); }
+  };
+  loadReq();
+}
+function showReq(q){
+  const label={pending:'요청 접수 — PC 응답 대기 중',running:'조회 중',done:'조회 완료',error:'조회 실패',rejected:'요청 거절',idle:''}[q.status]||q.status;
+  const box=$('#runBox'); if(!label){box.hidden=true;return}
+  box.hidden=false; $('#runMsg').textContent=label+(q.message&&q.message!==label?' — '+q.message:'');
+  $('#runLog').textContent=q.requested_at?('요청 '+q.requested_at.slice(0,16).replace('T',' ')+' (UTC)'):'';
+}
+async function loadReq(){
+  try{const q=await (await fetch('request.json?'+Date.now())).json(); showReq(q); return q;}catch(e){return null}
+}
+var reqTimer=null;
+function watchReq(){
+  clearInterval(reqTimer);
+  reqTimer=setInterval(async()=>{
+    const q=await loadReq(); if(!q) return;
+    if(q.status==='done'){ clearInterval(reqTimer); fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()}); }
+    if(q.status==='error'||q.status==='rejected'||q.status==='idle') clearInterval(reqTimer);
+  },30000);
+}
+
 async function poll(quiet){
   clearTimeout(pollTimer);
   let s; try{ s=await (await fetch('/api/status')).json(); }catch(e){ return; }
