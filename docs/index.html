@@ -33,7 +33,13 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Malgun Gothic","Apple SD Gothic Neo",sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+.wrap{max-width:1500px;margin:0 auto;padding:20px 20px 48px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 640px;gap:24px;align-items:start}
+.left,.right{min-width:0}
+td.kw{white-space:nowrap}
+.tw table{min-width:560px}
+@media (max-width:1180px){.layout{grid-template-columns:minmax(0,1fr)}.right{order:-1}}
+@media (max-width:560px){.rp{padding:14px 12px 8px}.rp-cols{gap:10px}.xt{font-size:12px}.xt th.k,.xt td.k{padding-left:4px}.rp-title{font-size:17px}.rp-date{font-size:17px}}
 header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
 h1{font-size:20px;margin:0}
 .sub{color:var(--ink2);font-size:13px}
@@ -72,6 +78,37 @@ svg text{fill:var(--muted);font-size:11px}
 .tw{overflow-x:auto}
 @media (max-width:560px){.chip{min-width:44px}.note{display:none}}
 .lk{color:var(--pc);text-decoration:none;padding:2px 6px;border:1px solid var(--line);border-radius:6px}.lk:hover{border-color:var(--pc)}
+
+/* 오른쪽 엑셀 양식 카드 (캡처용: 라이트 고정) */
+.rp-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.rp-ctl select{min-width:150px}
+.rp{background:#fff;color:#14171a;border:1px solid #dfe3e8;border-radius:14px;padding:20px 22px 12px;box-shadow:0 1px 3px rgba(16,24,40,.08)}
+.rp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid #14171a;padding-bottom:12px;margin-bottom:6px}
+.rp-title{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.rp-sub{font-size:12px;color:#5b6570;margin-top:2px}
+.rp-date{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rp-date span{font-size:14px;font-weight:600;color:#5b6570}
+.rp-sec{margin-top:12px}
+.rp-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rp-half{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:800;margin-bottom:6px}
+.rp-half small{font-size:12px;font-weight:500;color:#6b7580}
+.rp-col.empty .rp-half span{color:#9aa3ab}
+.xt{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;table-layout:fixed}
+.xt th{background:#dff3fb;color:#0b3b4d;font-weight:700;font-size:12px;padding:6px 4px;border:1px solid #c9d6de}
+.xt.pc th{background:#e2f5df;color:#154019}
+.xt th.k,.xt td.k{text-align:left;padding-left:8px;width:42%}
+.xt td{padding:2px 6px;border:1px solid #e4e8ec;text-align:center;color:#14171a;height:23px;line-height:1.3}
+.xt tbody tr:nth-child(even) td{background:#fafbfc}
+.xt td.top{font-weight:800;color:#0b3b4d;background:#eef7fd !important}
+.xt.pc td.top{color:#154019;background:#eef9ec !important}
+.xt td.no{color:#8a939c;font-size:12px}
+.rp-foot{margin-top:12px;padding-top:8px;border-top:1px solid #e4e8ec;font-size:12px;color:#6b7580;text-align:right}
+/* 캡처용 보기: 카드만 크게 */
+body.cap header,body.cap #runBox,body.cap .left,body.cap .tip{display:none}
+body.cap .wrap{max-width:760px;padding-top:16px}
+body.cap .layout{grid-template-columns:minmax(0,1fr)}
+body.cap #dayNav .nav-only{display:none}
+@media print{header,#runBox,.left,.rp-ctl{display:none !important}.layout{display:block}.wrap{padding:0;max-width:none}.rp{border:0;box-shadow:none}}
 </style>
 </head>
 <body>
@@ -88,6 +125,8 @@ svg text{fill:var(--muted);font-size:11px}
   </header>
   <div class="card" id="runBox" hidden><strong id="runMsg"></strong><pre id="runLog" style="margin:8px 0 0;font-size:12px;color:var(--ink2);white-space:pre-wrap;max-height:220px;overflow:auto"></pre></div>
 
+  <div class="layout">
+  <main class="left">
   <div class="sum" id="sum"></div>
 
   <div class="card">
@@ -99,7 +138,6 @@ svg text{fill:var(--muted);font-size:11px}
       <label class="sub">회차 <select id="runSel"></select></label>
       <span class="sp"></span>
       <button class="btn" id="copyPC" type="button">PC·MO 열 복사</button>
-      <button class="btn" id="xlsRun" type="button">이 날짜 엑셀</button>
       <button class="btn" id="xlsAll" type="button">전체 엑셀</button>
     </div>
     <div class="tw">
@@ -117,6 +155,20 @@ svg text{fill:var(--muted);font-size:11px}
     </div>
     <div class="legend"><span><i style="background:var(--pc);border-radius:50%"></i>PC</span><span><i style="background:var(--mo)"></i>모바일</span><span>숫자가 작을수록 상위 · 아래 점선=미노출</span></div>
     <div id="chart"></div>
+  </div>
+  </main>
+
+  <aside class="right">
+    <div class="rp-ctl" id="dayNav">
+      <button class="btn" id="dayPrev" type="button" aria-label="이전 날짜">◀</button>
+      <select id="daySel" aria-label="날짜"></select>
+      <button class="btn" id="dayNext" type="button" aria-label="다음 날짜">▶</button>
+      <span class="sp"></span>
+      <button class="btn nav-only" id="xlsDay" type="button">이 날짜 엑셀</button>
+      <button class="btn" id="capMode" type="button">캡처용 보기</button>
+    </div>
+    <div class="rp" id="report"></div>
+  </aside>
   </div>
 </div>
 <div class="tip" id="tip"></div>
@@ -183,8 +235,13 @@ function init(){
   });
   $('#range').onchange=drawChart;
   $('#copyPC').onclick=copyCols;
-  $('#xlsRun').onclick=()=>exportXlsx([D.runs[runIdx].ts.slice(0,10)]);
   $('#xlsAll').onclick=()=>exportXlsx([...new Set(D.runs.map(r=>r.ts.slice(0,10)))].reverse());
+  $('#xlsDay').onclick=()=>exportXlsx([D.runs[runIdx].ts.slice(0,10)]);
+  $('#dayPrev').onclick=()=>shiftDay(-1);
+  $('#dayNext').onclick=()=>shiftDay(1);
+  $('#daySel').onchange=e=>setDay(e.target.value);
+  $('#capMode').onclick=()=>{const on=document.body.classList.toggle('cap'); $('#capMode').textContent=on?'돌아가기':'캡처용 보기';};
+  if(location.hash==='#cap' && !document.body.classList.contains('cap')) $('#capMode').click();
   $('#meta').textContent=`도메인 ${D.target} · 브랜드명 ${D.pc_target} · 최신 ${D.runs[D.runs.length-1].ts} · 총 ${D.runs.length}회차 (갱신 ${D.generated})`;
   render();
 }
@@ -229,6 +286,7 @@ function render(){
     ['미노출·영역없음',cnt(c=>c&&!num(c[0])?1:0),'확인 필요'],
   ].map(([a,b,c])=>`<div class="tile"><span>${a}</span><b>${b}</b><span>${c}</span></div>`).join('');
   drawChart();
+  renderDayPanel(D.runs[runIdx].ts.slice(0,10));
 }
 
 function drawChart(){
@@ -281,35 +339,92 @@ function dayRuns(date){
   D.runs.forEach(r=>{ if(r.ts.slice(0,10)!==date) return; if(+r.ts.slice(11,13)<12) am=r; else pm=r; });
   return {am,pm};
 }
-function sheetCells(date){
-  const {am,pm}=dayRuns(date), cells=[];
-  const CYAN='FF00FFFF', GREEN='FF00FF00';
-  const put=(r,c,v,o)=>cells.push(Object.assign({r,c,v},o||{}));
+// 하루치 모델: 엑셀 시트와 오른쪽 화면 카드가 같은 데이터를 쓴다 (화면 = 엑셀)
+function dayModel(date){
+  const {am,pm}=dayRuns(date);
   const kws=(t)=>{ // 설정 순서 + 결과에만 있는 키워드
     const base=[...((D.order&&D.order[t])||[])];
     [am,pm].forEach(run=>run&&(run.items[t]||[]).forEach(x=>{ if(!base.includes(x[0])) base.push(x[0]); }));
     return base;
   };
+  return {date, am, pm, sections:[['powerlink','파워링크','pl'],['powercontents','파워컨텐츠','pc']].map(([t,title,cls])=>{
+    const list=kws(t);
+    const cols=[['오전',am],['오후',pm]].map(([half,run])=>{
+      const map=Object.fromEntries(((run&&run.items[t])||[]).map(x=>[x[0],x]));
+      return {half, run, rows:list.map(k=>{const x=map[k]; return [k, x&&x[1]?x[1][0]:'', x&&x[2]?x[2][0]:''];})};
+    });
+    return {t,title,cls,cols};
+  })};
+}
+function sheetCells(date){
+  const m=dayModel(date), cells=[];
+  const CYAN='FF00FFFF', GREEN='FF00FF00';
+  const put=(r,c,v,o)=>cells.push(Object.assign({r,c,v},o||{}));
   const d=date.split('-');
   put(1,1,'날짜',{bold:true}); put(1,2,`${d[0]}. ${d[1]}. ${d[2]}`,{bold:true});
   let row=2;
-  [['powerlink','파워링크',CYAN],['powercontents','파워컨텐츠',GREEN]].forEach(([t,title,color])=>{
-    const list=kws(t);
-    [[1,am,'오전'],[5,pm,'오후']].forEach(([c0,run,half])=>{
-      put(row,c0,half,{bold:true});
-      [title,'PC순위','MO순위'].forEach((h,j)=>put(row+1,c0+j,h,{bold:true,fill:color,box:true,center:j>0}));
-      const map=Object.fromEntries(((run&&run.items[t])||[]).map(x=>[x[0],x]));
-      list.forEach((k,i)=>{
-        const x=map[k];
+  m.sections.forEach(s=>{
+    s.cols.forEach((col,ci)=>{
+      const c0=ci?5:1;
+      put(row,c0,col.half,{bold:true});
+      [s.title,'PC순위','MO순위'].forEach((h,j)=>put(row+1,c0+j,h,{bold:true,fill:s.cls==='pl'?CYAN:GREEN,box:true,center:j>0}));
+      col.rows.forEach(([k,pc,mo],i)=>{
         put(row+2+i,c0,k,{box:true});
-        put(row+2+i,c0+1,x&&x[1]?x[1][0]:'',{box:true,center:true});
-        put(row+2+i,c0+2,x&&x[2]?x[2][0]:'',{box:true,center:true});
+        put(row+2+i,c0+1,pc,{box:true,center:true});
+        put(row+2+i,c0+2,mo,{box:true,center:true});
       });
     });
-    row+=2+list.length+1;            // 표 제목·헤더 + 키워드 + 빈 줄
+    row+=2+s.cols[0].rows.length+1;      // 표 제목·헤더 + 키워드 + 빈 줄
   });
   return cells;
 }
+
+// ---- 오른쪽 '엑셀 양식' 카드 (캡처용: 테마와 무관하게 항상 흰 배경) ----
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function renderDayPanel(date){
+  const dts=[...new Set(D.runs.map(r=>r.ts.slice(0,10)))];
+  $('#daySel').innerHTML=dts.slice().reverse().map(d=>`<option value="${d}"${d===date?' selected':''}>${d.replace(/-/g,'. ')}</option>`).join('');
+  const pos=dts.indexOf(date);
+  $('#dayPrev').disabled=pos<=0; $('#dayNext').disabled=pos>=dts.length-1;
+
+  const m=dayModel(date), [y,mo,d]=date.split('-');
+  const wd=new Date(date+'T00:00:00').toLocaleDateString('ko-KR',{weekday:'short'});
+  const cell=v=>{
+    if(v===''||v==null) return '<td></td>';
+    if(typeof v==='number') return `<td class="${v<=3?'top':''}">${v}</td>`;
+    return `<td class="no">${esc(v)}</td>`;
+  };
+  const when=(run,half)=>run?`${half} 조회 ${run.ts.slice(11,16)}`:`${half} 조회 전`;
+  const sec=m.sections.map(s=>`
+    <section class="rp-sec">
+      <div class="rp-cols">${s.cols.map(col=>`
+        <div class="rp-col${col.run?'':' empty'}">
+          <div class="rp-half"><span>${col.half}</span><small>${col.run?col.run.ts.slice(11,16):'조회 전'}</small></div>
+          <table class="xt ${s.cls}">
+            <thead><tr><th class="k">${s.title}</th><th>PC순위</th><th>MO순위</th></tr></thead>
+            <tbody>${col.rows.map(([k,pc,mo])=>`<tr><td class="k">${esc(k)}</td>${cell(pc)}${cell(mo)}</tr>`).join('')}</tbody>
+          </table>
+        </div>`).join('')}
+      </div>
+    </section>`).join('');
+  $('#report').innerHTML=`
+    <div class="rp-head">
+      <div><div class="rp-title">뷰성형외과 순위 현황</div><div class="rp-sub">네이버 파워링크 · 파워컨텐츠 · ${esc(D.target)}</div></div>
+      <div class="rp-date">${y}. ${mo}. ${d}<span> (${wd})</span></div>
+    </div>${sec}
+    <div class="rp-foot">${when(m.am,'오전')} · ${when(m.pm,'오후')}</div>`;
+}
+function setDay(date){
+  let idx=-1; D.runs.forEach((r,i)=>{ if(r.ts.slice(0,10)===date) idx=i; });
+  if(idx<0) return;
+  runIdx=idx; $('#runSel').value=idx; render();
+}
+function shiftDay(delta){
+  const dts=[...new Set(D.runs.map(r=>r.ts.slice(0,10)))];
+  const i=dts.indexOf(D.runs[runIdx].ts.slice(0,10))+delta;
+  if(i>=0&&i<dts.length) setDay(dts[i]);
+}
+
 async function exportXlsx(dates){
   if(!dates.length) return;
   const name=dates.length===1?'뷰성형외과_순위_'+dates[0]:'뷰성형외과_순위_전체_'+dates[0];
