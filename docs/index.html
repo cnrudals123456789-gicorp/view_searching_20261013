@@ -80,8 +80,12 @@ svg text{fill:var(--muted);font-size:11px}
       <h1>뷰성형외과 파워링크 · 파워컨텐츠 순위</h1>
       <div class="sub" id="meta">불러오는 중…</div>
     </div>
-    <button class="btn" id="theme" type="button">테마 전환</button>
+    <div class="bar" style="margin:0">
+      <button class="btn" id="checkNow" type="button" hidden style="background:var(--ink);color:var(--surface)">지금 조회하기</button>
+      <button class="btn" id="theme" type="button">테마 전환</button>
+    </div>
   </header>
+  <div class="card" id="runBox" hidden><strong id="runMsg"></strong><pre id="runLog" style="margin:8px 0 0;font-size:12px;color:var(--ink2);white-space:pre-wrap;max-height:220px;overflow:auto"></pre></div>
 
   <div class="sum" id="sum"></div>
 
@@ -128,6 +132,39 @@ $('#theme').onclick=()=>{
 };
 
 fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()}).catch(e=>{$('#meta').textContent='data.json 을 불러오지 못했습니다: '+e});
+
+// '지금 조회하기' — 이 PC 의 로컬 서버(serve.py)로 열었을 때만 표시
+const LOCAL=['127.0.0.1','localhost'].includes(location.hostname);
+if(LOCAL){
+  $('#checkNow').hidden=false;
+  $('#checkNow').onclick=async()=>{
+    if(!confirm('지금 순위를 새로 조회합니다. 5~10분 걸리고, 끝나면 웹에 자동 게시됩니다. 진행할까요?')) return;
+    const r=await fetch('/api/check',{method:'POST'}); const j=await r.json();
+    if(!j.ok) alert(j.msg); poll();
+  };
+  poll(true);
+}
+var pollTimer=null;
+async function poll(quiet){
+  clearTimeout(pollTimer);
+  let s; try{ s=await (await fetch('/api/status')).json(); }catch(e){ return; }
+  const box=$('#runBox');
+  if(s.running){
+    box.hidden=false; $('#checkNow').disabled=true;
+    $('#runMsg').textContent='조회 중… ('+s.started.slice(11)+' 시작) 창을 닫지 마세요';
+    $('#runLog').textContent=s.log.join('\n');
+    pollTimer=setTimeout(poll,3000);
+  } else {
+    $('#checkNow').disabled=false;
+    if(s.finished){
+      box.hidden=false;
+      $('#runMsg').textContent=s.exit===0?'조회 완료 ('+s.finished.slice(11)+') — 화면을 갱신했습니다. 웹 게시까지 1~2분 걸릴 수 있습니다.'
+                                       :'조회 실패 (exit '+s.exit+') — 아래 로그를 확인하거나 rank-troubleshooter 에게 문의하세요.';
+      $('#runLog').textContent=s.log.join('\n');
+      if(s.exit===0 && !quiet) fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()});
+    }
+  }
+}
 
 function init(){
   const sel=$('#runSel');
