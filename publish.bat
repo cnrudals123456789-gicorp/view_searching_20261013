@@ -27,6 +27,10 @@ if %ERRORLEVEL%==0 (
   exit /b 0
 )
 git commit -m "rank update %date% %time:~0,5%" >> "%LOG%" 2>&1
+if errorlevel 1 (
+  echo [%date% %time%] git commit failed >> "%LOG%"
+  exit /b 1
+)
 git push >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [%date% %time%] git push failed >> "%LOG%"
