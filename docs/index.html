@@ -83,7 +83,6 @@ svg text{fill:var(--muted);font-size:11px}
     </div>
     <div class="bar" style="margin:0">
       <button class="btn" id="checkNow" type="button" hidden style="background:var(--ink);color:var(--surface)">지금 조회하기</button>
-      <button class="btn" id="reqCheck" type="button" hidden style="background:var(--ink);color:var(--surface)">조회 요청</button>
       <button class="btn" id="theme" type="button">테마 전환</button>
     </div>
   </header>
@@ -100,8 +99,8 @@ svg text{fill:var(--muted);font-size:11px}
       <label class="sub">회차 <select id="runSel"></select></label>
       <span class="sp"></span>
       <button class="btn" id="copyPC" type="button">PC·MO 열 복사</button>
-      <button class="btn" id="xlsRun" type="button">이 회차 엑셀</button>
-      <button class="btn" id="xlsAll" type="button">전체 회차 엑셀</button>
+      <button class="btn" id="xlsRun" type="button">이 날짜 엑셀</button>
+      <button class="btn" id="xlsAll" type="button">전체 엑셀</button>
     </div>
     <div class="tw">
       <table>
@@ -122,8 +121,7 @@ svg text{fill:var(--muted);font-size:11px}
 </div>
 <div class="tip" id="tip"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 let D=null, type='powerlink', runIdx=0, kw=null;
@@ -151,39 +149,6 @@ if(LOCAL){
   poll(true);
 }
 var pollTimer=null;
-
-// 공개 페이지: 조회 요청 (Worker → request.json → 이 PC 가 가져가 조회). 주소(config.js)가 있을 때만 표시
-const API=(window.RANK_API||'').replace(/\/$/,'');
-if(!LOCAL && API){
-  $('#reqCheck').hidden=false;
-  $('#reqCheck').onclick=async()=>{
-    if(!confirm('조회를 요청합니다. 이 PC가 켜져 있으면 10~15분 안에 반영됩니다. 최근 30분 안에 조회했다면 거절될 수 있습니다. 요청할까요?')) return;
-    try{
-      const r=await fetch(API+'/request',{method:'POST'}); const j=await r.json();
-      showReq(j.ok?{status:'pending',message:j.msg}:{status:'rejected',message:j.msg});
-      if(j.ok) watchReq();
-    }catch(e){ showReq({status:'error',message:'요청 서버에 연결하지 못했습니다.'}); }
-  };
-  loadReq();
-}
-function showReq(q){
-  const label={pending:'요청 접수 — PC 응답 대기 중',running:'조회 중',done:'조회 완료',error:'조회 실패',rejected:'요청 거절',idle:''}[q.status]||q.status;
-  const box=$('#runBox'); if(!label){box.hidden=true;return}
-  box.hidden=false; $('#runMsg').textContent=label+(q.message&&q.message!==label?' — '+q.message:'');
-  $('#runLog').textContent=q.requested_at?('요청 '+q.requested_at.slice(0,16).replace('T',' ')+' (UTC)'):'';
-}
-async function loadReq(){
-  try{const q=await (await fetch('request.json?'+Date.now())).json(); showReq(q); return q;}catch(e){return null}
-}
-var reqTimer=null;
-function watchReq(){
-  clearInterval(reqTimer);
-  reqTimer=setInterval(async()=>{
-    const q=await loadReq(); if(!q) return;
-    if(q.status==='done'){ clearInterval(reqTimer); fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()}); }
-    if(q.status==='error'||q.status==='rejected'||q.status==='idle') clearInterval(reqTimer);
-  },30000);
-}
 
 async function poll(quiet){
   clearTimeout(pollTimer);
@@ -218,8 +183,8 @@ function init(){
   });
   $('#range').onchange=drawChart;
   $('#copyPC').onclick=copyCols;
-  $('#xlsRun').onclick=()=>exportXlsx([runIdx]);
-  $('#xlsAll').onclick=()=>exportXlsx(D.runs.map((_,i)=>i));
+  $('#xlsRun').onclick=()=>exportXlsx([D.runs[runIdx].ts.slice(0,10)]);
+  $('#xlsAll').onclick=()=>exportXlsx([...new Set(D.runs.map(r=>r.ts.slice(0,10)))].reverse());
   $('#meta').textContent=`도메인 ${D.target} · 브랜드명 ${D.pc_target} · 최신 ${D.runs[D.runs.length-1].ts} · 총 ${D.runs.length}회차 (갱신 ${D.generated})`;
   render();
 }
@@ -309,22 +274,70 @@ function drawChart(){
   });
 }
 
-// 엑셀 내보내기: 파워링크 → 파워컨텐츠 순, 선택한 회차들. 열은 운영 엑셀('순위' 시트)과 동일
-function exportXlsx(idxs){
-  const head=['실행시각','구분','키워드','PC순위','MO순위','PC비고','MO비고'];
-  const names={powerlink:'파워링크',powercontents:'파워컨텐츠'};
-  const rows=[head];
-  idxs.forEach(i=>{const r=D.runs[i]; ['powerlink','powercontents'].forEach(t=>(r.items[t]||[]).forEach(([k,pc,mo])=>{
-    rows.push([r.ts,names[t],k,pc?pc[0]:'',mo?mo[0]:'',pc?pc[2]:'',mo?mo[2]:'']);
-  }));});
-  const last=D.runs[idxs[idxs.length-1]].ts;
-  const name=idxs.length===1?'뷰성형외과_순위_'+last.replace(/-/g,'').replace(' ','_').replace(':',''):'뷰성형외과_순위_전체_'+last.slice(0,10);
-  if(window.XLSX){
-    const ws=XLSX.utils.aoa_to_sheet(rows); ws['!cols']=[18,11,16,9,9,22,22].map(w=>({wch:w}));
-    const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'순위'); XLSX.writeFile(wb,name+'.xlsx');
-  } else { // 라이브러리를 못 불러온 경우: 엑셀에서 열리는 CSV
-    const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-    const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download=name+'.csv'; a.click();
+// ---- 엑셀 내보내기: 날짜별 1시트, 오전(왼쪽)|오후(오른쪽), 위=파워링크 아래=파워컨텐츠 ----
+// 같은 반일(12시 기준)에 여러 번 조회했으면 마지막 회차를 쓴다. 오후 회차가 아직 없으면 오른쪽 값 칸은 비워 둔다.
+function dayRuns(date){
+  let am=null, pm=null;
+  D.runs.forEach(r=>{ if(r.ts.slice(0,10)!==date) return; if(+r.ts.slice(11,13)<12) am=r; else pm=r; });
+  return {am,pm};
+}
+function sheetCells(date){
+  const {am,pm}=dayRuns(date), cells=[];
+  const CYAN='FF00FFFF', GREEN='FF00FF00';
+  const put=(r,c,v,o)=>cells.push(Object.assign({r,c,v},o||{}));
+  const kws=(t)=>{ // 설정 순서 + 결과에만 있는 키워드
+    const base=[...((D.order&&D.order[t])||[])];
+    [am,pm].forEach(run=>run&&(run.items[t]||[]).forEach(x=>{ if(!base.includes(x[0])) base.push(x[0]); }));
+    return base;
+  };
+  const d=date.split('-');
+  put(1,1,'날짜',{bold:true}); put(1,2,`${d[0]}. ${d[1]}. ${d[2]}`,{bold:true});
+  let row=2;
+  [['powerlink','파워링크',CYAN],['powercontents','파워컨텐츠',GREEN]].forEach(([t,title,color])=>{
+    const list=kws(t);
+    [[1,am,'오전'],[5,pm,'오후']].forEach(([c0,run,half])=>{
+      put(row,c0,half,{bold:true});
+      [title,'PC순위','MO순위'].forEach((h,j)=>put(row+1,c0+j,h,{bold:true,fill:color,box:true,center:j>0}));
+      const map=Object.fromEntries(((run&&run.items[t])||[]).map(x=>[x[0],x]));
+      list.forEach((k,i)=>{
+        const x=map[k];
+        put(row+2+i,c0,k,{box:true});
+        put(row+2+i,c0+1,x&&x[1]?x[1][0]:'',{box:true,center:true});
+        put(row+2+i,c0+2,x&&x[2]?x[2][0]:'',{box:true,center:true});
+      });
+    });
+    row+=2+list.length+1;            // 표 제목·헤더 + 키워드 + 빈 줄
+  });
+  return cells;
+}
+async function exportXlsx(dates){
+  if(!dates.length) return;
+  const name=dates.length===1?'뷰성형외과_순위_'+dates[0]:'뷰성형외과_순위_전체_'+dates[0];
+  const save=(blob,fn)=>{const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fn; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),5000)};
+  if(window.ExcelJS){
+    const wb=new ExcelJS.Workbook();
+    dates.forEach(date=>{
+      const ws=wb.addWorksheet(date);
+      ws.columns=[14,10,10,4,14,10,10].map(width=>({width}));
+      const thin={style:'thin'};
+      sheetCells(date).forEach(c=>{
+        const cell=ws.getCell(c.r,c.c);
+        cell.value=c.v===''?null:c.v;
+        if(c.bold) cell.font={bold:true};
+        if(c.fill) cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:c.fill}};
+        if(c.box) cell.border={top:thin,left:thin,bottom:thin,right:thin};
+        if(c.center) cell.alignment={horizontal:'center'};
+      });
+    });
+    save(new Blob([await wb.xlsx.writeBuffer()],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),name+'.xlsx');
+  } else { // 라이브러리를 못 불러온 경우: 같은 배치의 CSV (엑셀에서 열림)
+    const lines=[];
+    dates.forEach(date=>{
+      const g=[]; sheetCells(date).forEach(c=>{(g[c.r-1]=g[c.r-1]||[])[c.c-1]=c.v;});
+      for(let r=0;r<g.length;r++) lines.push(Array.from(g[r]||[],v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"').join(','));
+      lines.push('');
+    });
+    save(new Blob([String.fromCharCode(0xFEFF)+lines.join(String.fromCharCode(13,10))],{type:'text/csv'}),name+'.csv');
   }
 }
 

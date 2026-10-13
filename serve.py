@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 LOG = ROOT / "logs" / "last_run.log"
-LOCK = ROOT / "logs" / "run.lock"        # poll_request.py 와 공유: 두 조회가 동시에 돌지 않게
+LOCK = ROOT / "logs" / "run.lock"        # 조회 중 표시 (화면 새로고침·중복 클릭 대비)
 HOST, PORT = "127.0.0.1", 8770
 
 state = {"running": False, "started": None, "finished": None, "exit": None}
@@ -82,7 +82,7 @@ class H(SimpleHTTPRequestHandler):
                 return self._json({"ok": False, "msg": "허용되지 않은 요청"}, 403)
             with lock:
                 if not state["running"] and LOCK.exists() and (datetime.now().timestamp() - LOCK.stat().st_mtime) < 90 * 60:
-                    return self._json({"ok": False, "msg": "공개 페이지 요청으로 조회가 진행 중입니다."}, 409)
+                    return self._json({"ok": False, "msg": "다른 조회가 진행 중입니다. 끝난 뒤 다시 눌러 주세요."}, 409)
                 if state["running"]:
                     return self._json({"ok": False, "msg": "이미 조회 중입니다."}, 409)
                 state.update(running=True, started=datetime.now().isoformat(timespec="seconds"), finished=None, exit=None)
