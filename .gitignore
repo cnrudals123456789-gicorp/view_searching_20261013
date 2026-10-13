@@ -1,0 +1,19 @@
+# 계정·세션 (절대 커밋 금지)
+credentials.json
+gsheet_token.txt
+*profile*/
+storage_state*.json
+
+# 로그·백업·임시
+logs/
+_backup/
+*.bak
+__pycache__/
+*.pyc
+
+# 원자료(광고 ID·경쟁사 원자료) · 엑셀은 공개 저장소에 올리지 않음. 웹에는 docs/data.json 만 공개
+results_*.csv
+recheck_*.csv
+*.xlsx
+모니터링완료_*.xlsx
+붙여넣기_최신.txt

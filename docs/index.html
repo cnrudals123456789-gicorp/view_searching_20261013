@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>뷰성형외과 순위 현황</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f6f6f4; --surface:#fcfcfb; --line:#e3e2dd; --grid:#ecebe6;
+  --ink:#0b0b0b; --ink2:#52514e; --muted:#85847d;
+  --pc:#2a78d6; --mo:#eb6834;
+  --good:#0f7a4f; --good-bg:#e3f4ec; --mid:#8a5a00; --mid-bg:#fbf0d6; --none:#6b6a64; --none-bg:#ecebe6;
+  --up:#0f7a4f; --down:#c23a39;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#121211; --surface:#1a1a19; --line:#2e2e2b; --grid:#262624;
+    --ink:#f0efec; --ink2:#c3c2b7; --muted:#8f8e86;
+    --pc:#3987e5; --mo:#d95926;
+    --good:#5fd0a0; --good-bg:#16352a; --mid:#e8b84a; --mid-bg:#3a2f12; --none:#a9a89f; --none-bg:#262624;
+    --up:#5fd0a0; --down:#ef7b7a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121211; --surface:#1a1a19; --line:#2e2e2b; --grid:#262624;
+  --ink:#f0efec; --ink2:#c3c2b7; --muted:#8f8e86;
+  --pc:#3987e5; --mo:#d95926;
+  --good:#5fd0a0; --good-bg:#16352a; --mid:#e8b84a; --mid-bg:#3a2f12; --none:#a9a89f; --none-bg:#262624;
+  --up:#5fd0a0; --down:#ef7b7a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+h1{font-size:20px;margin:0}
+.sub{color:var(--ink2);font-size:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.tabs{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.tabs button{border:0;background:transparent;color:var(--ink2);padding:6px 14px;font:inherit;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+select,.btn{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.btn{cursor:pointer}
+.btn:hover{border-color:var(--ink2)}
+.sp{flex:1}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.tile b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.tile span{color:var(--ink2);font-size:12px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--ink2);font-weight:600}
+td.kw,th.kw{text-align:left}
+tr.sel td{background:var(--grid)}
+tbody tr{cursor:pointer}
+.chip{display:inline-block;min-width:54px;padding:2px 8px;border-radius:999px;font-weight:600}
+.c-good{background:var(--good-bg);color:var(--good)}
+.c-mid{background:var(--mid-bg);color:var(--mid)}
+.c-none{background:var(--none-bg);color:var(--none)}
+.note{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.dlt{font-size:12px;margin-left:4px}
+.up{color:var(--up)} .down{color:var(--down)}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--ink2);margin:4px 0 8px}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:baseline}
+svg{width:100%;height:auto;display:block}
+svg text{fill:var(--muted);font-size:11px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);padding:6px 10px;border-radius:6px;font-size:12px;display:none;z-index:9;white-space:nowrap}
+.hint{color:var(--muted);font-size:12px;margin-top:8px}
+.tw{overflow-x:auto}
+@media (max-width:560px){.chip{min-width:44px}.note{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>뷰성형외과 파워링크 · 파워컨텐츠 순위</h1>
+      <div class="sub" id="meta">불러오는 중…</div>
+    </div>
+    <button class="btn" id="theme" type="button">테마 전환</button>
+  </header>
+
+  <div class="sum" id="sum"></div>
+
+  <div class="card">
+    <div class="bar">
+      <div class="tabs" role="group" aria-label="광고 유형">
+        <button type="button" data-t="powerlink" aria-pressed="true">파워링크</button>
+        <button type="button" data-t="powercontents" aria-pressed="false">파워컨텐츠</button>
+      </div>
+      <label class="sub">회차 <select id="runSel"></select></label>
+      <span class="sp"></span>
+      <button class="btn" id="copyPC" type="button">PC·MO 열 복사</button>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th class="kw">키워드</th><th>PC</th><th>MO</th><th>직전 회차 대비</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="hint">행을 누르면 아래에 순위 추이가 나옵니다. 초록=첫 화면 · 노랑=더보기 목록 · 회색=미노출/영역없음 (색만이 아니라 아래 작은 글씨로도 표시)</div>
+  </div>
+
+  <div class="card">
+    <div class="bar"><strong id="chartTitle">순위 추이</strong><span class="sp"></span>
+      <label class="sub">기간 <select id="range"><option value="14">최근 2주</option><option value="0">전체</option></select></label>
+    </div>
+    <div class="legend"><span><i style="background:var(--pc);border-radius:50%"></i>PC</span><span><i style="background:var(--mo)"></i>모바일</span><span>숫자가 작을수록 상위 · 아래 점선=미노출</span></div>
+    <div id="chart"></div>
+  </div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+let D=null, type='powerlink', runIdx=0, kw=null;
+
+// 테마
+const root=document.documentElement;
+try{const t=localStorage.getItem('theme'); if(t) root.dataset.theme=t;}catch(e){}
+$('#theme').onclick=()=>{
+  const dark=(root.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))==='dark';
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+
+fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()}).catch(e=>{$('#meta').textContent='data.json 을 불러오지 못했습니다: '+e});
+
+function init(){
+  const sel=$('#runSel');
+  sel.innerHTML=D.runs.map((r,i)=>`<option value="${i}">${r.ts}</option>`).reverse().join('');
+  runIdx=D.runs.length-1; sel.value=runIdx;
+  sel.onchange=()=>{runIdx=+sel.value;render()};
+  document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{
+    type=b.dataset.t; kw=null;
+    document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    render();
+  });
+  $('#range').onchange=drawChart;
+  $('#copyPC').onclick=copyCols;
+  $('#meta').textContent=`도메인 ${D.target} · 브랜드명 ${D.pc_target} · 최신 ${D.runs[D.runs.length-1].ts} · 총 ${D.runs.length}회차 (갱신 ${D.generated})`;
+  render();
+}
+
+const val=c=>c?c[0]:'';
+const num=v=>typeof v==='number';
+function chip(c){
+  if(!c) return '<span class="chip c-none">–</span>';
+  const [v,k,n]=c;
+  const cls=num(v)?(k==='1page'?'c-good':'c-mid'):'c-none';
+  const tag=num(v)?(k==='1page'?'첫 화면':'더보기'):'';
+  return `<span class="chip ${cls}">${num(v)?v+'위':v}</span>${tag?`<span class="note">${tag}</span>`:''}`;
+}
+function delta(cur,prev){
+  if(!num(val(cur))||!prev) return '';
+  const p=val(prev); if(!num(p)) return '<span class="dlt up">▲ 신규 노출</span>';
+  const d=p-val(cur); if(d===0) return '';
+  return d>0?`<span class="dlt up">▲${d}</span>`:`<span class="dlt down">▼${-d}</span>`;
+}
+function rowsOf(i,t){return (D.runs[i]?.items[t])||[]}
+function prevRunIdx(i){for(let j=i-1;j>=0;j--) if(rowsOf(j,type).length) return j; return -1}
+
+function render(){
+  const cur=rowsOf(runIdx,type), pj=prevRunIdx(runIdx), prev=pj>=0?Object.fromEntries(rowsOf(pj,type).map(r=>[r[0],r])):{};
+  if(!kw||!cur.find(r=>r[0]===kw)) kw=cur[0]?.[0]||null;
+  $('#rows').innerHTML=cur.map(([k,pc,mo])=>{
+    const p=prev[k]||[];
+    const pcd=delta(pc,p[1]), mod=delta(mo,p[2]);
+    return `<tr data-k="${k}" class="${k===kw?'sel':''}"><td class="kw">${k}</td><td>${chip(pc)}</td><td>${chip(mo)}</td>
+      <td style="white-space:nowrap;font-size:12px;color:var(--muted)">${pcd||mod?`PC${pcd||' 유지'} · MO${mod||' 유지'}`:'변동 없음'}</td></tr>`;
+  }).join('');
+  document.querySelectorAll('#rows tr').forEach(tr=>tr.onclick=()=>{kw=tr.dataset.k;render()});
+  // 요약 타일
+  const ok=(c,max)=>c&&num(c[0])&&(!max||c[0]<=max);
+  const cnt=f=>cur.reduce((n,r)=>n+f(r[1])+f(r[2]),0);
+  const total=cur.length*2;
+  $('#sum').innerHTML=[
+    ['노출',cnt(c=>ok(c)?1:0)+' / '+total,'PC·MO 합산 칸 기준'],
+    ['3위 이내',cnt(c=>ok(c,3)?1:0),'PC·MO 합산'],
+    ['첫 화면',cnt(c=>c&&c[1]==='1page'?1:0),'더보기 없이 보이는 순위'],
+    ['미노출·영역없음',cnt(c=>c&&!num(c[0])?1:0),'확인 필요'],
+  ].map(([a,b,c])=>`<div class="tile"><span>${a}</span><b>${b}</b><span>${c}</span></div>`).join('');
+  drawChart();
+}
+
+function drawChart(){
+  $('#chartTitle').textContent=kw?`순위 추이 — ${kw} (${type==='powerlink'?'파워링크':'파워컨텐츠'})`:'순위 추이';
+  if(!kw){$('#chart').innerHTML='';return}
+  const days=+$('#range').value;
+  let runs=D.runs.map((r,i)=>({i,ts:r.ts,row:rowsOf(i,type).find(x=>x[0]===kw)})).filter(x=>x.row);
+  if(days){const last=new Date(D.runs[D.runs.length-1].ts.replace(' ','T')); runs=runs.filter(x=>(last-new Date(x.ts.replace(' ','T')))/864e5<=days)}
+  if(runs.length<2){$('#chart').innerHTML='<div class="hint">추이를 그릴 회차가 부족합니다.</div>';return}
+  const W=900,H=300,L=40,R=20,T=14,B=34;
+  const maxRank=Math.max(10,...runs.flatMap(x=>[x.row[1],x.row[2]].map(c=>c&&num(c[0])?c[0]:0)));
+  const yMax=Math.ceil((maxRank+1)/5)*5, yNone=yMax; // 미노출은 맨 아래줄
+  const X=i=>L+(W-L-R)*i/(runs.length-1), Y=v=>T+(H-T-B)*(v-1)/(yNone-1);
+  let g='';
+  for(let v=1;v<=yMax;v+= v===1?4:5){g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end">${v}</text>`}
+  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(yNone)}" y2="${Y(yNone)}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="${L-8}" y="${Y(yNone)+4}" text-anchor="end">미노출</text>`;
+  const step=Math.ceil(runs.length/8);
+  runs.forEach((r,i)=>{if(i%step===0||i===runs.length-1) g+=`<text x="${X(i)}" y="${H-12}" text-anchor="middle">${r.ts.slice(5,10)}</text>`});
+  const series=[['pc',1,'var(--pc)','circle'],['mo',2,'var(--mo)','square']];
+  series.forEach(([n,idx,col,shape])=>{
+    let d='',pen=false;
+    runs.forEach((r,i)=>{const c=r.row[idx]; if(c&&num(c[0])){d+=(pen?'L':'M')+X(i)+' '+Y(c[0]);pen=true}else pen=false});
+    g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    runs.forEach((r,i)=>{
+      const c=r.row[idx]; if(!c) return;
+      const y=num(c[0])?Y(c[0]):Y(yNone), hollow=!num(c[0]);
+      g+= shape==='circle'
+        ? `<circle cx="${X(i)}" cy="${y}" r="4" fill="${hollow?'var(--surface)':col}" stroke="${col}" stroke-width="2"/>`
+        : `<rect x="${X(i)-4}" y="${y-4}" width="8" height="8" fill="${hollow?'var(--surface)':col}" stroke="${col}" stroke-width="2"/>`;
+    });
+  });
+  // 호버 영역
+  const bw=(W-L-R)/(runs.length-1);
+  runs.forEach((r,i)=>{g+=`<rect class="hit" data-i="${i}" x="${X(i)-bw/2}" y="${T}" width="${bw}" height="${H-T-B}" fill="transparent"/>`});
+  $('#chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${kw} 순위 추이">${g}</svg>`;
+  const tip=$('#tip');
+  const fmt=c=>c?(num(c[0])?c[0]+'위 ('+c[2]+')':c[0]):'–';
+  $('#chart').querySelectorAll('.hit').forEach(h=>{
+    h.onmousemove=e=>{const r=runs[+h.dataset.i];
+      tip.innerHTML=`${r.ts}<br>PC ${fmt(r.row[1])}<br>MO ${fmt(r.row[2])}`;
+      tip.style.display='block';tip.style.left=Math.min(e.clientX+12,innerWidth-190)+'px';tip.style.top=(e.clientY+12)+'px'};
+    h.onmouseleave=()=>tip.style.display='none';
+  });
+}
+
+function copyCols(){
+  const t=rowsOf(runIdx,type).map(r=>`${val(r[1])}\t${val(r[2])}`).join('\n');
+  navigator.clipboard.writeText(t).then(()=>{const b=$('#copyPC');const o=b.textContent;b.textContent='복사됨 ✓';setTimeout(()=>b.textContent=o,1500)});
+}
+</script>
+</body>
+</html>

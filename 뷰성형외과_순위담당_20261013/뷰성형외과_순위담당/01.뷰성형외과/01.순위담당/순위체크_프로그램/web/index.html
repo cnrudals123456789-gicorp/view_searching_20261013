@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파워링크·파워컨텐츠 순위 대시보드</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --text:#1f2328; --muted:#6b7280;
+          --green:#0f7b3e; --green-bg:#e6f4ec; --amber:#9a5b00; --amber-bg:#fff3d6; --gray-bg:#eef0f3;
+          --accent:#0b57d0; --danger:#b3261e; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif; font-size:14px; color:var(--text); background:var(--bg); }
+  header { display:flex; align-items:center; gap:16px; padding:14px 24px; background:var(--card); border-bottom:1px solid var(--line); }
+  header h1 { font-size:18px; margin:0; }
+  .spacer { flex:1; }
+  .badge { padding:4px 10px; border-radius:999px; font-size:12px; font-weight:600; }
+  .badge.ok { background:var(--green-bg); color:var(--green); }
+  .badge.no { background:#fde7e5; color:var(--danger); }
+  main { display:grid; grid-template-columns:340px 1fr; gap:20px; padding:20px 24px; max-width:1500px; }
+  @media (max-width:900px) { main { grid-template-columns:1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .card h2 { font-size:15px; margin:0 0 12px; }
+  label { display:block; font-size:12px; color:var(--muted); margin:10px 0 4px; }
+  textarea, input[type=text], select, input[type=number] { width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:6px; font:inherit; }
+  textarea { height:120px; resize:vertical; }
+  .tbl-head { display:flex; align-items:center; gap:10px; margin:14px 0 6px; }
+  .tbl-head h3 { font-size:14px; margin:0; }
+  .tbl-head button { padding:4px 10px; font-size:12px; }
+  table.copy td.num, table.copy th.num { text-align:center; width:110px; }
+  .row { display:flex; gap:10px; }
+  .row > * { flex:1; }
+  button { font:inherit; padding:9px 14px; border-radius:6px; border:1px solid var(--line); background:#fff; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button:disabled { opacity:.5; cursor:default; }
+  .check { display:flex; align-items:center; gap:6px; margin-top:12px; font-size:13px; }
+  .check input { width:auto; }
+  pre.log { background:#0f172a; color:#d7e0ea; border-radius:8px; padding:12px; height:170px; overflow:auto; font-size:12px; margin:12px 0 0; white-space:pre-wrap; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--muted); font-weight:600; background:#fafbfc; }
+  td.kw { font-weight:600; cursor:pointer; }
+  .pill { display:inline-block; min-width:64px; text-align:center; padding:3px 9px; border-radius:6px; font-weight:600; font-size:13px; }
+  .pill.p1 { background:var(--green-bg); color:var(--green); }
+  .pill.more { background:var(--amber-bg); color:var(--amber); }
+  .pill.none { background:var(--gray-bg); color:var(--muted); font-weight:500; }
+  .sub { font-size:11px; color:var(--muted); margin-left:6px; }
+  .detail { background:#fafbfc; }
+  .detail ol { margin:6px 0 6px 18px; padding:0; columns:2; column-gap:30px; }
+  .detail li { font-size:12px; padding:2px 0; break-inside:avoid; }
+  .detail li.hit { font-weight:700; color:var(--green); }
+  .toolbar { display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .toolbar select { width:auto; }
+  .muted { color:var(--muted); font-size:12px; }
+  .hist th.run { font-size:11px; white-space:nowrap; }
+  .empty { color:var(--muted); padding:30px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>파워링크 · 파워컨텐츠 순위 대시보드</h1>
+  <span class="muted">로그인한 네이버 계정 기준 · PC / 모바일 · 첫 화면 미노출 시 더보기 자동 탐색</span>
+  <div class="spacer"></div>
+  <span id="loginBadge" class="badge no">로그인 확인 중</span>
+  <button id="btnLogin">네이버 로그인 창 열기</button>
+</header>
+
+<main>
+  <section class="card">
+    <h2>순위 체크 실행</h2>
+    <label><input type="checkbox" id="typePL" checked style="width:auto;vertical-align:middle"> 파워링크 키워드 (한 줄에 하나)</label>
+    <textarea id="keywords" placeholder="강남성형외과&#10;코성형&#10;코수술"></textarea>
+    <label><input type="checkbox" id="typePC" checked style="width:auto;vertical-align:middle"> 파워컨텐츠 키워드 (한 줄에 하나 · 파워링크와 달라도 됨)</label>
+    <textarea id="pcKeywords" placeholder="가슴성형&#10;기능코성형&#10;리프팅"></textarea>
+    <label>내 광고 도메인 (파워링크 매칭용)</label>
+    <input type="text" id="target" placeholder="viewclinic.com">
+    <label>내 브랜드명 (파워컨텐츠 매칭용 · 화면에 표시되는 광고주명)</label>
+    <input type="text" id="pcTarget" placeholder="예: 뷰성형외과 (비우면 도메인으로 매칭)">
+    <div class="row">
+      <div><label>기기</label>
+        <select id="device"><option value="both">PC + 모바일</option><option value="pc">PC만</option><option value="mobile">모바일만</option></select></div>
+      <div><label>키워드 간 대기(초)</label><input type="number" id="delay" min="1" step="0.5" value="3"></div>
+    </div>
+    <div class="check"><input type="checkbox" id="headless" checked><label for="headless" style="margin:0">브라우저 창 숨기기</label></div>
+    <div class="row" style="margin-top:14px">
+      <button class="primary" id="btnRun">순위 체크 시작</button>
+      <button id="btnSave">설정만 저장</button>
+    </div>
+    <pre class="log" id="log">대기 중</pre>
+  </section>
+
+  <section>
+    <div class="card" style="margin-bottom:20px">
+      <div class="toolbar">
+        <h2 style="margin:0">최근 결과</h2>
+        <select id="runSelect"></select>
+        <span class="muted" id="runMeta"></span>
+        <div class="spacer"></div>
+        <span class="muted">초록=첫 화면, 노랑=더보기 순위 · 키워드 클릭 시 전체 순서 · "표 복사"는 숫자만 복사(엑셀 붙여넣기용)</span>
+      </div>
+      <div id="resultBox"><div class="empty">아직 결과가 없습니다. 왼쪽에서 순위 체크를 실행하세요.</div></div>
+    </div>
+
+    <div class="card">
+      <div class="toolbar">
+        <h2 style="margin:0">순위 추이</h2>
+        <select id="histType"><option value="powerlink">파워링크</option><option value="powercontents">파워컨텐츠</option></select>
+        <select id="histDevice"><option value="pc">PC</option><option value="mobile">모바일</option></select>
+        <span class="muted">최근 실행 12회 · 초록=첫 화면, 노랑=더보기 순위, 회색=미노출</span>
+      </div>
+      <div id="histBox" style="overflow-x:auto"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let results = [];
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.msg || r.statusText);
+  return j;
+}
+
+function pill(item) {
+  if (item.no_block) return `<span class="pill none" title="이 키워드에는 파워컨텐츠 영역이 없음">영역 없음</span>`;
+  if (item.hit_page1) return `<span class="pill p1" title="첫 화면 ${item.page1_total}개 중">${item.hit_page1}</span>`;
+  if (item.hit_more) return `<span class="pill more" title="더보기 목록 기준${item.more_total ? ' (전체 ' + item.more_total + '개)' : ''}">${item.hit_more}</span>`;
+  if (item.more_checked) return `<span class="pill none" title="더보기 전체 확인">미노출</span>`;
+  if (item.page1_total === 0) return `<span class="pill none">광고 없음</span>`;
+  return `<span class="pill none">미노출</span>`;
+}
+
+const TYPES = [['powerlink', '파워링크'], ['powercontents', '파워컨텐츠']];
+function plain(it) {               // 복사용: 숫자만
+  if (!it) return '';
+  if (it.no_block) return '영역없음';
+  if (it.hit_page1) return String(it.hit_page1);
+  if (it.hit_more) return String(it.hit_more);
+  return '미노출';
+}
+let copyData = {};
+function renderRun(run) {
+  if (!run) { $('resultBox').innerHTML = '<div class="empty">결과 없음</div>'; return; }
+  let html = ''; copyData = {};
+  TYPES.forEach(([typ, label]) => {
+    const items = run.items.filter(it => it.ad_type === typ);
+    if (!items.length) return;
+    const kws = [...new Set(items.map(it => it.keyword))];
+    const get = (kw, dev) => items.find(it => it.keyword === kw && it.device === dev);
+    copyData[typ] = [[label, 'PC순위', 'MO순위'], ...kws.map(kw => [kw, plain(get(kw, 'pc')), plain(get(kw, 'mobile'))])];
+    html += `<div class="tbl-head"><h3>${label}</h3><span class="muted">${kws.length}개 키워드</span><button data-copy="${typ}">표 복사</button></div>`;
+    html += `<table class="copy"><thead><tr><th>키워드</th><th class="num">PC순위</th><th class="num">MO순위</th></tr></thead><tbody>`;
+    kws.forEach((kw, i) => {
+      const id = typ + i, pc = get(kw, 'pc'), mo = get(kw, 'mobile');
+      html += `<tr><td class="kw" data-det="${id}">${kw}</td><td class="num">${pc ? pill(pc) : '<span class="muted">-</span>'}</td><td class="num">${mo ? pill(mo) : '<span class="muted">-</span>'}</td></tr>`;
+      html += `<tr class="detail" id="det${id}" hidden><td colspan="3">` + [['pc', 'PC'], ['mobile', '모바일']].map(([dev, dl]) => { const it = get(kw, dev); if (!it || !it.page1.length) return '';
+        return `<b>${dl} 첫 화면</b><ol>` + it.page1.map(a => `<li class="${a.hit ? 'hit' : ''}">${a.site || a.url || a.landing}${a.title ? ' <span class="muted">· ' + a.title.slice(0, 28) + '</span>' : ''}</li>`).join('') + '</ol>'; }).join('') + '</td></tr>';
+    });
+    html += '</tbody></table>';
+  });
+  $('resultBox').innerHTML = html || '<div class="empty">결과 없음</div>';
+  $('resultBox').querySelectorAll('td.kw').forEach(td => td.onclick = () => { const d = $('det' + td.dataset.det); d.hidden = !d.hidden; });
+  $('resultBox').querySelectorAll('button[data-copy]').forEach(b => b.onclick = async () => {
+    const tsv = copyData[b.dataset.copy].map(r => r.join('\t')).join('\n');
+    try { await navigator.clipboard.writeText(tsv); b.textContent = '복사됨 ✓'; setTimeout(() => b.textContent = '표 복사', 1500); }
+    catch (e) { prompt('아래 내용을 복사하세요', tsv); }
+  });
+}
+function renderHistory() {
+  const dev = $('histDevice').value, typ = $('histType').value;
+  const runs = results.slice(0, 12).reverse();
+  if (!runs.length) { $('histBox').innerHTML = '<div class="empty">결과 없음</div>'; return; }
+  const kws = [];
+  runs.forEach(r => r.items.forEach(it => { if (it.device === dev && it.ad_type === typ && !kws.includes(it.keyword)) kws.push(it.keyword); }));
+  let html = '<table class="hist"><thead><tr><th>키워드</th>' + runs.map(r => `<th class="run">${r.timestamp.slice(5, 16)}</th>`).join('') + '</tr></thead><tbody>';
+  kws.forEach(kw => {
+    html += `<tr><td class="kw" style="cursor:default">${kw}</td>` + runs.map(r => {
+      const it = r.items.find(x => x.keyword === kw && x.device === dev && x.ad_type === typ);
+      if (!it) return '<td><span class="muted">-</span></td>';
+      if (it.hit_page1) return `<td><span class="pill p1">${it.hit_page1}</span></td>`;
+      if (it.hit_more) return `<td><span class="pill more">${it.hit_more}</span></td>`;
+      return '<td><span class="pill none">-</span></td>';
+    }).join('') + '</tr>';
+  });
+  $('histBox').innerHTML = html + '</tbody></table>';
+}
+
+async function loadResults(keepSelection) {
+  results = await api('/api/results');
+  const sel = $('runSelect'); const prev = sel.value;
+  sel.innerHTML = results.map((r, i) => `<option value="${i}">${r.timestamp}</option>`).join('');
+  if (keepSelection && prev && results[prev]) sel.value = prev;
+  const run = results[sel.value || 0];
+  $('runMeta').textContent = run ? `키워드 ${new Set(run.items.map(i => i.keyword)).size}개` : '';
+  renderRun(run);
+  renderHistory();
+}
+
+let wasRunning = false;
+async function poll() {
+  try {
+    const s = await api('/api/status');
+    const badge = $('loginBadge');
+    const who = s.login_id ? `로그인: ${s.login_id}` : '';
+    const auto = s.auto_login ? ' (자동)' : '';
+    if (s.login_ok === false) { badge.className = 'badge no'; badge.textContent = '로그인 실패' + auto; }
+    else if (s.login_file && who) { badge.className = 'badge ok'; badge.textContent = who + auto; badge.title = '마지막 확인: ' + (s.login_checked_at || ''); }
+    else if (s.login_file) { badge.className = 'badge ok'; badge.textContent = '로그인 세션 있음' + auto; }
+    else { badge.className = 'badge no'; badge.textContent = (s.auto_login ? '실행 시 자동 로그인' : '로그인 필요'); }
+    $('log').textContent = s.log.length ? s.log.join('\n') : '대기 중';
+    $('log').scrollTop = $('log').scrollHeight;
+    $('btnRun').disabled = s.running;
+    $('btnRun').textContent = s.running ? '실행 중...' : '순위 체크 시작';
+    if (wasRunning && !s.running) await loadResults(false);
+    wasRunning = s.running;
+  } catch (e) { $('log').textContent = '서버 연결 끊김: ' + e.message; }
+}
+
+function formValues() {
+  return { keywords: $('keywords').value.split('\n').map(s => s.trim()).filter(Boolean),
+           pc_keywords: $('pcKeywords').value.split('\n').map(s => s.trim()).filter(Boolean),
+           target: $('target').value.trim(), pc_target: $('pcTarget').value.trim(), device: $('device').value,
+           types: [$('typePL').checked ? 'powerlink' : null, $('typePC').checked ? 'powercontents' : null].filter(Boolean),
+           headless: $('headless').checked, delay: parseFloat($('delay').value) || 3 };
+}
+
+$('btnRun').onclick = async () => {
+  try { await api('/api/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formValues()) }); wasRunning = true; poll(); }
+  catch (e) { alert(e.message); }
+};
+$('btnSave').onclick = async () => { await api('/api/settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formValues()) }); $('log').textContent = '설정 저장됨'; };
+$('btnLogin').onclick = async () => {
+  try { await api('/api/login', { method: 'POST' }); alert('별도 창이 열립니다. 저장된 계정이 있으면 자동 로그인되고, 없으면 네이버 로그인(로그인 상태 유지 체크)을 완료하면 창이 자동으로 닫힙니다.'); }
+  catch (e) { alert(e.message); }
+};
+$('runSelect').onchange = () => { const run = results[$('runSelect').value]; $('runMeta').textContent = run ? `키워드 ${new Set(run.items.map(i => i.keyword)).size}개` : ''; renderRun(run); };
+$('histDevice').onchange = renderHistory; $('histType').onchange = renderHistory;
+
+(async () => {
+  const s = await api('/api/settings');
+  $('keywords').value = s.keywords.join('\n'); $('pcKeywords').value = (s.pc_keywords || []).join('\n'); $('target').value = s.target; $('pcTarget').value = s.pc_target || ''; $('device').value = s.device;
+  const types = s.types || ['powerlink', 'powercontents']; $('typePL').checked = types.includes('powerlink'); $('typePC').checked = types.includes('powercontents');
+  $('headless').checked = s.headless !== false; $('delay').value = s.delay || 3;
+  await loadResults(false);
+  poll(); setInterval(poll, 2000);
+})();
+</script>
+</body>
+</html>
