@@ -1,8 +1,8 @@
 # 작업 스케줄러 '뷰성형외과 순위체크+게시' 등록 (매일 10:10 · 16:00, 창 없이 실행)
 # 실행: powershell -ExecutionPolicy Bypass -File .\작업스케줄러_등록.ps1
-# 원본 패키지의 작업스케줄러_등록.ps1 과 같은 설정이며, 실행 대상만 '자동실행_및_게시.bat' (순위 체크 후 웹 게시)
+# 원본 패키지의 작업스케줄러_등록.ps1 과 같은 설정이며, 실행 대상만 'run_and_publish.bat' (순위 체크 후 웹 게시)
 $dir = $PSScriptRoot
-$bat = Join-Path $dir "자동실행_및_게시.bat"
+$bat = Join-Path $dir "run_and_publish.bat"
 $action = New-ScheduledTaskAction -Execute "powershell.exe" `
     -Argument "-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -Command `"& '$bat'`"" `
     -WorkingDirectory $dir
