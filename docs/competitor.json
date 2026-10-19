@@ -1,17 +1,28 @@
 {
   "_schema": "months[YYYY-MM] = {top:[문장], items:[{id,date(게시일),found(처음 발견·조사일),last_seen(마지막 재확인일),hospital,channel,country,kind,title,detail,why,view,source,url,hl,hl_reason}], coverage:{채널:'날짜 확인·N건'}, runs:[{date,added,updated,skipped_dup,note}], reviews:[{date,found,last_seen,hospital,platform,country,procedure,sentiment,topics,summary,url,author_key}], satisfaction:{병원:{n,pos,neu,neg,score,good,bad,prev_score}}}. hl = industry(업계 최초) | hospital(그 병원 첫 시도) | null. kind = 프로모션|바이럴|SNS콘텐츠|상품브랜딩|해외유입|SEO|후기신뢰|기타. 같은 URL 은 모든 달을 통틀어 1건만 둔다(다시 보이면 last_seen 만 갱신).",
-  "updated": "2026-10-19 14:30",
-  "hospitals": ["VIEW", "ID", "DA", "NANA", "BANOBAGI", "BRAUN", "WONJIN", "AB", "DREAM", "JK"],
+  "updated": "2026-10-19 14:20",
+  "hospitals": [
+    "VIEW",
+    "ID",
+    "DA",
+    "NANA",
+    "BANOBAGI",
+    "BRAUN",
+    "WONJIN",
+    "AB",
+    "DREAM",
+    "JK"
+  ],
   "months": {
     "2026-10": {
       "top": [
         "VIEW가 AI 마케팅 기업과 협약을 맺고, 해외 환자가 AI에게 병원을 물을 때 VIEW 이름이 답변에 나오도록 만드는 영문 '공식 답변 허브'를 구축하기 시작했다.",
         "VIEW(InnoRib, 10/14)와 NANA 일본(자가늑연골 코 재수술 10월 이벤트)이 같은 시기에 자가늑연골 코성형을 전면에 내세워, 코 재수술 시장 경쟁이 붙었다.",
-        "DA는 일본 에이전시를 통한 나고야·오사카 상담회(11/7·8)에 도쿄 치과 제휴 '일본 내 실밥 제거'를 붙여, 귀국 후 사후관리를 유입 조건으로 내세웠다.",
-        "AB는 '재수술 후에도 불만족', '광대축소 후 뼈가 벌어졌나' 같은 환자 불안을 제목으로 쓴 영문 칼럼을 이어 내며 WhatsApp 상담으로 연결하고 있다.",
-        "VIEW가 보건복지부 첨단재생의료 실시기관 지정을 영문 공지로 알리며, DA·JK처럼 재생의료를 성형 브랜드에 더하기 시작했다.",
-        "국감 자료로 2025년 외국인 피부·성형 환자 154만 명(전년 대비 82.5%↑)과 부가세 환급 1,964억 원이 공개되며 환급 재도입 논의가 다시 불붙었다.",
-        "JK성형외과가 미국 오렌지카운티 현지 의료관광 설명회에 참가해 북미 교민·현지 소비자를 직접 공략했다."
+        "DA는 일본 에이전시 상담회(11/7·8)에 도쿄 치과 제휴 '일본 내 실밥 제거'를 붙이는 한편, 롯데호텔 서울 8층 명동 센터를 영문 사이트(AI 상담 메뉴)와 Instagram 경품으로 알리고 있다.",
+        "AB는 영문 사이트에 출국 전·체류·귀국 후를 다루는 가이드 24편 'Korea Medical Travel Library'를 열고, 재수술 불안 칼럼과 일본어 플랫폼 키워드 글로 병원 선택 전 검색 수요를 넓히고 있다.",
+        "NANA 일본은 아이돌 데뷔 직후 눈매 분석을 Ameblo와 Note에 함께 내고, 지방이식 가슴 비교·리스크 글도 Note에 올려 미디어형과 신뢰형 콘텐츠를 병행한다.",
+        "정부가 AI 피부진단 거점과 병원 정보·상담·예약·결제·사후관리를 묶는 K-healthcare 통합 허브(2027-2028 구축 계획), 의료관광 비자 유치기관 요건 완화를 발표했다.",
+        "외국인 의료소비 통계(2026년 1~9월, 한국관광데이터랩 자료 기준 보도)에서 소비액이 1조 8,398억 원(+57.9%)으로 늘었고, 피부과 비중은 55.72%로 올랐지만 성형외과 비중은 19.35%로 내려갔다."
       ],
       "items": [
         {
@@ -29,8 +40,9 @@
           "view": "측정 질문 세트(가격, 회복, 집도의, 재수술 등)를 정해 두고 월별 AI 답변 노출을 추적하면 경쟁사 대비 위치를 볼 수 있다. 답변 허브에는 집도의·회복 기간·사후관리 같은 근거 데이터를 우선 넣는다.",
           "source": "언론",
           "url": "https://www.mediapic.co.kr/news/articleView.html?idxno=3568",
-          "hl": "hospital",
-          "hl_reason": "VIEW가 외부 AEO 전문사와 협약해 AI 답변 노출을 측정하는 것은 이번에 처음 확인됐다. 관광공사-HSAD GEO 협약(2026-07) 같은 다른 업계 사례가 있어 업계 최초로 보지는 않았다."
+          "hl": null,
+          "hl_reason": "VIEW는 AEO/AI Search visibility 전술이 이미 기존 전술 기록에 있어 연장선으로 재분류했다. 외부 AEO 전문사와 협약해 답변 노출을 측정하는 점은 달라졌으나 새로운 방식으로 보지는 않았다.",
+          "novelty": "continuation"
         },
         {
           "id": "2026-10-view-innorib",
@@ -48,7 +60,8 @@
           "source": "공식",
           "url": "https://www.viewplasticsurgery.com/notice/view-plastic-surgery-introducing-innorib-autologous-rib-cartilage-based-rhinoplasty/",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "other"
         },
         {
           "id": "2026-10-view-regen-designation",
@@ -60,13 +73,14 @@
           "country": "글로벌",
           "kind": "상품브랜딩",
           "title": "VIEW, 보건복지부 첨단재생의료 실시기관 지정 공지(영문)",
-          "detail": "VIEW 영문 홈페이지 공지(2026-09-22)는 VIEW가 시설·장비·인력·안전관리 기준을 충족해 보건복지부 첨단재생의료 실시기관으로 지정됐다고 알렸다. 구체적인 재생의료 시술명이나 도입 일정은 공지에 없다. 게시일은 조사 기간 시작(9/23) 하루 전이지만 이번 조사에서 처음 확인했다.",
+          "detail": "VIEW 영문 홈페이지 공지(2026-09-22)는 VIEW가 시설·장비·인력·안전관리 기준을 충족해 보건복지부 첨단재생의료 실시기관으로 지정됐다고 알렸다. 구체적인 재생의료 시술명이나 도입 일정은 공지에 없다. 게시일은 조사 기간 시작(9/23) 하루 전이지만 이번 조사에서 처음 확인했다. 같은 내용이 VIEW 영문 Instagram에도 2026-09-20 게시됐다(https://www.instagram.com/view_plastic_surgery/p/DdiS0oLM-4v/, 좋아요 18건).",
           "why": "DA의 Stem Cell 카테고리, JK의 재생의료 실시기관 지정처럼 성형 병원이 재생·안티에이징 영역으로 넓히는 흐름에 VIEW가 제도 인증을 근거로 합류했다.",
           "view": "지정 사실만 알리는 데서 그치지 말고 실제 적용 시술, 안전관리 절차, 4050 안티에이징 상품과 연결해야 해외 검색에서 의미가 생긴다.",
           "source": "공식",
           "url": "https://www.viewplasticsurgery.com/notice/view-plastic-surgery-designated-as-an-advanced-regenerative-medicine-institution/",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "other"
         },
         {
           "id": "2026-10-nana-jp-ribcartilage-event",
@@ -84,7 +98,8 @@
           "source": "공식",
           "url": "https://ameblo.jp/nanahospital/entry-12981370874.html",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "continuation"
         },
         {
           "id": "2026-10-nana-jp-idol-eye-analysis",
@@ -96,13 +111,14 @@
           "country": "일본",
           "kind": "SNS콘텐츠",
           "title": "NANA 일본, 신인 아이돌 데뷔(10/12~13)에 맞춘 눈매 분석 글",
-          "detail": "NANA 공식 Ameblo는 A2O LITE 데뷔(10/12 데뷔쇼, 10/13 'NEON' 발매)와 팬 반응을 도입부로 쓰고, 눈매 인상 요소와 쌍꺼풀 디자인 4종, 자연유착 매몰법, Q&A를 거쳐 LINE·비디오 상담으로 연결했다. 개인차와 재발 가능성도 함께 적었다. 작성일 표기가 없어 이미지 경로 날짜(2026-10-14)를 적었다. 같은 시기 드라마 출연자 코 분석 글도 올라왔다.",
-          "why": "연예 뉴스가 나온 지 하루 이틀 만에 시술 콘텐츠로 바꾸는 NANA 일본의 미디어형 운영이 이어지고 있다. 새 방식은 아니지만 속도가 빠르다.",
+          "detail": "NANA 공식 Ameblo는 A2O LITE 데뷔(10/12 데뷔쇼, 10/13 'NEON' 발매)와 팬 반응을 도입부로 쓰고, 눈매 인상 요소와 쌍꺼풀 디자인 4종, 자연유착 매몰법, Q&A를 거쳐 LINE·비디오 상담으로 연결했다. 개인차와 재발 가능성도 함께 적었다. 작성일 표기가 없어 이미지 경로 날짜(2026-10-14)를 적었다. 같은 시기 드라마 출연자 코 분석 글도 올라왔다. 같은 맥락의 눈매 분석이 NANA 일본 공식 Note에도 2026-10-14 18:12에 게시됐다(https://note.com/nanahospital/n/n6463a1b8e401). 데뷔 이후 약 1~2일 만에 눈매 분석 콘텐츠를 낸 점, 자연유착 쌍꺼풀 소개, LINE 상담 유도가 Ameblo 글과 같은 구성이다.",
+          "why": "연예 뉴스가 나온 지 하루 이틀 만에 시술 콘텐츠로 바꾸는 NANA 일본의 미디어형 운영이 이어지고 있다. 새 방식은 아니지만 속도가 빠르다. Ameblo와 Note 두 곳에 같은 맥락의 글을 내는 이중 채널 운영이다.",
           "view": "VIEW 일본 콘텐츠도 화제 인물 분석을 하되, 장점만이 아니라 '나에게 맞지 않는 경우'를 함께 보여 주는 Q&A 구성이 신뢰에 유리하다.",
           "source": "공식",
           "url": "https://ameblo.jp/nanahospital/entry-12981539433.html",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "continuation"
         },
         {
           "id": "2026-10-ab-anxiety-column-seo",
@@ -120,7 +136,8 @@
           "source": "공식",
           "url": "https://abplasticsurgerykorea.com/about-ab/medical-column/why-is-the-nasal-shape-still-unsatisfactory-after-revision-rhinoplasty",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "continuation"
         },
         {
           "id": "2026-10-da-jp-nagoya-dental-aftercare",
@@ -138,7 +155,9 @@
           "source": "공식",
           "url": "https://kankoku-seikei-navi.com/lp/da-nagoya/",
           "hl": "hospital",
-          "hl_reason": "에이전시 페이지가 일본 치과 제휴 실밥 제거를 이번에 새로 시작한 서비스로 소개한다. 다른 병원의 해외 현지 사후관리 제휴 사례가 있을 수 있어 업계 최초로 보지는 않았다."
+          "hl_reason": "에이전시 페이지가 일본 치과 제휴 실밥 제거를 이번에 새로 시작한 서비스로 소개한다. 다른 병원의 해외 현지 사후관리 제휴 사례가 있을 수 있어 업계 최초로 보지는 않았다.",
+          "novelty": "new_market",
+          "novelty_reason": "일본 상담회는 DA가 이어 왔지만 도쿄 치과 제휴로 귀국 후 실밥 제거까지 묶은 것은 처음 - 기존 전술 기록·이전 항목에 없음"
         },
         {
           "id": "2026-10-dream-jp-osaka-counseling",
@@ -156,7 +175,8 @@
           "source": "공식",
           "url": "https://kankoku-seikei-navi.com/lp/dream-osaka/",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "continuation"
         },
         {
           "id": "2026-10-audit-foreign-patients-2025",
@@ -174,7 +194,8 @@
           "source": "언론",
           "url": "https://www.kukinews.com/article/view/kuk202610080055",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "other"
         },
         {
           "id": "2026-10-jk-oc-briefing",
@@ -191,8 +212,10 @@
           "view": "VIEW도 일본 외 북미·교민 대상 현지 설명회와 영상상담 연계를 검토할 수 있다. 실제 반응과 전환은 확인되지 않았다.",
           "source": "언론",
           "url": "https://www.koreadaily.com/article/20260901092746049",
-          "hl": null,
-          "hl_reason": ""
+          "hl": "hospital",
+          "hl_reason": "JK는 미국 현지 설명회가 처음이지만 현지 상담회·설명회 방식 자체는 DA·DREAM·NANA(일본)가 이미 해 왔다. 업계 최초로 보지 않았다.",
+          "novelty": "new_market",
+          "novelty_reason": "기존 전술 기록의 현지 상담회는 일본 중심인데 미국 캘리포니아(오렌지카운티) 현지 설명회 참가는 목록에 없음 - JK는 첫 확인"
         },
         {
           "id": "2026-10-vat-refund-end",
@@ -210,38 +233,427 @@
           "source": "언론",
           "url": "https://www.medigatenews.com/news/1270826725",
           "hl": null,
-          "hl_reason": ""
+          "hl_reason": "",
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-sns-da-clinic-seoul-giveaway",
+          "date": "2026-10-16",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "channel": "Instagram",
+          "country": "글로벌(영어권)",
+          "kind": "프로모션",
+          "title": "DA Clinic Global, 롯데호텔 서울 8층 개원 기념 해외 대상 경품 이벤트",
+          "detail": "DA Clinic Global 영문 계정이 10월 2일 \"Something new is coming soon\" 티저 릴스를 올린 뒤, 10월 13일 \"Dear Always\" 문구로 THE GRAND LOTTE SEOUL 8층(명동) 개원과 스킨부스터·보톡스·레이저·리프팅 개원 특가를 안내했다. 10월 16일에는 XERF 리프팅과 동반 1인 서울 방문을 걸고, 응모자 전원에게 Glass Skin Set을 주는 개원 기념 경품 릴스를 올렸다. 게시물 반응은 좋아요 2건, 댓글 4건으로 초기 단계다. 원문은 병원 공식 게시물이며 경품 세부 조건은 원문 일부만 확인됐다.",
+          "why": "티저, 개원 안내, 경품 이벤트로 이어지는 단계형 런칭을 영문 계정에서 운영하고, 상품을 시술 단품이 아니라 방문 동반자 포함 서울 여행형 경품으로 구성했다. 호텔 입점 위치를 전면에 내세운 점이 기존 DA 성형 게시물과 다르다.",
+          "view": "해외 대상 신규 센터나 프로그램을 낼 때 티저 후 개원 안내와 경품으로 이어지는 3단계 흐름을 참고할 수 있다. 다만 초기 반응이 미미하므로 응모 전환(상담 문의)을 같이 측정해야 한다.",
+          "source": "공식",
+          "url": "https://www.instagram.com/daclinic_en/reel/DejPGXBAVbz/",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "continuation"
+        },
+        {
+          "id": "2026-10-sns-da-chinlipo-meme-reel",
+          "date": "2026-10-13",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "channel": "Instagram",
+          "country": "글로벌(영어권)",
+          "kind": "SNS콘텐츠",
+          "title": "DA 영문 계정, 턱밑지방흡입 한계를 자조형 밈 문구로 설명한 릴스",
+          "detail": "DA Plastic Surgery Korea 영문 계정이 10월 13일 \"턱지방흡입을 했는데 이중턱은 안 사라졌다\" 형태의 밈 문구 릴스를 올렸다. 지방흡입은 피부 바로 아래 지방에 작용하지만 더 깊은 곳에 지방이 있는 경우도 있다는 설명이 이어진다. 확인 시점 반응은 좋아요 89건, 댓글 65건으로 같은 기간 이 계정의 다른 게시물(좋아요 9~24건, 댓글 0~1건)보다 댓글이 많았다. 댓글 내용과 이벤트 유도 여부는 확인하지 못했다.",
+          "why": "시술의 한계와 의사 책임이 아닌 경우를 먼저 말하는 자조형 문구로, 일반 시술 소개 게시물과 다른 반응(댓글 65건)을 얻었다.",
+          "view": "한계나 적응증 밖 사례를 유머로 설명하는 짧은 포맷은 과잉권유 불신을 줄이는 방향과 맞는다. 댓글 질문을 모아 후속 콘텐츠로 연결하는 방식을 검토할 수 있다.",
+          "source": "공식",
+          "url": "https://www.instagram.com/daplasticsurgery_korea/reel/DelF7GPJMiK/",
+          "hl": "hospital",
+          "hl_reason": "DA는 처음이지만 밈형 숏폼은 VIEW가 이미 쓰고 있다(기존 전술 기록).",
+          "novelty": "new_method",
+          "novelty_reason": "DA 영문 계정이 시술 한계를 자조형 밈 문구 릴스로 푼 것은 기존 전술 기록의 DA 항목에 없음(밈형 숏폼은 VIEW가 먼저)"
+        },
+        {
+          "id": "2026-10-sns-view-news-luana",
+          "date": "2026-09-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "channel": "YouTube",
+          "country": "글로벌(영어권)",
+          "kind": "SNS콘텐츠",
+          "title": "VIEW 영문 채널, 뉴스룸 콘셉트 시리즈 \"VIEW NEWS\" 공개(조회수 8.8만)",
+          "detail": "수집 시점에 게시 1개월 전으로 표시된 VIEW Plastic Surgery 영문 YouTube 영상 \"VIEW NEWS | Luana Reports Live from VIEW\"가 확인됐다(수집기 기준 날짜 2026-09-19). 설명에는 Luana가 VIEW 뉴스룸에서 \"미래의 자신\"을 인터뷰한다고 적혀 있고 타임라인(00:00~05:54)이 제공된다. 확인 시점 조회수는 약 8.8만으로, 같은 기간 확인한 VIEW 다른 영상(375회, 3.4천 회)과 격차가 크다. 협찬·광고 표기는 수집된 설명에서 확인하지 못했고, 출연자와 병원의 관계는 확인되지 않았다.",
+          "why": "시술 설명이 아닌 뉴스 보도 형식의 연출형 영상으로, 병원 영문 채널에서 이례적으로 높은 조회수를 보였다.",
+          "view": "조회 성과가 높은 이 포맷의 구성(출연자, 연출, 시술 노출 방식)을 분해해 시리즈화 가능성을 검토할 수 있다. 출연자와 병원 관계의 공개 여부도 후기 신뢰 측면에서 확인이 필요하다.",
+          "source": "공식",
+          "url": "https://youtu.be/shpIMRt8Ci0",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "new_method",
+          "novelty_reason": "VIEW 영문 채널이 뉴스룸 앵커 콘셉트의 \"VIEW NEWS\" 시리즈를 연 것은 기존 전술 기록(Real Story·셀럽·밈 숏폼)에 없음"
+        },
+        {
+          "id": "2026-10-sns-view-exam-event",
+          "date": "2026-09-28",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "channel": "Instagram",
+          "country": "한국",
+          "kind": "프로모션",
+          "title": "VIEW, 2027 수능 수험표 지참 수험생 특별 이벤트",
+          "detail": "뷰성형외과 공식 Instagram이 2026년 9월 28일 \"수험생 특별 이벤트 OPEN\" 게시물을 올렸다. 2027 수험표 지참자가 대상이며 상담은 카카오톡 또는 전화로 안내한다고 적었다. 구체 혜택 내용은 수집된 원문 일부에서 확인하지 못했다. 반응은 좋아요 15건, 댓글 0건이다.",
+          "why": "수능 시즌 맞춤 타깃 이벤트로, 연령 세분화형 시즌 프로모션의 연장이다.",
+          "view": "혜택과 신청 방법을 명확히 하고 이벤트 이후 반응(문의 수)을 추적할 필요가 있다.",
+          "source": "공식",
+          "url": "https://www.instagram.com/viewplastic/p/Dd0nDuLmYpn/",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-sns-id-specialist-trust-reel",
+          "date": "2026-10-13",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "ID",
+          "channel": "Instagram",
+          "country": "한국",
+          "kind": "후기신뢰",
+          "title": "ID병원, \"집도의가 성형외과 전문의인지 확인하라\" 신뢰 메시지 릴스",
+          "detail": "아이디병원 공식 Instagram이 10월 13일 \"성형 수술 전 집도의가 성형외과 전문의인지 꼭 확인하세요\" 릴스를 올리고, 전 의료진이 성형외과 전문의로 구성된 전문병원임을 강조했다. 반응은 좋아요 31건, 댓글 2건이다. 같은 달 계정은 가슴성형 회복 Q&A 5문항 릴스(10월 16일)와 눈성형 BEST3 결과 소개 게시물도 올렸다.",
+          "why": "소비자가 직접 점검할 항목으로 집도의 자격을 제시해 병원 선택 기준 자체를 제안하는 방식이다.",
+          "view": "집도의와 전문의 자격 공개는 VIEW 강조점과 겹친다. 의료진별 자격과 담당 수술 범위를 콘텐츠에서 구체적으로 보여 주는 편이 차별화된다.",
+          "source": "공식",
+          "url": "https://www.instagram.com/idhospital/reel/DebUXkXEwdF/",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-sns-view-anon-kakao-nose-clinic",
+          "date": "2026-10-14",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "channel": "YouTube",
+          "country": "한국",
+          "kind": "SNS콘텐츠",
+          "title": "VIEW, 익명 카카오톡으로 받은 코 고민 사연을 분석하는 \"코성형 상담소\" 영상",
+          "detail": "2026년 10월 14일경 뷰성형외과 YouTube 채널에 \"제 코도 사람 될 수 있나요? 익명 카톡 코성형 상담소 오픈!\" 영상이 올라왔다. 설명에는 익명 카톡으로 접수된 사연과 사진을 성형외과 전문의가 분석한다고 되어 있다. 확인 시점 조회수는 400회다. 접수된 사례 사진의 동의 방식은 확인하지 못했다.",
+          "why": "일반 시술 설명이 아니라 소비자가 보낸 고민을 콘텐츠 소재로 쓰는 참여형 포맷이며, 카카오톡 상담 유입과 연결되는 구조다.",
+          "view": "반복 질문을 모아 콘텐츠화하는 흐름은 VIEW 해외 채널에도 적용할 수 있다(WhatsApp, LINE 등 익명 접수). 사진 사용 동의 절차를 명시하면 신뢰에 도움이 된다.",
+          "source": "공식",
+          "url": "https://youtu.be/zQ9IEUpIq2k",
+          "hl": "hospital",
+          "hl_reason": "VIEW는 처음이지만 소비자 질문 기반 콘텐츠는 NANA가 이미 한다(기존 전술 기록).",
+          "novelty": "new_method",
+          "novelty_reason": "소비자 질문의 콘텐츠화는 NANA에 있으나 익명 카톡으로 사연·사진을 받아 전문의가 분석하는 \"상담소\" 포맷은 VIEW에서 처음"
+        },
+        {
+          "id": "2026-10-sns-id-shinsadong-clinic-talk",
+          "date": "2026-09-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "ID",
+          "channel": "YouTube",
+          "country": "한국",
+          "kind": "SNS콘텐츠",
+          "title": "ID병원, 피부과·성형외과 의료진 토크쇼 \"신사동의국\" 시리즈(EP.2 조회 3.4만)",
+          "detail": "아이디병원 YouTube 채널의 \"다 합쳐 50년차 고인물 3명이 들려주는 비하인드 썰 | 신사동의국 EP.2\"가 확인됐다(수집기 기준 날짜 2026-09-19). 설명에 따르면 피부과 원장과 성형외과 원장이 함께 성형 비하인드를 풀어내는 시리즈이며 확인 시점 조회수는 약 3.4만이다. 같은 기간 ID의 시술 설명 영상은 7.8만~21만 조회였다.",
+          "why": "단일 시술 설명이 아니라 피부과·성형외과 의료진이 함께 나오는 토크 시리즈로 병원 인지도를 높이는 형식이다. 에피소드 번호가 있는 연재 포맷이다.",
+          "view": "의료진 다자 토크 시리즈는 집도의와 팀 의료진 노출을 늘리는 방법이 될 수 있다. 시술 설명 영상 대비 조회 성과를 비교해 볼 만하다.",
+          "source": "공식",
+          "url": "https://youtu.be/aI0aV4-TOqY",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "new_method",
+          "novelty_reason": "피부과·성형외과 원장이 함께 비하인드를 푸는 토크쇼 시리즈 \"신사동의국\"은 기존 전술 기록의 ID 항목에 없음"
+        },
+        {
+          "id": "2026-10-sns-ab-patient-interview-series",
+          "date": "2026-10-17",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "channel": "YouTube",
+          "country": "한국",
+          "kind": "SNS콘텐츠",
+          "title": "AB, 환자 인터뷰형 상담 후기 영상 연속 게시(재수술·이마거상, 60대 가족 사연)",
+          "detail": "AB 한국어 채널이 10월 15일경 60대 어머니의 이마거상·눈썹하거상 결심 과정 영상(조회 677)을, 10월 17일경 코 재수술·가슴수술을 고민한 환자가 \"좋은 성형\"에 대해 말하는 영상(조회 598)을 올렸다. 설명상 환자가 결심 이유를 이야기하는 인터뷰형이며, 수술 결과 나열이 아니라 동기와 고민을 앞에 둔다. 출연자의 보상 여부와 협찬 표기는 수집된 설명에서 확인되지 않았다.",
+          "why": "결과 사진 중심이 아닌 결심 이유 중심 인터뷰로, 4050·가족 동반 같은 새로운 고객층을 보여 준다.",
+          "view": "이마거상 등 중장년 시술에서 가족 사연형 인터뷰는 4050 Anti-aging 방향과 연결된다. 출연자와 병원의 경제적 관계를 영상에 표기하면 후기 신뢰가 높아진다.",
+          "source": "공식",
+          "url": "https://youtu.be/0mKenbr8_Hk",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-sns-ab-safe-clinic-standard",
+          "date": "2026-10-10",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "channel": "YouTube",
+          "country": "글로벌(영어권)",
+          "kind": "후기신뢰",
+          "title": "AB 영문 영상, \"후기만으로 안전한 병원을 고를 수 있나\" 질문으로 환자 안전 기준 강조",
+          "detail": "AB Plastic Surgery 영문 채널의 \"How Can You Choose a Safe Plastic Surgery Clinic? | AB Plastic Surgery's Standard for Patient Safety\"가 확인됐다(수집기 기준 날짜 2026-10-10). 설명은 후기만으로 병원을 판단할 수 있는지 묻고 수술에서 안전이 중요하다는 점을 이야기한다. 조회수는 57회로 낮다. 영상의 구체적 안전 기준 내용은 확인하지 못했다.",
+          "why": "후기 진위 논쟁을 병원이 직접 질문으로 끌어와 후기가 아닌 안전 기준으로 선택 기준을 옮기려는 시도다. 기존 AB 안전성 PR 흐름의 연장일 수 있으나 도달은 미미하다.",
+          "view": "후기 불신이 커지는 영어권에서는 수술 기록, 집도의, 마취 안전 체계 같은 확인 가능한 근거를 내세우는 콘텐츠가 대응이 된다.",
+          "source": "공식",
+          "url": "https://youtu.be/MuTPEmCKclc",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "continuation"
+        },
+        {
+          "id": "2026-10-sns-braun-eng-host-qa",
+          "date": "2026-10-17",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "channel": "YouTube",
+          "country": "글로벌(영어권)",
+          "kind": "SNS콘텐츠",
+          "title": "BRAUN 영문 채널, 호스트가 마취과 전문의에게 묻는 불안 해소형 Q&A와 자연스러움 환자 사례",
+          "detail": "BRAUN 영문 채널이 10월 17일경 호스트가 마취과 전문의에게 \"수술 중 깨어 있는데 움직일 수 없다면\" 같은 마취 관련 궁금증을 묻는 영상(조회 1.9천)을 올렸다. 10월 9일경에는 \"성형처럼 보이지 않는 성형\"이라는 제목으로 전체 얼굴 변화를 자연스럽게 원한 환자 사례 영상(조회 5.5천)을 올렸다. 협찬·광고 표기는 수집된 설명에서 확인하지 못했다.",
+          "why": "시술 홍보보다 환자가 가장 두려워하는 질문(마취)을 의료진에게 직접 묻는 포맷이며, 자연스러운 결과를 사례 영상으로 같이 운영한다.",
+          "view": "마취·안전 질문은 해외 환자 불안 지점이므로 VIEW도 집도의와 마취 담당 인터뷰형 영상을 검토할 수 있다.",
+          "source": "공식",
+          "url": "https://youtu.be/BUCVO556zQM",
+          "hl": null,
+          "hl_reason": null,
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-da-md-official-site",
+          "date": "2026-09-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "channel": "공식홈페이지",
+          "country": "글로벌(영어권)",
+          "kind": "해외유입",
+          "title": "DA Clinic Myeongdong 영문 공식 사이트, 롯데호텔 서울 8층 센터 안내와 AI 상담 메뉴 구성",
+          "detail": "DA Clinic Myeongdong 영문 사이트(daclinicmd.com/en)는 서울 중구 을지로 30 THE GRAND LOTTE SEOUL 8층 위치를 안내하고, 보톡스·필러·HIFU·써마지·레이저·스킨케어·바디 등 7개 카테고리 22개 시술을 둔다. 사이트 메뉴에 AI 상담(/en/ai-consult) 항목이 있다. 칼럼 'myeongdong-water-glow'에는 \"Opening soon\"(오픈 예정) 표시, 평일 10:00-21:00·주말 10:00-19:00 운영, \"We don't recommend what you don't need\" 문구가 있고, 가격은 구체 금액 없이 'Offers & prices' 링크로 안내한다. 칼럼 게시일은 페이지에 표시되지 않으며 이미지 파일명의 날짜(20260919)를 date로 적었다. AI 상담 메뉴의 실제 기능(피부진단 등)은 확인하지 못했다. 같은 센터의 Instagram 개원 경품 이벤트는 별도 항목에 있다.",
+          "why": "성형 중심의 DA 본원과 별도로 피부·시술 중심 센터를 호텔 입점 위치와 함께 영문 사이트로 따로 세우고, 사이트 메뉴에 AI 상담을 둔 점이 다르다. 과잉권유를 하지 않겠다는 문구를 칼럼에 쓴 것도 신뢰 메시지다. 오픈 예정 표시 단계라 출점 완료로 보기는 어렵다.",
+          "view": "해외 환자용 센터를 열 때 위치(호텔), 시술 수, 운영 시간, 비과잉권유 문구를 한 페이지에 묶는 구성을 참고할 수 있다. 가격은 공개하지 않고 링크로만 안내하므로, VIEW는 가격·VAT 안내를 더 명확히 하는 쪽이 차별점이 될 수 있다.",
+          "source": "공식",
+          "url": "https://daclinicmd.com/en/community/column/myeongdong-water-glow",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "new_market",
+          "novelty_reason": "DA가 롯데호텔 서울 8층(명동)에 센터를 열고 AI 상담 메뉴를 갖춘 영문 사이트를 만든 것은 기존 전술 기록의 관광 동선 안 지점·유입 경로에 없음"
+        },
+        {
+          "id": "2026-10-ab-kmedi-library",
+          "date": "2026-10-07",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "channel": "공식홈페이지",
+          "country": "글로벌(영어권)",
+          "kind": "SEO",
+          "title": "AB 영문 사이트, 성형여행 전 과정을 다루는 'Korea Medical Travel Library' 가이드 24편 공개",
+          "detail": "AB 영문 사이트의 k-medi 페이지는 \"Korea Medical Travel Library\"(부제 \"Explore every part of your medical journey\")로 가이드 24편을 모았고 모두 2026-10-07 날짜다. 분류는 Planning Your Visit, Consultation & Safety, Staying in Korea, Recovery & Returning Home이다. 주제는 출국 7-14일 전 체크리스트, 예약금 결제 전 확인사항, 일정 변경 대처, 항공 예약, 서류, 귀국 후 실밥 제거, 회복 중 위험 신호, 귀국 후 사후관리, 의료통역, 약·영양제, 필요한 검사, 상담용 사진 촬영법, 비행 가능 시점, 재수술 준비, 혼자 여행 안전성 등이다. 24편이 같은 날짜라 일괄 게시됐거나 일괄 갱신됐을 수 있고, 페이지에 '신규' 표시는 없다.",
+          "why": "시술별 SEO를 넘어 출국 전·체류·귀국 후까지 성형여행의 전 과정을 검색 수요로 가져오는 구조다. 예약금, 일정 변경, 귀국 후 위험 신호처럼 불안이 큰 질문을 직접 다룬다.",
+          "view": "VIEW도 InnoRib·재수술 콘텐츠에 더해 비행 가능 시점, 귀국 후 실밥 제거, 원격 사후관리 같은 여행 단계별 질문을 영문 가이드로 묶고 AEO 답변 허브의 근거 문서로 쓸 수 있다.",
+          "source": "공식",
+          "url": "https://abplasticsurgerykorea.com/k-medi",
+          "hl": "hospital",
+          "hl_reason": "AB는 처음이지만 가이드/글로벌 허브 형태는 WONJIN·VIEW가 이미 갖고 있다(기존 전술 기록).",
+          "novelty": "new_method",
+          "novelty_reason": "성형여행 전 과정(준비·상담·체류·귀국 후)을 24편으로 묶은 영문 가이드 허브는 AB 기존 전술 기록에 없음(WONJIN Global Hub는 서비스 허브)"
+        },
+        {
+          "id": "2026-10-ab-jp-gangnam-unni-guide",
+          "date": "2026-08-05",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "channel": "공식홈페이지",
+          "country": "일본",
+          "kind": "SEO",
+          "title": "AB 일본어 블로그, 'カンナムオンニを利用して韓国整形を検討している方へ' 플랫폼 키워드형 가이드(8월 게시, 9/2 수정)",
+          "detail": "AB 일본어 사이트 블로그 글은 강남언니(カンナムオンニ)를 쓰는 일본인을 대상으로 후기·증례 정보 읽는 법, 일본인 대상 병원 선택 기준 5가지(집도의 경험, 상담 깊이, 마취·안전관리, 일본어 지원, 귀국 후 사후관리), 비용·일정 주의점을 설명하고 LINE 무료상담으로 연결한다. 본문에는 후기와 전후 사진은 개인차가 있어 병원 선택을 좁히는 용도로 쓰라는 취지가 있다. 이 글의 게시일은 2026-08-05, 수정일은 2026-09-02로 조사 기간 이전이다. 사이트맵 수정일(10-14)이 바뀌어 수집됐지만 신규 게시가 아니며, 기존 흐름이 일본어 사이트에서 이어지는 사례로만 기록한다.",
+          "why": "경쟁 플랫폼 이름을 검색어로 쓰되 플랫폼을 깎아내리지 않고 후기를 어떻게 읽고 병원을 고를지를 안내해 병원 선택 전 단계 검색 수요를 흡수한다. 같은 사이트의 다른 일본어 글(귀국 후 실밥, 안전관리)과 이어진다.",
+          "view": "VIEW 일본어 콘텐츠도 플랫폼 이용자의 비교 질문(집도의, 일본어 지원, 귀국 후 관리)에 직접 답하는 글을 준비할 수 있다. 게시일이 오래되었으므로 신규 경쟁 움직임으로 과장하지 않는다.",
+          "source": "공식",
+          "url": "https://jp.abplasticsurgerykorea.com/ab-blog/gangnam-unni-korea-plastic-surgery-clinic-guide-japanese",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "continuation"
+        },
+        {
+          "id": "2026-10-nana-jp-note-fat-graft-compare",
+          "date": "2026-10-16",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "channel": "Note",
+          "country": "일본",
+          "kind": "SNS콘텐츠",
+          "title": "NANA 일본 Note, 지방이식 가슴성형의 안전성·생착률·흡수·감염 위험을 실리콘과 비교한 글",
+          "detail": "NANA 일본 공식 Note 글(2026-10-16 13:32 게시)은 지방이식 가슴성형의 안전성, 생착률, 흡수, 좌우 차이, 감염 위험을 설명하고 실리콘과 비교하며 하이브리드(병행)도 언급한다. 장점만이 아니라 한계와 위험을 함께 적은 비교·리스크형 구성이다. 같은 NANA 일본 계정의 10월 14일 Note 글(눈매 분석)은 기존 Ameblo 눈매 분석 항목에 합쳐 두었다.",
+          "why": "NANA 일본은 연예 뉴스를 바로 시술 콘텐츠로 잇는 방식에 더해, 시술 선택 비교와 위험 설명 같은 신뢰형 글도 Note에서 내고 있다. Ameblo와 Note를 함께 운영한다.",
+          "view": "VIEW 일본어 콘텐츠에서 가슴 시술을 소개할 때 장단점과 위험을 같은 글에서 비교해 보여 주는 구성을 검토할 수 있다. LINE 상담 연결 방식도 참고 대상이다.",
+          "source": "공식",
+          "url": "https://note.com/nanahospital/n/n6b2ad8beae21",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "continuation"
+        },
+        {
+          "id": "2026-10-wonjin-jp-monitor-recruit",
+          "date": "2026-10-08",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "WONJIN",
+          "channel": "Ameblo",
+          "country": "일본",
+          "kind": "프로모션",
+          "title": "원진 일본 Ameblo, 인중단축·C컬 형성·입꼬리 거상 무료 모니터 모델 모집(마감 10/19)",
+          "detail": "원진 일본 공식 Ameblo 글(2026-10-08, 제목 표기 기준)은 인중단축, C컬 형성, 입꼬리 거상 3종의 무료 모니터 모델을 3명 모집한다고 안내했다. 인중단축+C컬 또는 인중단축+입꼬리 거상 조합이며 단독 신청도 가능하고, 시술 확정은 상담에서 한다. 대상은 일본인이고 심사가 있으며 응모 마감은 2026-10-19(월)이다. 응모 방법은 이벤트 글에 좋아요, 리포스트, X 또는 Instagram 팔로우, 공식 LINE 메시지 전송 순서다. 탈락자에게는 '부분 공개 모니터' 할인가를 안내할 계획이라고 적었으나 세부는 미정으로 표시했다. 후기 작성이나 사진 공개 의무는 본문에서 확인되지 않았다.",
+          "why": "일본 대상 모집을 입술 주변 소형 시술 3종에 집중하고 SNS 반응(좋아요·리포스트·팔로우)과 LINE 상담을 응모 조건으로 묶었다. 탈락자를 할인 모니터로 이어 주는 구조도 같이 제시한다.",
+          "view": "VIEW가 일본에서 모니터 모집을 한다면 응모 조건, 사진 공개 범위, 후기 표기(협찬 여부)를 먼저 명확히 해야 후기 신뢰 논란을 피할 수 있다. 이 글만으로 원진의 일본 모집이 확대되는지는 알 수 없다.",
+          "source": "공식",
+          "url": "https://ameblo.jp/wonjinbeautyjpn/entry-12980972437.html",
+          "hl": "hospital",
+          "hl_reason": "WONJIN은 처음이지만 일본 모니터 모집은 AB가 이미 했다(기존 전술 기록).",
+          "novelty": "new_method",
+          "novelty_reason": "일본 모니터 모집은 AB가 했으나 WONJIN은 처음이고 좋아요·리포스트·팔로우·LINE 메시지를 응모 조건으로 묶은 방식은 기존 전술 기록에 없음"
+        },
+        {
+          "id": "2026-10-banobagi-expectant-mom-breast",
+          "date": "2026-09-30",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BANOBAGI",
+          "channel": "공식홈페이지",
+          "country": "한국",
+          "kind": "상품브랜딩",
+          "title": "바노바기 공식 사이트 언론보도란, '가슴성형 고민하는 예비맘' 모유수유 체크포인트 칼럼 게재",
+          "detail": "바노바기 공식 사이트 언론보도 게시판에 코리아포스트 칼럼(2026-09-30)이 게시됐다. 가슴성형이 모유수유를 배제하지 않는다는 전제에서, 임신·수유 계획의 조기 공유, 절개 위치, 유선·유관 보존, 조직 보존 기법(Motiva Preserve 언급) 등 4가지 확인점을 설명하고 바노바기 원장의 조언을 인용한다. 게시판 자체 날짜는 없어 칼럼 출처 날짜를 date로 적었고, 외부 기사를 재게시한 홍보성 콘텐츠로 읽어야 한다.",
+          "why": "가슴성형을 수유 이후가 아닌 임신·수유 전 계획 단계 고객까지 넓혀 세분화한 콘텐츠다. 기사 재게시 형태로 신뢰 근거를 더했다.",
+          "view": "VIEW가 가슴·Mommy 세그먼트를 다룰 때 수유 계획, 조직 보존, 회복 경과를 한 번에 설명하는 콘텐츠 구조를 참고할 수 있다.",
+          "source": "공식",
+          "url": "https://www.banobagi.com/bbs/sub07_07_2/266385",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-gov-ai-kbeauty-support",
+          "date": "2026-10-14",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "업계",
+          "channel": "뉴스",
+          "country": "한국",
+          "kind": "기타",
+          "title": "정부 'AI·융복합 K-뷰티 서비스 지원방안' 발표: AI 피부진단 거점, K-healthcare 통합 허브, 의료관광 비자 유치기관 요건 완화",
+          "detail": "정책브리핑(korea.kr)에 따르면 재정경제부 주관 경제장관회의(2026-10-14) 안건으로 AI·융복합 K-뷰티 서비스 지원방안이 논의됐다. AI 피부진단·맞춤 화장품, 홍대·명동·부산 AI 피부진단 거점, 병원 정보·사전상담·예약·결제·진료 전후 관리·숙박/관광 연계를 묶는 K-healthcare 통합 허브(2026년 정보화전략 연구 후 2027-2028 구축), 의료관광 비자 유치기관 연간 실적 기준 500건에서 200건 완화, 외국인환자 유치 코디네이터 상한 확대 검토, 환자 권리·계약서·견적·동의서 다국어 번역 등이 포함됐다. 허브는 연구 단계이며 구축 시기는 2027-2028이다.",
+          "why": "병원 개별 움직임이 아니라, AI 상담·예약·결제·사후관리·관광을 한 플랫폼으로 묶는 방향을 정부가 공식화했다. 병원 단독 AI 상담이나 사후관리 경쟁의 환경이 바뀔 수 있다.",
+          "view": "다국어 견적·동의서와 AI 상담 데이터 체계를 지금 정리해 두면 허브 연계 시 유리하다. 비자·코디네이터 요건 완화는 유치 채널 설계에 영향을 줄 수 있어 세부 시행 시기를 계속 확인해야 한다.",
+          "source": "공식",
+          "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148973459",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-yna-foreign-medical-spend",
+          "date": "2026-10-18",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "업계",
+          "channel": "뉴스",
+          "country": "한국",
+          "kind": "기타",
+          "title": "연합뉴스, 올해 1~9월 외국인 관광객 의료소비 1조8,398억 원(+57.9%), 피부과 비중 상승·성형외과 비중 하락",
+          "detail": "연합뉴스(2026-10-18 06:35)가 한국관광데이터랩 자료를 인용해 2026년 1~9월 외국인 관광객의 국내 의료소비액이 1조8,398억 원(전년 대비 57.9% 증가), 소비 건수가 442만7,613건(69.0% 증가)이라고 보도했다. 피부과 소비는 약 63.8%, 성형외과는 약 24.5% 늘었고, 의료소비액 내 비중은 피부과 53.72%에서 55.72%로 올랐으며 성형외과는 24.53%에서 19.35%로 낮아졌다. 한국관광데이터랩 집계 기준이며 소비액 기준 비중이라 환자 수와는 다를 수 있다.",
+          "why": "외국인 의료소비에서 피부과 비중이 절반을 넘고 성형외과 비중이 줄어, 외국인 수요가 피부 시술 중심으로 이동하는 흐름이 수치로 나왔다. 앞서 국감 자료(2025년)와 달리 올해 부가세 환급 종료 이후의 소비 구조를 보여 준다.",
+          "view": "피부 시술 입문 고객을 성형 상담으로 잇는 상품과 콘텐츠(피부에서 수술로 전환)를 준비하고, 성형 단독 메시지보다 복합 패키지 안내를 강화하는 방향을 검토할 수 있다.",
+          "source": "언론",
+          "url": "https://www.yna.co.kr/view/AKR20261017028400030",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-comm-cafe-review-integrity",
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "업계",
+          "channel": "네이버카페",
+          "country": "한국",
+          "kind": "후기신뢰",
+          "title": "네이버 카페 성형위키백과 운영진, 10/20부터 신규 후기의 광고성·브로커 글 제재 공지",
+          "detail": "검색으로 수집된 카페 운영진 공지에 따르면 이 카페는 10월 20일(화)부터 새로 올라오는 후기에 광고성 글 제재를 적용하고, 반복되면 강제탈퇴시키며 이상한 후기는 '브로커·광고 신고' 게시판으로 받는다고 한다. 수술 동기 글에서는 특정 병원 홍보성 댓글과 연락처로 유도하는 댓글을 삭제한다고 밝혔다. 병원의 움직임이 아니라 커뮤니티 운영진의 공지이며, 공지 전문이 아닌 수집된 본문 일부 기준이다.",
+          "why": "소비자가 광고성·브로커 후기를 의심하는 흐름을 커뮤니티가 직접 규제하기 시작했다. 병원이 후기를 올리거나 협찬 후기를 유통하는 방식이 이 카페에서는 노출·제재 위험이 커질 수 있다.",
+          "view": "후기 노출 전략을 카페 후기에 의존한다면 협찬 표기와 실제 이용 확인 방식을 정해 두고, 만족도 모니터링에서도 광고의심 글을 따로 분리해 본다.",
+          "source": "커뮤니티 주장",
+          "url": "https://cafe.naver.com/juliett00/1768651",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "other"
+        },
+        {
+          "id": "2026-10-comm-wonjin-livex-blogs",
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "WONJIN",
+          "channel": "네이버블로그",
+          "country": "한국",
+          "kind": "바이럴",
+          "title": "속옷 브랜드 리뷰 블로그 여러 건이 '원진성형외과와 파트너십'을 같은 취지 문장으로 언급",
+          "detail": "수집된 네이버 블로그 6건이 리브엑스 속옷 제품 리뷰에서 이 브랜드가 2026년부터 강남 TOP3 성형외과 중 한 곳인 원진(WONJIN)과 파트너십을 맺었다고 비슷한 문장으로 전했다. 한 게시물은 이를 브랜드 측 설명이라고 밝혔다. 원진 공식 채널에서는 확인하지 못했고, 협찬·체험단 여부는 불분명하다. 같은 문구가 반복돼 브랜드 제공 문안이 쓰였을 가능성이 있으나 확인된 것은 아니다.",
+          "why": "병원이 직접 올린 글이 아니라 소비재 브랜드와 블로거가 병원 이름을 신뢰 근거로 쓰는 형태다. 병원 홍보 채널 밖에서 블로그 후기 형태로 병원 이름이 노출된다.",
+          "view": "VIEW 이름이 제휴 상품 리뷰에 쓰이는 경우를 대비해 블로그 모니터링 키워드에 제휴 문구를 포함하고, 원진 측 공식 발표 여부를 WEB 담당과 함께 확인한다.",
+          "source": "커뮤니티 주장",
+          "url": "https://blog.naver.com/osim222u/224443729897",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "new_method",
+          "novelty_reason": "속옷 브랜드와의 파트너십 문구를 블로그 리뷰에 퍼뜨리는 이종 브랜드 제휴 바이럴은 기존 전술 기록에 없음(원진 공식 확인 안 됨, 협찬 여부 불분명)"
         }
       ],
       "coverage": {
-        "Reddit": "확인불가(웹검색·열람 도구에서 reddit.com 접근 차단)",
-        "PurseForum": "확인불가(열람 시 403 차단, 검색에 기간 내 글 없음)",
-        "RealSelf": "확인불가(열람 시 403 차단, 검색으로 기간 내 개별 후기 URL 미확인)",
+        "Reddit": "일부 확인·5건 수집(검색이 로그인 요구로 중단돼 이후 검색은 확인불가). 기간 내 후기 2건 반영, ID 1건은 게시 시기가 오래돼 제외",
+        "PurseForum": "확인불가(자동 수집 도구로 접근하지 못했고 직접 후기 URL도 확인하지 못함)",
+        "RealSelf": "확인불가(자동 수집 도구로 접근하지 못했고 직접 후기 URL도 확인하지 못함)",
         "의료관광플랫폼": "2026-10-19 확인·2건(일본 에이전시 상담회 DA·DREAM)",
-        "Quora": "확인불가(검색 결과 없음)",
-        "강남언니": "확인불가(검색 결과 없음)",
-        "바비톡": "확인불가(검색 결과 없음)",
-        "네이버카페": "확인불가(웹검색으로 접근 불가)",
-        "네이버블로그": "확인불가(웹검색으로 접근 불가)",
-        "Instagram": "확인불가(로그인 필요)",
+        "Quora": "확인불가(이번 자동 수집 대상이 아니었고 웹검색에서도 기간 내 글을 확인하지 못함)",
+        "강남언니": "확인불가(자동 수집 도구로 접근하지 못했고 직접 후기 URL도 확인하지 못함)",
+        "바비톡": "확인불가(자동 수집 도구로 접근하지 못했고 직접 후기 URL도 확인하지 못함)",
+        "네이버카페": "2026-10-19 확인·149건 수집(병원명 검색), 병원 이용 후기 31건 반영. 광고성·무관 글 제외, 다수 게시일 미표시(네이버 기간 필터 결과)",
+        "네이버블로그": "2026-10-19 확인·0건(수집 209건 열람, 대부분 병원·광고성 글이며 게시일 미표시라 제외. blog.naver.com 본문 열람은 막혀 확인 못 함)",
+        "Instagram": "2026-10-19 확인·23건(NANA·BANOBAGI·BRAUN 등 일부 계정은 차단으로 확인불가)",
         "Facebook": "2026-10-19 확인·0건",
         "TikTok": "확인불가(로그인 필요)",
-        "YouTube": "확인불가(검색 결과 없음)",
+        "YouTube": "2026-10-19 확인·29건",
         "X": "확인불가(검색 결과 없음)",
         "Threads": "확인불가(검색 결과 없음)",
         "Pinterest": "확인불가(검색 결과 없음)",
         "Lemon8": "확인불가(검색 결과 없음)",
-        "Note": "확인불가(검색 결과 없음)",
-        "Ameblo": "2026-10-19 확인·2건",
-        "Pantip": "2026-10-19 확인·0건(검색에 기간 내 글 없음)",
-        "Webtretho": "확인불가(검색 결과 없음)",
+        "Note": "2026-10-19 확인·1건(NANA 일본 2편 중 1편은 기존 Ameblo 항목에 통합)",
+        "Ameblo": "2026-10-19 확인·3건",
+        "Pantip": "확인불가(접속 시간 초과로 수집 0건)",
+        "Webtretho": "확인불가(이번 자동 수집 대상이 아니었고 웹검색에서도 기간 내 글을 확인하지 못함)",
         "Xiaohongshu": "확인불가(접근 불가)",
         "Weibo": "확인불가(접근 불가)",
         "Douyin": "확인불가(접근 불가)",
-        "Dcard": "확인불가(검색 결과 없음)",
-        "FemaleDaily": "확인불가(검색 결과 없음)",
-        "뉴스": "2026-10-19 확인·4건",
-        "공식홈페이지": "2026-10-19 확인·3건(VIEW 2·AB 1, ID·DA·바노바기는 기간 내 날짜 있는 신규 공지 없음, 원진 공식 사이트는 확인 못 함)"
+        "Dcard": "확인불가(접속 시간 초과로 수집 0건)",
+        "FemaleDaily": "확인불가(이번 자동 수집 대상이 아니었고 웹검색에서도 기간 내 글을 확인하지 못함)",
+        "뉴스": "2026-10-19 확인·6건(기사 4·정책브리핑 1·연합뉴스 1)",
+        "공식홈페이지": "2026-10-19 확인·6건(VIEW 2·AB 2·DA 1·바노바기 1). 사이트맵 수정일 89건 중 게시일을 확인한 것만 반영했고 VIEW 영문 블로그는 게시일이 올해 1월이라 제외했다. 원진 공식 사이트는 확인 못 함"
       },
       "runs": [
         {
@@ -257,11 +669,703 @@
           "updated": 0,
           "skipped_dup": 0,
           "note": "VIEW AEO 협약·InnoRib·재생의료 지정, NANA 일본 늑연골 재수술 이벤트, DA 일본 치과 제휴 사후관리 등 9건 추가. 후기 플랫폼은 접근 차단으로 후기 0건",
-          "period": {"from": "2026-09-23", "to": "2026-10-19"}
+          "period": {
+            "from": "2026-09-23",
+            "to": "2026-10-19"
+          }
+        },
+        {
+          "date": "2026-10-19",
+          "added": 10,
+          "updated": 1,
+          "skipped_dup": 1,
+          "period": {
+            "from": "2026-09-19",
+            "to": "2026-10-19"
+          },
+          "note": "SNS 담당: YouTube·Instagram 원자료에서 전략적 움직임 9건 추가(DA Clinic 서울 개원, VIEW News, ID 신사동의국 등). VIEW 재생의료 지정 Instagram 게시는 기존 항목과 동일 사건이라 갱신. 소비자 후기 0건. TikTok 로그인 필요, Instagram 일부 계정 차단."
+        },
+        {
+          "date": "2026-10-19",
+          "added": 8,
+          "updated": 1,
+          "skipped_dup": 0,
+          "period": {
+            "from": "2026-09-19",
+            "to": "2026-10-19"
+          },
+          "note": "WEB 담당: AB K-medi 허브·일본어 플랫폼 키워드 글, DA 명동 영문 사이트, NANA Note, 원진 일본 모니터 모집, 바노바기 예비맘 칼럼, 정부 K-뷰티 지원방안, 외국인 의료소비 통계 8건 추가, NANA 눈매 분석 항목에 Note 통합. 네이버 블로그는 본문 열람 불가·게시일 미표시로 0건. 사이트맵은 수정일이라 게시일 확인분만 반영."
+        },
+        {
+          "date": "2026-10-19",
+          "added": 36,
+          "updated": 0,
+          "skipped_dup": 4,
+          "period": {
+            "from": "2026-09-19",
+            "to": "2026-10-19"
+          },
+          "note": "커뮤니티 담당: 후기 34건 추가(카페 31, 블로그 1, Reddit 2; 원진·AB 비교 글 1건은 1명으로 집계), 만족도 7개 병원 재계산, 커뮤니티 주장 2건(카페 후기 규제 공지, 원진 파트너십 블로그) 추가. 광고의심 2건은 점수 제외, ID Reddit 1건은 시기 불명으로 제외. 전 병원 표본 5명 미만 또는 긍정 편중."
         }
       ],
-      "reviews": [],
-      "satisfaction": {}
+      "reviews": [
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담"
+          ],
+          "summary": "가슴 상담을 여러 곳 다녀온 작성자가 VIEW의 상담 만족도가 가장 좋았다고 적었다(수술 전 질문 글, 수술 경험은 아님). (게시일 미표시)",
+          "url": "https://cafe.naver.com/fox5282/4978648",
+          "author_key": "c7dd435c1e"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "VIEW에서 코수술을 받고 붓기가 남은 상태지만 옆모습 변화에 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/fox5282/4978540",
+          "author_key": "ce820ec7e2"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "VIEW",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "집도의",
+            "회복"
+          ],
+          "summary": "코수술 1주 차에 큰 불편 없이 지냈고 집도의 실력이 좋은 것 같다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11225330",
+          "author_key": "c72a20e047"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "상담",
+            "광고의심"
+          ],
+          "summary": "상담이 1시간가량 꼼꼼했다는 개인 글이나 병원명+후기 표현을 반복하는 키워드형 문장이라 광고성 여부가 불분명해 만족도 계산에서 제외했다. (게시일 미표시)",
+          "url": "https://cafe.naver.com/mabounggan/2275",
+          "author_key": "c07591b817"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "결과"
+          ],
+          "summary": "안면거상·목거상 상담에서 얼굴 특성에 맞춘 디자인을 설명받았고 일상에 활력이 생겼다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11225198",
+          "author_key": "cd2d96659c"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과"
+          ],
+          "summary": "가슴확대에서 체형에 맞는 보형물을 고르게 해 줘 자연스러운 볼륨에 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11225089",
+          "author_key": "c6e60a508e"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "흉터",
+            "회복"
+          ],
+          "summary": "윤곽 2종과 눈밑뒷트임 3개월 차에 당김과 흉터가 사라져 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11225001",
+          "author_key": "ca7b16cc5c"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "결과"
+          ],
+          "summary": "CT로 뼈와 지방층을 보며 설명을 들은 뒤 광대축소를 받았고 2개월 차에 윤곽이 자리 잡는 중이라는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/cosmania/38496950",
+          "author_key": "cb65ab30b7"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "결과",
+            "회복"
+          ],
+          "summary": "코재수술 상담에서 첫 수술의 문제와 재료 선택을 짚어 줘 신뢰했고 초기 붓기·멍은 있었다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224155",
+          "author_key": "c2d0ef87e5"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "사후관리",
+            "집도의",
+            "회복"
+          ],
+          "summary": "윤곽·턱끝 수술 1주 차에 붓기가 빨리 빠졌고 문의에 빠짐없이 답변받아 안심했다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224867",
+          "author_key": "ccb6329062"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "눈재수술·코수술 한 달 차에 눈매는 또렷해졌으나 코끝이 딱딱하고 뭉툭한 느낌과 붓기가 남았다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224729",
+          "author_key": "c6e399aacc"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "눈밑지 수술 한 달 차에 불편감이 사라졌고 눈밑이 평평해졌다는 말을 들었다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224331",
+          "author_key": "cc296e8009"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "회복",
+            "집도의"
+          ],
+          "summary": "모티바 가슴수술 2개월 차에 통증이 없고 살성이 풀려 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11223396",
+          "author_key": "cfe73376db"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "상담",
+            "가격",
+            "광고의심"
+          ],
+          "summary": "가슴성형 상담 후기이나 작성 안내 문구가 그대로 남은 양식형 글이라 광고성 여부가 불분명해 만족도 계산에서 제외했다(가격대는 있는 편이라는 언급). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11223197",
+          "author_key": "cff2269ece"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "흉터",
+            "집도의"
+          ],
+          "summary": "가슴수술 4개월 차에 수술 자국이 작고 케어 과정에서 불편이 없었다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11222663",
+          "author_key": "ccb72f4c4c"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과"
+          ],
+          "summary": "엔젤코성형 2개월 차에 코끝 모양이 마음에 들어 만족도가 높다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11222332",
+          "author_key": "c776e7f854"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "집도의"
+          ],
+          "summary": "가슴·다른 수술 한 달 경과에서 두 원장 모두 성공적이라고 느꼈다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11222130",
+          "author_key": "c662b38022"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "과잉권유"
+          ],
+          "summary": "눈재수술 상담이 친절했고 과한 권유 없이 진행돼 붓기가 빠지기 전이지만 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11221809",
+          "author_key": "c46c3d3571"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담"
+          ],
+          "summary": "가슴수술 전날 쓴 상담 후기로 병원 분위기와 실장 상담이 친절했다는 내용(수술 결과는 아님). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11221771",
+          "author_key": "c75b714cf8"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "NANA",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담"
+          ],
+          "summary": "엔젤코 상담에서 설명이 친절하고 자세했다는 개인 후기(수술 결과는 아님). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11221621",
+          "author_key": "c4e439027d"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "과잉권유",
+            "상담"
+          ],
+          "summary": "남자 눈 수술에서 과한 권유 없이 필요한 부분만 짚어 줘 원하던 라인이 나와 만족한다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11225482",
+          "author_key": "c66ac4f0b0"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "사후관리",
+            "집도의",
+            "회복"
+          ],
+          "summary": "코재수술 4주 차에 큰 붓기가 정리됐고 경과 체크가 꼼꼼했다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224964",
+          "author_key": "c42b579504"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "흉터",
+            "집도의"
+          ],
+          "summary": "휜코 재수술 한 달 차에 개선이 잘 됐고 자가늑 채취 부위 통증·흉터도 크지 않았다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/fox5282/4978063",
+          "author_key": "c528206f8b"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "집도의"
+          ],
+          "summary": "구축 케이스 수술 후 개선과 라인에 만족해 브라운을 추천한다는 개인 댓글성 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/juliett00/1768584",
+          "author_key": "c3a5e53590"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "얼굴 지방흡입과 근육묶기를 받고 과하지 않고 붓기도 심하지 않았다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11220735",
+          "author_key": "c46982fef4"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "집도의"
+          ],
+          "summary": "코·이중턱 상담을 여러 곳 다닌 뒤 브라운 상담이 가장 마음에 들었다는 글(수술 전 단계, 같은 내용 글 2건은 1명으로 집계). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224115",
+          "author_key": "c385611e1b"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "집도의"
+          ],
+          "summary": "첫 번째로 상담한 브라운 원장에게 수술하기로 하고 날짜를 잡았다는 글(수술 전 단계). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11223252",
+          "author_key": "cb8e27fb22"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담"
+          ],
+          "summary": "얼굴 지방흡입 상담 뒤 원하는 느낌을 살려 줄 것 같아 브라운으로 수술 예약을 고려한다는 글(수술 전 단계). (게시일 미표시)",
+          "url": "https://cafe.naver.com/fox5282/4977932",
+          "author_key": "cc93151667"
+        },
+        {
+          "date": "2026-10-16",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "BRAUN",
+          "platform": "Reddit",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "상담"
+          ],
+          "summary": "호주 거주 작성자가 의료관광으로 이용한 경험담을 올렸다는 제목의 개인 게시물. 본문은 열람하지 못해 평가 방향을 알 수 없어 중립으로 처리했다. 같은 작성자로 보이는 별도 게시물(r/SeoulPlasticSurgery)은 1명으로 집계했다.",
+          "url": "https://www.reddit.com/r/KoreaSeoulBeauty/comments/1x7abpp/my_honest_experience_of_braun_plastic_surgery_as/",
+          "author_key": "ce2f9bb71b"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "WONJIN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "집도의"
+          ],
+          "summary": "어머니와 함께 거상·실리프팅 상담을 다니다 원장의 노화·처짐 설명을 듣고 원진을 선택했다는 글(수술 전 단계). (게시일 미표시)",
+          "url": "https://cafe.naver.com/feko/11224758",
+          "author_key": "c4187600fb"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "WONJIN",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "상담",
+            "가격"
+          ],
+          "summary": "원진과 AB를 상담한 작성자가 코 상태 확인이 꼼꼼했고 이목구비에 맞춘 라인 제안이 좋았으며 가격도 합리적이었다고 적었다(재수술 고민 중, AB도 함께 비교하며 같은 장점을 적어 AB 항목에는 따로 넣지 않고 1명으로 집계). (게시일 미표시)",
+          "url": "https://cafe.naver.com/luxury009/1515700",
+          "author_key": "c5e8d82f49"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "platform": "네이버블로그",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "상담"
+          ],
+          "summary": "강남 방문 일정의 마지막으로 코성형 상담을 받으러 AB에 갔다는 개인 블로그 글. 본문 일부만 열람해 평가 방향을 알 수 없고 협찬 여부도 불분명해 중립으로 처리했다.",
+          "url": "https://blog.naver.com/beauyonce/224442799362",
+          "author_key": "c1d83a3ed3"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "AB",
+          "platform": "Reddit",
+          "country": "한국",
+          "sentiment": "중립",
+          "topics": [
+            "상담"
+          ],
+          "summary": "AB 후기라는 제목의 개인 게시물이 올라왔다. 본문은 열람하지 못해 평가 방향을 알 수 없어 중립으로 처리했다.",
+          "url": "https://www.reddit.com/r/KoreaSeoulBeauty/comments/1x3qbdd/ab_plastic_surgery_review/",
+          "author_key": "cce0e72a2a"
+        },
+        {
+          "date": "2026-10-19",
+          "found": "2026-10-19",
+          "last_seen": "2026-10-19",
+          "hospital": "DREAM",
+          "platform": "네이버카페",
+          "country": "한국",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "상담",
+            "과잉권유"
+          ],
+          "summary": "가슴수술 한 달 차에 체형과 피부 두께를 재 보형물을 맞춰 추천받았고 무리한 권유가 없었다는 개인 후기. (게시일 미표시)",
+          "url": "https://cafe.naver.com/knife67/724022",
+          "author_key": "c2476ab618"
+        }
+      ],
+      "satisfaction": {
+        "VIEW": {
+          "n": 3,
+          "pos": 3,
+          "neu": 0,
+          "neg": 0,
+          "score": 5.0,
+          "good": [
+            "상담 만족도",
+            "코수술 결과·붓기 경과"
+          ],
+          "bad": [
+            "확인된 불만 없음(표본 3명)"
+          ],
+          "prev_score": null
+        },
+        "DA": {
+          "n": 5,
+          "pos": 5,
+          "neu": 0,
+          "neg": 0,
+          "score": 5.0,
+          "good": [
+            "꼼꼼한 상담·디자인 설명",
+            "가슴·윤곽·눈 수술 결과 만족"
+          ],
+          "bad": [
+            "확인된 불만 없음(광고성 의심 1건 제외)"
+          ],
+          "prev_score": null
+        },
+        "NANA": {
+          "n": 10,
+          "pos": 9,
+          "neu": 1,
+          "neg": 0,
+          "score": 4.8,
+          "good": [
+            "빠른 문의 응답·사후관리",
+            "가슴·코·눈 결과와 회복 만족",
+            "과한 권유 없는 상담"
+          ],
+          "bad": [
+            "코끝이 딱딱하고 뭉툭한 느낌, 붓기 잔존(1명)"
+          ],
+          "prev_score": null
+        },
+        "BRAUN": {
+          "n": 9,
+          "pos": 8,
+          "neu": 1,
+          "neg": 0,
+          "score": 4.8,
+          "good": [
+            "집도의 경과 체크",
+            "과한 권유 없는 상담",
+            "코·눈·지방흡입 결과 만족"
+          ],
+          "bad": [
+            "확인된 불만 없음(Reddit 1건은 평가 방향 미확인)"
+          ],
+          "prev_score": null
+        },
+        "WONJIN": {
+          "n": 2,
+          "pos": 2,
+          "neu": 0,
+          "neg": 0,
+          "score": 5.0,
+          "good": [
+            "상담에서 설명이 꼼꼼함"
+          ],
+          "bad": [
+            "확인된 불만 없음(표본 2명, 수술 전 단계 글 위주)"
+          ],
+          "prev_score": null
+        },
+        "AB": {
+          "n": 2,
+          "pos": 0,
+          "neu": 2,
+          "neg": 0,
+          "score": 3.0,
+          "good": [
+            "(평가 방향이 확인된 칭찬 없음)"
+          ],
+          "bad": [
+            "확인된 불만 없음(본문 미열람 2건은 중립 처리)"
+          ],
+          "prev_score": null
+        },
+        "DREAM": {
+          "n": 1,
+          "pos": 1,
+          "neu": 0,
+          "neg": 0,
+          "score": 5.0,
+          "good": [
+            "체형·피부 두께 측정 후 보형물 추천",
+            "무리한 권유 없음"
+          ],
+          "bad": [
+            "확인된 불만 없음(표본 1명)"
+          ],
+          "prev_score": null
+        }
+      }
     }
-  }
+  },
+  "seen_urls": {},
+  "manual_check": [],
+  "manual_check_at": "2026-10-19 15:18"
 }

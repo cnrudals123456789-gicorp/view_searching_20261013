@@ -3,7 +3,7 @@
 요약 규칙은 순위체크_프로그램/summary.py 의 summarize() 와 같다 (openpyxl 불필요)."""
 import csv, json, re, sys
 from collections import OrderedDict
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 src = Path(sys.argv[1])
@@ -49,8 +49,14 @@ for ts in sorted(runs):
     if sum(len(v) for v in items.values()) >= 15:   # 일부 키워드만 돈 시험·재확인 회차 제외
         data_runs.append({"ts": ts[:16], "items": items})
 
+KEEP_DAYS = 30                                      # 한 달 넘은 회차는 웹 자료에서 폐기 (원본 CSV 는 건드리지 않음)
+cutoff = (datetime.now() - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+recent = [r for r in data_runs if r["ts"][:10] >= cutoff]
+dropped = len(data_runs) - len(recent)
+data_runs = recent or data_runs[-1:]                # 한 달간 조회가 없었어도 최신 회차 1개는 남김
+
 doc = {"generated": datetime.now().strftime("%Y-%m-%d %H:%M"), "target": settings["target"],
        "pc_target": settings["pc_target"], "order": order, "runs": data_runs}
 out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-print(f"{out}  runs={len(data_runs)}  {out.stat().st_size//1024}KB")
+print(f"{out}  runs={len(data_runs)} (보관 {KEEP_DAYS}일, 폐기 {dropped}회차)  {out.stat().st_size//1024}KB")

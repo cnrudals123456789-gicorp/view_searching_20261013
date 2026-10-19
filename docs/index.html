@@ -32,6 +32,7 @@
   --up:#5fd0a0; --down:#ef7b7a;
 }
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Malgun Gothic","Apple SD Gothic Neo",sans-serif}
 .wrap{max-width:1500px;margin:0 auto;padding:20px 20px 48px}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 640px;gap:24px;align-items:start}
@@ -69,7 +70,7 @@ tbody tr{cursor:pointer}
 .note{display:block;font-size:11px;color:var(--muted);font-weight:400}
 .dlt{font-size:12px;margin-left:4px}
 .up{color:var(--up)} .down{color:var(--down)}
-.legend{display:flex;gap:16px;font-size:13px;color:var(--ink2);margin:4px 0 8px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--ink2);margin:4px 0 8px}
 .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:baseline}
 svg{width:100%;height:auto;display:block}
 svg text{fill:var(--muted);font-size:11px}
@@ -79,6 +80,49 @@ svg text{fill:var(--muted);font-size:11px}
 @media (max-width:560px){.chip{min-width:44px}.note{display:none}}
 .lk{color:var(--pc);text-decoration:none;padding:2px 6px;border:1px solid var(--line);border-radius:6px}.lk:hover{border-color:var(--pc)}
 
+/* 경쟁사 동향 · 만족도 */
+:root{--hl-ind:#fde2e1;--hl-ind-ink:#8f1d1c;--hl-hosp:#fbf0d6;--hl-hosp-ink:#8a5a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--hl-ind:#4a1f1f;--hl-ind-ink:#f3a3a2;--hl-hosp:#3a2f12;--hl-hosp-ink:#e8b84a}}
+:root[data-theme="dark"]{--hl-ind:#4a1f1f;--hl-ind-ink:#f3a3a2;--hl-hosp:#3a2f12;--hl-hosp-ink:#e8b84a}
+.view-tabs{margin-right:8px}
+.cv td,.cv th{text-align:left;vertical-align:top;font-size:13px;padding:8px}
+.cv tbody tr{cursor:default}
+.cv tr.hl-industry td{background:var(--hl-ind)}
+.cv tr.hl-hospital td{background:var(--hl-hosp)}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;margin-right:4px;white-space:nowrap}
+.badge.industry{background:var(--hl-ind-ink);color:var(--surface)}
+.badge.hospital{background:var(--hl-hosp-ink);color:var(--surface)}
+.top-list{margin:0;padding-left:20px}.top-list li{margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.cchip{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink2)}
+.cchip.ok{border-color:var(--good);color:var(--good)}
+.cchip.miss{border-style:dashed;color:var(--muted)}
+.mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.bar3{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--grid);min-width:90px}
+.bar3 i{display:block}.bar3 .p{background:var(--good)}.bar3 .n{background:var(--none)}.bar3 .g{background:var(--down)}
+tr.me td{font-weight:700}
+.cv .sm{color:var(--muted);font-size:11px;display:block;font-weight:400}
+.heat{display:inline-block;min-width:26px;padding:1px 6px;border-radius:6px;text-align:center}
+.tw .cv{min-width:820px}
+/* 신규 브리핑 · 접기 */
+.brief{border-color:var(--ink2)}
+.brief-h{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.brief-h strong{font-size:17px}
+.bi{border-top:1px solid var(--line);padding:12px 0 10px}
+.bi:first-child{border-top:0}
+.bi-h{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;font-size:13px}
+.bi-t{font-weight:700;margin:4px 0 2px}
+.bi-r,.bi-v{font-size:13px;color:var(--ink2)}
+.bi-r b,.bi-v b{color:var(--ink)}
+.badge.nme{background:var(--pc);color:#fff}
+.badge.nmk{background:var(--mo);color:#fff}
+details.fold>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::before{content:'▸';color:var(--muted);display:inline-block;width:1em;transition:transform .15s}
+details.fold[open]>summary::before{transform:rotate(90deg)}
+details.sub-fold{border-top:1px solid var(--line);padding:6px 0}
+details.sub-fold>summary{cursor:pointer;font-size:13px;padding:4px 0}
+#cBrief .empty{color:var(--muted);padding:10px 0}
 /* 오른쪽 엑셀 양식 카드 (캡처용: 라이트 고정) */
 .rp-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
 .rp-ctl select{min-width:150px}
@@ -104,7 +148,7 @@ svg text{fill:var(--muted);font-size:11px}
 .xt td.no{color:#8a939c;font-size:12px}
 .rp-foot{margin-top:12px;padding-top:8px;border-top:1px solid #e4e8ec;font-size:12px;color:#6b7580;text-align:right}
 /* 캡처용 보기: 카드만 크게 */
-body.cap header,body.cap #runBox,body.cap .left,body.cap .tip{display:none}
+body.cap header,body.cap #runBox,body.cap #v-comp,body.cap #v-sat,body.cap .left,body.cap .tip{display:none}
 body.cap .wrap{max-width:760px;padding-top:16px}
 body.cap .layout{grid-template-columns:minmax(0,1fr)}
 body.cap #dayNav .nav-only{display:none}
@@ -119,12 +163,28 @@ body.cap #dayNav .nav-only{display:none}
       <div class="sub" id="meta">불러오는 중…</div>
     </div>
     <div class="bar" style="margin:0">
+      <div class="tabs view-tabs" role="group" aria-label="화면">
+        <button type="button" data-v="rank" aria-pressed="true">순위</button>
+        <button type="button" data-v="comp" aria-pressed="false">경쟁사 동향</button>
+        <button type="button" data-v="sat" aria-pressed="false">만족도</button>
+      </div>
       <button class="btn" id="checkNow" type="button" hidden style="background:var(--ink);color:var(--surface)">지금 조회하기</button>
+      <span id="resPeriod" hidden style="display:inline-flex;gap:6px;align-items:center">
+        <select id="resDays" aria-label="조사 기간">
+          <option value="7">최근 7일</option><option value="14" selected>최근 2주</option>
+          <option value="30">최근 30일</option><option value="90">최근 3개월</option><option value="custom">직접 지정</option>
+        </select>
+        <span id="resCustom" hidden style="display:inline-flex;gap:4px;align-items:center">
+          <input type="date" id="resFrom" aria-label="시작일"> ~ <input type="date" id="resTo" aria-label="종료일">
+        </span>
+      </span>
+      <button class="btn" id="researchNow" type="button" hidden>경쟁사 조사하기</button>
       <button class="btn" id="theme" type="button">테마 전환</button>
     </div>
   </header>
   <div class="card" id="runBox" hidden><strong id="runMsg"></strong><pre id="runLog" style="margin:8px 0 0;font-size:12px;color:var(--ink2);white-space:pre-wrap;max-height:220px;overflow:auto"></pre></div>
 
+  <div id="v-rank">
   <div class="layout">
   <main class="left">
   <div class="sum" id="sum"></div>
@@ -170,6 +230,64 @@ body.cap #dayNav .nav-only{display:none}
     <div class="rp" id="report"></div>
   </aside>
   </div>
+  </div>
+
+  <section id="v-comp" hidden>
+    <div class="bar">
+      <button class="btn" id="cPrev" type="button" aria-label="이전 달">◀</button>
+      <select id="cMonth" aria-label="월"></select>
+      <button class="btn" id="cNext" type="button" aria-label="다음 달">▶</button>
+      <span class="sp"></span>
+      <button class="btn" id="cXls" type="button">이 달 엑셀</button>
+    </div>
+    <div class="card brief">
+      <div class="brief-h"><strong>이번 기간 새로운 것</strong><span class="sub" id="cBriefSub"></span></div>
+      <div class="legend" style="margin:6px 0 0"><span><span class="badge nme">새 바이럴 방식</span></span><span><span class="badge nmk">새 해외시장·유입</span></span><span><span class="badge industry">업계 최초</span>전례 없음</span><span><span class="badge hospital">병원 첫 시도</span>타 병원엔 있음</span></div>
+      <div id="cBrief"></div>
+    </div>
+    <details class="card fold" id="cAllBox">
+      <summary><strong>기존 흐름·기타 동향</strong> <span class="sub" id="cAllSub"></span></summary>
+      <div class="bar" style="margin:10px 0 8px">
+        <select id="cHosp" aria-label="병원"></select>
+        <select id="cKind" aria-label="유형"></select>
+        <label class="sub"><input type="checkbox" id="cOnlyHl"> 강조만 보기</label>
+        <label class="sub"><input type="checkbox" id="cWithNew"> 신규 포함 전체</label>
+      </div>
+      <div class="tw"><table class="cv"><thead><tr><th>조사일</th><th>게시일</th><th>병원</th><th>채널</th><th>움직임</th><th>왜 특별한가</th><th>VIEW 시사점</th><th>출처</th></tr></thead><tbody id="cRows"></tbody></table></div>
+    </details>
+    <details class="card fold" id="cManualBox" hidden>
+      <summary><strong>직접 확인 필요</strong> <span class="sub" id="cManualSub"></span></summary>
+      <div class="hint" style="margin:6px 0 8px">자동 수집이 로그인·차단·오류 화면을 만나 멈춘 검색입니다. 채널을 눌러 펼친 뒤 링크로 직접 확인해 주세요.</div>
+      <div id="cManual"></div>
+    </details>
+    <details class="card fold">
+      <summary><strong>이번 달 핵심 움직임</strong> <span class="sub" id="cTopSub"></span></summary>
+      <ol class="top-list" id="cTop"></ol>
+    </details>
+    <details class="card fold">
+      <summary><strong>병원별 건수 · 확인한 채널 · 조사 이력</strong></summary>
+      <div class="sub" style="margin-top:10px">병원별 건수 (지난달 대비)</div><div class="mini" id="cCount" style="margin-top:6px"></div>
+      <div class="sub" style="margin-top:14px">이번 달 확인한 채널</div><div class="chips" id="cCov" style="margin-top:6px"></div>
+      <div class="sub" style="margin-top:14px">조사 이력 (신규 / 갱신 / 중복 제외)</div><div id="cRuns" class="sub" style="margin-top:6px"></div>
+    </details>
+    <div class="hint" id="cMeta"></div>
+  </section>
+
+  <section id="v-sat" hidden>
+    <div class="bar">
+      <button class="btn" id="sPrev" type="button" aria-label="이전 달">◀</button>
+      <select id="sMonth" aria-label="월"></select>
+      <button class="btn" id="sNext" type="button" aria-label="다음 달">▶</button>
+      <select id="sHosp" aria-label="병원"></select>
+      <select id="sSent" aria-label="감정"></select>
+      <span class="sp"></span>
+      <button class="btn" id="sXls" type="button">이 달 엑셀</button>
+    </div>
+    <div class="card tw"><table class="cv"><thead><tr><th>병원</th><th>점수(5점)</th><th>긍정·중립·부정</th><th>인원</th><th>지난달</th><th>주요 칭찬</th><th>주요 불만</th></tr></thead><tbody id="sRows"></tbody></table></div>
+    <div class="card"><strong>불만 주제 (병원 × 주제)</strong><div class="tw" id="sHeat" style="margin-top:8px"></div></div>
+    <div class="card tw"><strong>후기 목록</strong><table class="cv" style="margin-top:8px"><thead><tr><th>조사일</th><th>작성일</th><th>병원</th><th>플랫폼</th><th>감정</th><th>주제</th><th>요약(개인 주장)</th></tr></thead><tbody id="sList"></tbody></table></div>
+    <div class="hint">같은 작성자가 여러 곳에 올린 글은 1명으로 집계합니다. 커뮤니티 글은 개인 주장이며 사실로 확정된 내용이 아닙니다. 후기 5건 미만은 표본이 적습니다.</div>
+  </section>
 </div>
 <div class="tip" id="tip"></div>
 
@@ -192,33 +310,221 @@ fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()}).catch(e=>
 // '지금 조회하기' — 이 PC 의 로컬 서버(serve.py)로 열었을 때만 표시
 const LOCAL=['127.0.0.1','localhost'].includes(location.hostname);
 if(LOCAL){
-  $('#checkNow').hidden=false;
+  $('#checkNow').hidden=false; $('#researchNow').hidden=false;
   $('#checkNow').onclick=async()=>{
     if(!confirm('지금 순위를 새로 조회합니다. 5~10분 걸리고, 끝나면 웹에 자동 게시됩니다. 진행할까요?')) return;
     const r=await fetch('/api/check',{method:'POST'}); const j=await r.json();
     if(!j.ok) alert(j.msg); poll();
   };
+  $('#resPeriod').hidden=false;
+  const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const today=new Date(), ago=n=>{const d=new Date(); d.setDate(d.getDate()-n+1); return d};
+  $('#resTo').max=iso(today); $('#resFrom').max=iso(today);
+  // 프리셋을 고르면 날짜 칸도 그 기간으로 맞추고, 날짜 칸을 만지면 '직접 지정'으로 전환 (화면 = 실제 전송 기간)
+  const saveDays=()=>{try{localStorage.setItem('resDays',$('#resDays').value)}catch(e){}};
+  const fillPreset=()=>{const v=$('#resDays').value; if(v!=='custom'){$('#resTo').value=iso(today); $('#resFrom').value=iso(ago(+v));}};
+  const syncCustom=()=>{$('#resCustom').hidden=$('#resDays').value!=='custom'};
+  try{const v=localStorage.getItem('resDays'); if(v && [...$('#resDays').options].some(o=>o.value===v)) $('#resDays').value=v;}catch(e){}
+  if($('#resDays').value==='custom') $('#resDays').value='14';   // 날짜는 저장하지 않으므로 새로 열면 기본(2주)부터
+  fillPreset(); syncCustom();
+  $('#resDays').onchange=()=>{fillPreset(); syncCustom(); saveDays();};
+  ['#resFrom','#resTo'].forEach(s=>$(s).onchange=()=>{$('#resDays').value='custom'; syncCustom(); saveDays();});
+  $('#researchNow').onclick=async()=>{
+    const custom=$('#resDays').value==='custom';
+    const body=custom?{from:$('#resFrom').value,to:$('#resTo').value}:{days:+$('#resDays').value};
+    if(custom && (!body.from||!body.to)){alert('시작일과 종료일을 모두 선택해 주세요.'); return;}
+    if(custom && body.from>body.to){alert('시작일이 종료일보다 늦습니다.'); return;}
+    const label=(custom?'직접 지정':$('#resDays').selectedOptions[0].textContent)+` (${$('#resFrom').value} ~ ${$('#resTo').value})`;
+    if(!confirm(`경쟁사 프로모션·바이럴·만족도를 웹에서 새로 조사합니다.\n조사 기간: ${label}\n채널 수집(최대 25분)과 AI 분석을 합쳐 20~45분 걸리고 AI 사용량이 소모되며, 끝나면 공개 페이지(docs/competitor.json)에 자동 게시됩니다. 진행할까요?`)) return;
+    const r=await fetch('/api/research',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j=await r.json().catch(()=>({ok:false,msg:'서버 응답 오류 — serve.py 를 최신 코드로 다시 실행해 주세요.'}));
+    if(j.ok && j.period) lastPeriod=j.period;
+    if(!j.ok) alert(j.msg||'요청 실패'); poll();
+  };
   poll(true);
 }
-var pollTimer=null;
+var pollTimer=null, lastPeriod=null;
+
+// ===== 화면 전환 / 경쟁사 동향 / 만족도 =====
+let C=null, cLoading=null;
+const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\//i.test(u||'')?u:'';
+const host=u=>{try{return new URL(u).hostname.replace(/^(www|m)\./,'')}catch(e){return '링크'}};
+const link=u=>safeUrl(u)?`<a class="lk" href="${esc(safeUrl(u))}" target="_blank" rel="noopener noreferrer" title="${esc(u)}">${esc(host(u))} ↗</a>`:'<span class="sm">URL 없음</span>';
+const HLTXT={industry:'업계 최초',hospital:'병원 첫 시도'};
+const REQ_CH=['공식홈페이지','뉴스','네이버블로그','네이버카페','Instagram','YouTube','Ameblo','Note','Yahoo리얼타임','知恵袋','PTT','Pantip','Reddit'];   // 접근 가능한 채널만(2026-10-19 확인)
+const NOVTXT={new_method:'새 바이럴 방식',new_market:'새 해외시장·유입'}, NOVCLS={new_method:'nme',new_market:'nmk'};
+const isNew=it=>it.novelty==='new_method'||it.novelty==='new_market';
+const briefOf=m=>(m.items||[]).filter(isNew).sort((a,b)=>({industry:0,hospital:1}[a.hl]??2)-({industry:0,hospital:1}[b.hl]??2)||(b.date||'').localeCompare(a.date||'')).slice(0,10);
+const cm={c:null,s:null};
+const REASON={captcha:'CAPTCHA',login_required:'로그인 필요',blocked:'차단',timeout:'시간 초과',error:'오류'};
+const CHNAME={naver_blog:'네이버 블로그',naver_cafe:'네이버 카페',naver_news:'네이버 뉴스',youtube:'YouTube',reddit:'Reddit',x:'X',instagram:'Instagram',tiktok:'TikTok',ameblo:'Ameblo',note:'Note',pantip:'Pantip',dcard:'Dcard',yahoo_rt:'Yahoo!リアルタイム',chiebukuro:'知恵袋',ptt:'PTT',official:'공식 사이트',sitemap:'사이트맵'};
+const seen=o=>o.found&&o.last_seen&&o.last_seen!==o.found?`${o.found}<span class="sm">최근 확인 ${o.last_seen}</span>`:(o.found||'-');
+function loadComp(){
+  if(!cLoading) cLoading=fetch('competitor.json?'+Date.now()).then(r=>r.json()).then(d=>{C=d}).catch(e=>{cLoading=null;throw e});
+  return cLoading;
+}
+function months(){return C?Object.keys(C.months).sort():[]}
+function showView(v){
+  document.querySelectorAll('[data-v]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));
+  ['rank','comp','sat'].forEach(x=>{$('#v-'+x).hidden=x!==v});
+  try{history.replaceState(null,'',v==='rank'?location.pathname+location.search:'#'+v)}catch(e){}
+  if(v==='rank') return;
+  loadComp().then(()=>{initMonthSel(v);v==='comp'?renderComp():renderSat()})
+    .catch(()=>{$(v==='comp'?'#cMeta':'#sList').textContent='competitor.json 을 불러오지 못했습니다.'});
+}
+function initMonthSel(v){
+  const k=v==='comp'?'c':'s', sel=$('#'+k+'Month'), ms=months();
+  if(sel.dataset.ready===String(ms.length)) return;
+  sel.dataset.ready=String(ms.length);
+  sel.innerHTML=ms.slice().reverse().map(m=>`<option>${m}</option>`).join('')||'<option value="">자료 없음</option>';
+  cm[k]=ms[ms.length-1]||null; sel.value=cm[k]||'';
+  const redo=()=>v==='comp'?renderComp():renderSat();
+  sel.onchange=()=>{cm[k]=sel.value;redo()};
+  const step=d=>{const i=ms.indexOf(cm[k])+d; if(i>=0&&i<ms.length){cm[k]=ms[i];sel.value=cm[k];redo()}};
+  $('#'+k+'Prev').onclick=()=>step(-1); $('#'+k+'Next').onclick=()=>step(1);
+}
+function prevMonth(ym){const ms=months(), i=ms.indexOf(ym); return i>0?ms[i-1]:null}
+function fillSel(id,first,list){
+  const el=$(id), cur=el.value;
+  el.innerHTML=`<option value="">${first}</option>`+list.map(x=>`<option>${esc(x)}</option>`).join('');
+  if(list.includes(cur)) el.value=cur;
+}
+function compItems(){
+  const m=C.months[cm.c]||{}, all=m.items||[];
+  const h=$('#cHosp').value, k=$('#cKind').value, only=$('#cOnlyHl').checked, withNew=$('#cWithNew').checked;
+  return all.filter(it=>(withNew||!isNew(it))&&(!h||it.hospital===h)&&(!k||it.kind===k)&&(!only||it.hl))
+            .sort((a,b)=>(b.found||'').localeCompare(a.found||'')||(b.date||'').localeCompare(a.date||''));
+}
+function renderComp(){
+  const m=C.months[cm.c]||{}, all=m.items||[];
+  fillSel('#cHosp','전체 병원',[...new Set([...(C.hospitals||[]),...all.map(i=>i.hospital)])]);
+  fillSel('#cKind','전체 유형',[...new Set(all.map(i=>i.kind))]);
+  ['#cHosp','#cKind','#cOnlyHl','#cWithNew'].forEach(s=>$(s).onchange=renderComp);
+  $('#cXls').onclick=exportComp;
+  // 신규 브리핑(광고주 관심사: 새 바이럴 방식 · 새 해외시장·유입)
+  const br=briefOf(m);
+  $('#cBriefSub').textContent=br.length?`${br.length}건 · 업계 최초 → 병원 첫 시도 → 최신 순`:'';
+  $('#cBrief').innerHTML=br.map(it=>`<div class="bi">
+    <div class="bi-h"><span class="badge ${NOVCLS[it.novelty]}">${NOVTXT[it.novelty]}</span>${it.hl?`<span class="badge ${esc(it.hl)}">${HLTXT[it.hl]}</span>`:''}<b>${esc(it.hospital)}</b><span class="sub">${esc(it.channel)} · ${esc(it.date||'')}</span></div>
+    <div class="bi-t">${esc(it.title)}</div>
+    <div class="bi-r"><b>무엇이 새로운가</b> ${esc(it.novelty_reason||it.why)}</div>
+    ${it.view?`<div class="bi-v"><b>VIEW 시사점</b> ${esc(it.view)}</div>`:''}
+    <div style="margin-top:4px">${link(it.url)}</div></div>`).join('')
+    ||'<div class="empty">이번 기간에 확인된 새 바이럴 방식·새 해외시장 시도가 없습니다. 아래 "기존 흐름·기타 동향"을 펼쳐 보세요.</div>';
+  const rest=(m.items||[]).filter(it=>!isNew(it)).length;
+  $('#cAllSub').textContent=`${rest}건 (눌러서 펼치기)`;
+  // 직접 확인 필요: 채널별로 접기
+  const mc=(C.manual_check||[]).filter(x=>safeUrl(x.url)), byCh={};
+  mc.forEach(x=>(byCh[x.channel]=byCh[x.channel]||[]).push(x));
+  $('#cManualBox').hidden=!mc.length;
+  $('#cManualSub').textContent=mc.length?`${mc.length}건 · ${Object.entries(byCh).map(([c,v])=>`${CHNAME[c]||c} ${v.length}`).join(' · ')} · 수집 ${C.manual_check_at||''}`:'';
+  $('#cManual').innerHTML=Object.entries(byCh).map(([c,v])=>`<details class="sub-fold"><summary>${esc(CHNAME[c]||c)} ${v.length}건 · ${esc([...new Set(v.map(x=>REASON[x.reason]||x.reason))].join('/'))}</summary>
+    <div class="tw"><table class="cv"><thead><tr><th>병원</th><th>검색어</th><th>사유</th><th>열기</th><th>감지 시각</th></tr></thead><tbody>${v.map(x=>`<tr><td>${esc(x.hospital)}</td><td>${esc(x.query)}</td>
+    <td><span class="badge hospital">${esc(REASON[x.reason]||x.reason)}</span></td>
+    <td><a class="lk" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener noreferrer">검색 열기 ↗</a></td><td>${esc(x.at)}</td></tr>`).join('')}</tbody></table></div></details>`).join('');
+  $('#cTopSub').textContent=(m.top||[]).length?`${m.top.length}개`:'';
+  $('#cTop').innerHTML=(m.top||[]).map(t=>`<li>${esc(t)}</li>`).join('')||'<li class="sub">아직 조사 자료가 없습니다.</li>';
+  $('#cRows').innerHTML=compItems().map(it=>`<tr class="${it.hl?'hl-'+esc(it.hl):''}">
+    <td>${seen(it)}</td><td>${esc(it.date)}</td><td><b>${esc(it.hospital)}</b></td><td>${esc(it.channel)}${it.country?`<span class="sm">${esc(it.country)}</span>`:''}</td>
+    <td>${it.hl?`<span class="badge ${esc(it.hl)}" title="${esc(it.hl_reason)}">${HLTXT[it.hl]||''}</span>`:''}<b>${esc(it.title)}</b><span class="sm">${esc(it.kind)}</span>${esc(it.detail)}${it.hl&&it.hl_reason?`<span class="sm">근거: ${esc(it.hl_reason)}</span>`:''}</td>
+    <td>${esc(it.why)}</td><td>${esc(it.view)}</td><td>${esc(it.source)} ${link(it.url)}</td></tr>`).join('')
+    ||'<tr><td colspan="8" class="sub">조건에 맞는 항목이 없습니다.</td></tr>';
+  const pm=C.months[prevMonth(cm.c)]||{}, cnt=(arr,h)=>(arr||[]).filter(i=>i.hospital===h).length;
+  $('#cCount').innerHTML=(C.hospitals||[]).map(h=>{const a=cnt(m.items,h), b=pm.items?cnt(pm.items,h):null;
+    const d=b==null?'':(a-b>0?`<span class="dlt up">▲${a-b}</span>`:a-b<0?`<span class="dlt down">▼${b-a}</span>`:'');
+    return `<div class="tile"><b>${a}${d}</b><span>${esc(h)}</span></div>`}).join('');
+  const cov=m.coverage||{};
+  $('#cCov').innerHTML=REQ_CH.concat(Object.keys(cov).filter(k=>!REQ_CH.includes(k))).map(k=>cov[k]?`<span class="cchip ok" title="${esc(cov[k])}">${esc(k)}</span>`:`<span class="cchip miss" title="이번 달 확인 기록 없음">${esc(k)}</span>`).join('');
+  $('#cRuns').innerHTML=(m.runs||[]).slice().reverse().map(r=>`${esc(r.date)}${r.period?` (조사 기간 ${esc(r.period.from)} ~ ${esc(r.period.to)})`:''} — 신규 ${esc(r.added)} / 갱신 ${esc(r.updated)} / 중복 제외 ${esc(r.skipped_dup)}${r.note?' · '+esc(r.note):''}`).join('<br>')||'조사 이력이 없습니다.';
+  $('#cMeta').textContent='갱신 '+(C.updated||'-')+' · 점선 칩은 이번 달 확인 기록이 없는 채널입니다. 조사일 = 처음 발견한 날(아래 작은 글씨는 마지막으로 다시 확인한 날).';
+}
+const topicsOf=r=>r.topics||[];
+function renderSat(){
+  const m=C.months[cm.s]||{}, rv=m.reviews||[], sat=m.satisfaction||{}, ps=(C.months[prevMonth(cm.s)]||{}).satisfaction||{};
+  fillSel('#sHosp','전체 병원',[...new Set([...(C.hospitals||[]),...rv.map(r=>r.hospital)])]);
+  fillSel('#sSent','전체 감정',['긍정','중립','부정']);
+  ['#sHosp','#sSent'].forEach(s=>$(s).onchange=renderSat);
+  $('#sXls').onclick=exportSat;
+  const names=Object.keys(sat).sort((a,b)=>(a==='VIEW'?-1:b==='VIEW'?1:(sat[b].score||0)-(sat[a].score||0)));
+  $('#sRows').innerHTML=names.map(h=>{const s=sat[h], n=(s.pos||0)+(s.neu||0)+(s.neg||0)||1, pv=s.prev_score!=null?s.prev_score:(ps[h]?ps[h].score:null);
+    const d=pv==null?'-':(s.score>pv?`<span class="up">▲${(s.score-pv).toFixed(1)}</span>`:s.score<pv?`<span class="down">▼${(pv-s.score).toFixed(1)}</span>`:'=');
+    return `<tr class="${h==='VIEW'?'me':''}"><td>${esc(h)}</td><td><b>${s.score!=null?Number(s.score).toFixed(1):'-'}</b>${s.n<5?'<span class="sm">표본 적음</span>':''}</td>
+    <td><div class="bar3" title="긍정 ${s.pos||0} · 중립 ${s.neu||0} · 부정 ${s.neg||0}"><i class="p" style="width:${(s.pos||0)/n*100}%"></i><i class="n" style="width:${(s.neu||0)/n*100}%"></i><i class="g" style="width:${(s.neg||0)/n*100}%"></i></div><span class="sm">${s.pos||0} / ${s.neu||0} / ${s.neg||0}</span></td>
+    <td>${esc(s.n)}</td><td>${d}</td><td>${esc((s.good||[]).join(', '))}</td><td>${esc((s.bad||[]).join(', '))}</td></tr>`}).join('')
+    ||'<tr><td colspan="7" class="sub">아직 만족도 자료가 없습니다.</td></tr>';
+  const neg=rv.filter(r=>r.sentiment==='부정'), tp=[...new Set(neg.flatMap(topicsOf))], hs=[...new Set(neg.map(r=>r.hospital))];
+  $('#sHeat').innerHTML=!neg.length?'<span class="sub">부정 후기가 없습니다.</span>':`<table class="cv"><thead><tr><th>병원</th>${tp.map(t=>`<th>${esc(t)}</th>`).join('')}</tr></thead><tbody>${hs.map(h=>`<tr class="${h==='VIEW'?'me':''}"><td>${esc(h)}</td>${tp.map(t=>{const c=new Set(neg.filter(r=>r.hospital===h&&topicsOf(r).includes(t)).map(r=>r.author_key||r.url)).size;return `<td>${c?`<span class="heat" style="background:var(--hl-ind);color:var(--hl-ind-ink)">${c}</span>`:''}</td>`}).join('')}</tr>`).join('')}</tbody></table>`;
+  const h=$('#sHosp').value, se=$('#sSent').value;
+  $('#sList').innerHTML=rv.filter(r=>(!h||r.hospital===h)&&(!se||r.sentiment===se)).sort((a,b)=>(b.found||'').localeCompare(a.found||'')||(b.date||'').localeCompare(a.date||''))
+    .map(r=>`<tr><td>${seen(r)}</td><td>${esc(r.date)}</td><td><b>${esc(r.hospital)}</b></td><td>${esc(r.platform)}</td><td>${esc(r.sentiment)}</td><td>${esc(topicsOf(r).join(', '))}</td><td>${esc(r.summary)} ${link(r.url)}</td></tr>`).join('')
+    ||'<tr><td colspan="7" class="sub">조건에 맞는 후기가 없습니다.</td></tr>';
+}
+async function exportRows(fn,sheets){
+  const save=(blob,f)=>{const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=f; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),5000)};
+  if(window.ExcelJS){
+    const wb=new ExcelJS.Workbook(), thin={style:'thin'};
+    sheets.forEach(sh=>{
+      const ws=wb.addWorksheet(sh.name); ws.columns=sh.widths.map(width=>({width}));
+      const hr=ws.addRow(sh.head); hr.font={bold:true}; hr.eachCell(c=>{c.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFDFF3FB'}};c.border={top:thin,left:thin,bottom:thin,right:thin}});
+      sh.rows.forEach(r=>{const row=ws.addRow(r.v); row.alignment={wrapText:true,vertical:'top'};
+        row.eachCell({includeEmpty:true},c=>{c.border={top:thin,left:thin,bottom:thin,right:thin}; if(r.fill) c.fill={type:'pattern',pattern:'solid',fgColor:{argb:r.fill}}})});
+    });
+    save(new Blob([await wb.xlsx.writeBuffer()],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),fn+'.xlsx');
+  } else {
+    const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"', L=[];
+    sheets.forEach(sh=>{L.push(sh.head.map(q).join(',')); sh.rows.forEach(r=>L.push(r.v.map(q).join(','))); L.push('')});
+    save(new Blob([String.fromCharCode(0xFEFF)+L.join(String.fromCharCode(13,10))],{type:'text/csv'}),fn+'.csv');
+  }
+}
+function exportComp(){
+  const m=C.months[cm.c]||{};
+  const manual={name:'직접 확인 필요',widths:[14,12,28,12,60,18],head:['채널','병원','검색어','사유','검색 링크','감지 시각'],
+    rows:(C.manual_check||[]).filter(x=>safeUrl(x.url)).map(x=>({fill:'FFFBF0D6',v:[CHNAME[x.channel]||x.channel,x.hospital,x.query,REASON[x.reason]||x.reason,x.url,x.at]}))};
+  const brief={name:'신규 브리핑',widths:[16,12,10,12,14,44,44,40,40],
+    head:['유형','강조','병원','게시일','채널','새로운 것','무엇이 새로운가','VIEW 시사점','출처'],
+    rows:briefOf(m).map(it=>({fill:it.hl==='industry'?'FFFDE2E1':it.hl==='hospital'?'FFFBF0D6':null,
+      v:[NOVTXT[it.novelty],it.hl?HLTXT[it.hl]:'',it.hospital,it.date,it.channel,it.title,it.novelty_reason||it.why,it.view,safeUrl(it.url)]}))};
+  exportRows('뷰성형외과_경쟁사동향_'+cm.c,[brief,{name:cm.c+' 전체',widths:[12,12,12,16,40,32,32,24,30],
+    head:['조사일(처음 발견)','마지막 확인','게시일','병원','채널','움직임','왜 특별한가','VIEW 시사점','출처 / 강조'],
+    rows:(m.items||[]).slice().sort((a,b)=>(b.found||'').localeCompare(a.found||'')).map(it=>({
+      fill:it.hl==='industry'?'FFFDE2E1':it.hl==='hospital'?'FFFBF0D6':null,
+      v:[it.found,it.last_seen,it.date,it.hospital,it.channel,it.title+(it.detail?' - '+it.detail:''),it.why,it.view,
+         (it.source||'')+(safeUrl(it.url)?' '+it.url:'')+(it.hl?' ['+HLTXT[it.hl]+(it.hl_reason?': '+it.hl_reason:'')+']':'')]}))}].concat(manual.rows.length?[manual]:[]));
+}
+function exportSat(){
+  const m=C.months[cm.s]||{}, sat=m.satisfaction||{};
+  exportRows('뷰성형외과_만족도_'+cm.s,[
+    {name:'병원별',widths:[14,10,8,8,8,8,30,30],head:['병원','점수(5점)','긍정','중립','부정','인원','주요 칭찬','주요 불만'],
+     rows:Object.keys(sat).map(h=>({fill:h==='VIEW'?'FFDFF3FB':null,v:[h,sat[h].score,sat[h].pos,sat[h].neu,sat[h].neg,sat[h].n,(sat[h].good||[]).join(', '),(sat[h].bad||[]).join(', ')]}))},
+    {name:'후기',widths:[12,12,12,14,8,24,50,40],head:['조사일','작성일','병원','플랫폼','감정','주제','요약(개인 주장)','링크'],
+     rows:(m.reviews||[]).map(r=>({fill:r.sentiment==='부정'?'FFFDE2E1':null,v:[r.found,r.date,r.hospital,r.platform,r.sentiment,topicsOf(r).join(', '),r.summary,safeUrl(r.url)]}))}]);
+}
+document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>showView(b.dataset.v));
+if(location.hash==='#comp') showView('comp'); else if(location.hash==='#sat') showView('sat');
 
 async function poll(quiet){
   clearTimeout(pollTimer);
   let s; try{ s=await (await fetch('/api/status')).json(); }catch(e){ return; }
   const box=$('#runBox');
   if(s.running){
-    box.hidden=false; $('#checkNow').disabled=true;
-    $('#runMsg').textContent='조회 중… ('+s.started.slice(11)+' 시작) 창을 닫지 마세요';
+    box.hidden=false; $('#checkNow').disabled=true; $('#researchNow').disabled=true; $('#resDays').disabled=true;
+    $('#runMsg').textContent=(s.job==='research'?'경쟁사 조사 중…'+(lastPeriod?` [기간 ${lastPeriod.from} ~ ${lastPeriod.to}]`:''):'조회 중…')+' ('+s.started.slice(11)+' 시작) 창을 닫지 마세요';
     $('#runLog').textContent=s.log.join('\n');
     pollTimer=setTimeout(poll,3000);
   } else {
-    $('#checkNow').disabled=false;
+    $('#checkNow').disabled=false; $('#researchNow').disabled=false; $('#resDays').disabled=false;
     if(s.finished){
       box.hidden=false;
-      $('#runMsg').textContent=s.exit===0?'조회 완료 ('+s.finished.slice(11)+') — 화면을 갱신했습니다. 웹 게시까지 1~2분 걸릴 수 있습니다.'
-                                       :'조회 실패 (exit '+s.exit+') — 아래 로그를 확인하거나 rank-troubleshooter 에게 문의하세요.';
+      const rs=s.job==='research';
+      $('#runMsg').textContent=s.exit===0?(rs?'경쟁사 조사 완료':'조회 완료')+' ('+s.finished.slice(11)+') — 화면을 갱신했습니다. 웹 게시까지 1~2분 걸릴 수 있습니다.'
+                                       :(rs?'경쟁사 조사 실패 (exit '+s.exit+') — 기존 자료는 그대로 유지됩니다. 아래 로그(logs\\research.log 포함)를 확인하세요.'
+                                           :'조회 실패 (exit '+s.exit+') — 아래 로그를 확인하거나 rank-troubleshooter 에게 문의하세요.');
       $('#runLog').textContent=s.log.join('\n');
-      if(s.exit===0 && !quiet) fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()});
+      if(s.exit===0 && !quiet){
+        if(rs){ cLoading=null; ['comp','sat'].forEach(x=>{ if(!$('#v-'+x).hidden) showView(x); }); }
+        else fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;init()});
+      }
     }
   }
 }
@@ -380,7 +686,6 @@ function sheetCells(date){
 }
 
 // ---- 오른쪽 '엑셀 양식' 카드 (캡처용: 테마와 무관하게 항상 흰 배경) ----
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function renderDayPanel(date){
   const dts=[...new Set(D.runs.map(r=>r.ts.slice(0,10)))];
   $('#daySel').innerHTML=dts.slice().reverse().map(d=>`<option value="${d}"${d===date?' selected':''}>${d.replace(/-/g,'. ')}</option>`).join('');

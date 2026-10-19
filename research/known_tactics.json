@@ -1,0 +1,236 @@
+{
+  "_help": "오래 보관되는 '알려진 전술' 목록(30일 보관 규칙과 무관). 새로움 판정 기준: 같은 병원에 같은 전술이 있으면 continuation, 다른 병원에만 있으면 hl=hospital, 어디에도 없으면 hl=industry 후보. type: new_method(마케팅·바이럴 방식) | new_market(해외시장·유입 경로). source: '지침서'는 research/지침서.md 9장(2026-10 이전 조사), 'competitor.json'은 대시보드 항목.",
+  "tactics": [
+    {
+      "hospital": "VIEW",
+      "tactic": "Recovery Journey·1개월/1년 장기 경과 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "VIEW",
+      "tactic": "VIEW AI Insights·글로벌 사이트 AI 인터페이스",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "VIEW",
+      "tactic": "해외환자 Real Story·K-pop/셀럽/밈형 숏폼",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "VIEW",
+      "tactic": "AEO/AI Search visibility",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "NANA",
+      "tactic": "일본 Note·Ameblo 미디어화, 연예인 얼굴 분석·Netflix/연애/결혼 문화 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "NANA",
+      "tactic": "일본 현지 상담회·Video Call Counseling",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "NANA",
+      "tactic": "소비자 질문 → 콘텐츠화, 특정 보형물 연속 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "AB",
+      "tactic": "해외 학술·국제학회·안전성 PR, 시술량·수상·인증 Proof Marketing",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "AB",
+      "tactic": "국가별 사이트, 태국 KOL, 인도네시아 Proof Marketing, 일본 모니터 모집",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "AB",
+      "tactic": "강남언니 등 플랫폼명을 검색어로 쓰는 SEO 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "DA",
+      "tactic": "일본 현지 상담회",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "DA",
+      "tactic": "RealSelf 후기 발행, Lemon8 장기 후기·Regret 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "DA",
+      "tactic": "Skin/Dermatology·Stem Cell·SVF·재생의료·Anti-aging 확장, 글로벌 가격 공개",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "ID",
+      "tactic": "NP Skin Booster Center·No Pain 브랜딩('안 아픈 리쥬란')",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "ID",
+      "tactic": "Mommy Makeover·FFS·Longevity·Reverse Aging, Success Story(인생 변화) 콘텐츠",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "ID",
+      "tactic": "일본 시장 콘텐츠",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "BANOBAGI",
+      "tactic": "영어 SEO: Revision·Botched·Complication·Symmastia 등 실제 해외 검색어 활용, 검색형 Medical Column",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "BANOBAGI",
+      "tactic": "태국 프로모션",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "BRAUN",
+      "tactic": "D+6/1개월 회복형 콘텐츠, 여러 의료진이 한 환자를 담당하는 Team Surgery 콘텐츠, 장기 후기",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "BRAUN",
+      "tactic": "인도네시아·베트남 공략, Mommy Makeover",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "WONJIN",
+      "tactic": "가격 완전 공개(VAT 포함/별도)·시술 가격표, 외국인 가격 투명성",
+      "type": "new_method",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "WONJIN",
+      "tactic": "해외 국가별 메신저·국가별 상담 UX·Global Hub·의료관광 서비스",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "DREAM",
+      "tactic": "일본 현지 상담회(Tokyo/Nagoya/Osaka), 일본 의료관광 Agency 판매",
+      "type": "new_market",
+      "first_seen": "지침서",
+      "url": ""
+    },
+    {
+      "hospital": "DA",
+      "tactic": "일본 상담회 + 도쿄 치과 제휴 귀국 후 실밥 제거",
+      "type": "new_market",
+      "first_seen": "2026-10-19",
+      "url": "https://kankoku-seikei-navi.com/lp/da-nagoya/"
+    },
+    {
+      "hospital": "JK",
+      "tactic": "미국 오렌지카운티 강남 의료관광 설명회 참가",
+      "type": "new_market",
+      "first_seen": "2026-10-19",
+      "url": "https://www.koreadaily.com/article/20260901092746049"
+    },
+    {
+      "hospital": "DA",
+      "tactic": "롯데호텔 서울 8층(명동) 센터 + 영문 사이트 AI 상담 메뉴",
+      "type": "new_market",
+      "first_seen": "2026-10-19",
+      "url": "https://daclinicmd.com/en/community/column/myeongdong-water-glow"
+    },
+    {
+      "hospital": "DA",
+      "tactic": "영문 자조형 밈 문구 릴스",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://www.instagram.com/daplasticsurgery_korea/reel/DelF7GPJMiK/"
+    },
+    {
+      "hospital": "VIEW",
+      "tactic": "영문 YouTube 뉴스룸 콘셉트 \"VIEW NEWS\" 시리즈",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://youtu.be/shpIMRt8Ci0"
+    },
+    {
+      "hospital": "VIEW",
+      "tactic": "익명 카톡 사연 분석 \"코성형 상담소\" 영상",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://youtu.be/zQ9IEUpIq2k"
+    },
+    {
+      "hospital": "ID",
+      "tactic": "피부과·성형외과 원장 토크쇼 \"신사동의국\" 시리즈",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://youtu.be/aI0aV4-TOqY"
+    },
+    {
+      "hospital": "AB",
+      "tactic": "Korea Medical Travel Library 성형여행 가이드 24편 허브",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://abplasticsurgerykorea.com/k-medi"
+    },
+    {
+      "hospital": "WONJIN",
+      "tactic": "일본 무료 모니터 모집(좋아요·리포스트·팔로우·LINE 응모)",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://ameblo.jp/wonjinbeautyjpn/entry-12980972437.html"
+    },
+    {
+      "hospital": "WONJIN",
+      "tactic": "이종 브랜드(속옷) 파트너십 문구 블로그 확산",
+      "type": "new_method",
+      "first_seen": "2026-10-19",
+      "url": "https://blog.naver.com/osim222u/224443729897"
+    }
+  ]
+}

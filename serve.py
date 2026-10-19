@@ -6,28 +6,53 @@ import json
 import subprocess
 import threading
 import webbrowser
-from datetime import datetime
+from datetime import datetime, timedelta
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 LOG = ROOT / "logs" / "last_run.log"
-LOCK = ROOT / "logs" / "run.lock"        # 조회 중 표시 (화면 새로고침·중복 클릭 대비)
+JOBS = {"check": ("run_and_publish.bat", "last_run.log", "조회"),
+        "research": ("research_and_publish.bat", "last_research.log", "경쟁사 조사")}
+LOCK = ROOT / "logs" / "run.lock"       # 조회 중 표시 (화면 새로고침·중복 클릭 대비)
+PARAMS = ROOT / "logs" / "research_params.json"   # 경쟁사 조사 기간 (research/make_prompt.py 가 읽음)
 HOST, PORT = "127.0.0.1", 8770
+MAX_DAYS = 92
 
-state = {"running": False, "started": None, "finished": None, "exit": None}
+state = {"running": False, "started": None, "finished": None, "exit": None, "job": None}
 lock = threading.Lock()
 
 
-def worker():
+def parse_period(body):
+    """{"days": N} 또는 {"from": "YYYY-MM-DD", "to": "YYYY-MM-DD"} → 검증된 {"from","to"} (오늘 기준, 최대 92일)"""
+    today = datetime.now().date()
+    if body.get("from") or body.get("to"):
+        start = datetime.strptime(str(body.get("from")), "%Y-%m-%d").date()
+        end = datetime.strptime(str(body.get("to") or today), "%Y-%m-%d").date()
+    else:
+        days = int(body.get("days") or 14)
+        if days < 1:
+            raise ValueError("일수는 1 이상이어야 합니다")
+        end, start = today, today - timedelta(days=days - 1)
+    if end > today:
+        end = today
+    if start > end:
+        raise ValueError("시작일이 종료일보다 늦습니다")
+    if (end - start).days + 1 > MAX_DAYS:
+        raise ValueError(f"기간은 최대 {MAX_DAYS}일까지입니다")
+    return {"from": start.isoformat(), "to": end.isoformat()}
+
+
+def worker(job="check"):
+    bat, logname, label = JOBS[job]
     LOG.parent.mkdir(exist_ok=True)
     LOCK.write_text(datetime.now().isoformat(), encoding="utf-8")
-    with open(LOG, "w", encoding="utf-8", errors="replace") as f:
-        f.write(f"[{datetime.now():%H:%M:%S}] 조회 시작\n")
+    with open(LOG.parent / logname, "w", encoding="utf-8", errors="replace") as f:
+        f.write(f"[{datetime.now():%H:%M:%S}] {label} 시작\n")
         f.flush()
         try:
-            p = subprocess.run(["cmd.exe", "/d", "/c", str(ROOT / "run_and_publish.bat")], cwd=str(ROOT),
+            p = subprocess.run(["cmd.exe", "/d", "/c", str(ROOT / bat)], cwd=str(ROOT),
                                stdout=f, stderr=subprocess.STDOUT)
             code = p.returncode
         except Exception as e:                      # noqa: BLE001
@@ -70,24 +95,37 @@ class H(SimpleHTTPRequestHandler):
         if self.path.startswith("/api/status"):
             with lock:
                 s = dict(state)
-            return self._json({**s, "log": tail(LOG) + ([""] + newest_log() if s["running"] else [])})
+            job = s["job"] or "check"
+            extra = [""] + newest_log() if s["running"] and job == "check" else []
+            return self._json({**s, "log": tail(LOG.parent / JOBS[job][1]) + extra})
         self.path = self.path.split("?")[0]
         super().do_GET()
 
     def do_POST(self):
-        if self.path == "/api/check":
+        job = {"/api/check": "check", "/api/research": "research"}.get(self.path)
+        if job:
             # 다른 사이트에서 몰래 호출하지 못하게 같은 출처만 허용
             origin = self.headers.get("Origin", "")
             if origin and origin not in (f"http://{HOST}:{PORT}", f"http://localhost:{PORT}"):
                 return self._json({"ok": False, "msg": "허용되지 않은 요청"}, 403)
+            params = None
+            if job == "research":
+                try:
+                    n = min(int(self.headers.get("Content-Length") or 0), 4096)
+                    params = parse_period(json.loads(self.rfile.read(n) or b"{}"))
+                except (ValueError, TypeError) as e:
+                    return self._json({"ok": False, "msg": f"조사 기간 오류: {e}"}, 400)
             with lock:
                 if not state["running"] and LOCK.exists() and (datetime.now().timestamp() - LOCK.stat().st_mtime) < 90 * 60:
                     return self._json({"ok": False, "msg": "다른 조회가 진행 중입니다. 끝난 뒤 다시 눌러 주세요."}, 409)
                 if state["running"]:
                     return self._json({"ok": False, "msg": "이미 조회 중입니다."}, 409)
-                state.update(running=True, started=datetime.now().isoformat(timespec="seconds"), finished=None, exit=None)
-            threading.Thread(target=worker, daemon=True).start()
-            return self._json({"ok": True})
+                if params:
+                    PARAMS.parent.mkdir(exist_ok=True)
+                    PARAMS.write_text(json.dumps(params), encoding="utf-8")
+                state.update(running=True, job=job, started=datetime.now().isoformat(timespec="seconds"), finished=None, exit=None)
+            threading.Thread(target=worker, args=(job,), daemon=True).start()
+            return self._json({"ok": True, "period": params})
         self._json({"ok": False}, 404)
 
     def log_message(self, *a):

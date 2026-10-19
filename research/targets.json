@@ -1,0 +1,303 @@
+{
+  "_help": "병원별 검색어. ko/en 은 모든 채널 공통, tags 는 해시태그(Instagram·TikTok). 일본어·태국어·대만어 검색어는 en 이름으로 collect.py 가 자동 생성한다. 고치면 다음 조사부터 반영된다. ja 는 일본어 공식 표기(공식 사이트·에이전시 페이지 제목에서 확인, 2026-10-19). 확인 못 한 병원은 빈 목록.",
+  "hospitals": {
+    "VIEW": {
+      "ko": [
+        "뷰성형외과"
+      ],
+      "en": [
+        "VIEW Plastic Surgery"
+      ],
+      "tags": [
+        "뷰성형외과",
+        "viewplasticsurgery"
+      ],
+      "ja": [
+        "ビュー美容外科"
+      ]
+    },
+    "ID": {
+      "ko": [
+        "아이디병원"
+      ],
+      "en": [
+        "ID Hospital Korea"
+      ],
+      "tags": [
+        "아이디병원",
+        "idhospital"
+      ],
+      "ja": [
+        "id病院"
+      ]
+    },
+    "DA": {
+      "ko": [
+        "디에이성형외과"
+      ],
+      "en": [
+        "DA Plastic Surgery"
+      ],
+      "tags": [
+        "디에이성형외과",
+        "daplasticsurgery"
+      ],
+      "ja": [
+        "DA美容外科"
+      ]
+    },
+    "NANA": {
+      "ko": [
+        "나나성형외과"
+      ],
+      "en": [
+        "NANA Plastic Surgery"
+      ],
+      "tags": [
+        "나나성형외과",
+        "nanaplasticsurgery"
+      ],
+      "ja": [
+        "NANA美容外科"
+      ]
+    },
+    "BANOBAGI": {
+      "ko": [
+        "바노바기성형외과"
+      ],
+      "en": [
+        "Banobagi"
+      ],
+      "tags": [
+        "바노바기",
+        "banobagi"
+      ],
+      "ja": []
+    },
+    "BRAUN": {
+      "ko": [
+        "브라운성형외과"
+      ],
+      "en": [
+        "Braun Plastic Surgery"
+      ],
+      "tags": [
+        "브라운성형외과",
+        "braunplasticsurgery"
+      ],
+      "ja": [
+        "ブラウン整形外科"
+      ]
+    },
+    "WONJIN": {
+      "ko": [
+        "원진성형외과"
+      ],
+      "en": [
+        "Wonjin Plastic Surgery"
+      ],
+      "tags": [
+        "원진성형외과",
+        "wonjinplasticsurgery"
+      ],
+      "ja": [
+        "ウォンジン整形外科"
+      ]
+    },
+    "AB": {
+      "ko": [
+        "에이비성형외과"
+      ],
+      "en": [
+        "AB Plastic Surgery"
+      ],
+      "tags": [
+        "에이비성형외과",
+        "abplasticsurgery"
+      ],
+      "ja": [
+        "AB美容外科"
+      ]
+    },
+    "DREAM": {
+      "ko": [
+        "드림성형외과"
+      ],
+      "en": [
+        "Dream Plastic Surgery"
+      ],
+      "tags": [
+        "드림성형외과",
+        "dreamplasticsurgery"
+      ],
+      "ja": [
+        "ドリーム整形外科"
+      ]
+    }
+  },
+  "general": {
+    "ko": [
+      "성형외과 해외환자 이벤트",
+      "성형외과 바이럴 후기"
+    ],
+    "en": [
+      "Korea plastic surgery clinic review",
+      "Korean plastic surgery revision"
+    ],
+    "tags": [
+      "koreanplasticsurgery",
+      "성형외과"
+    ]
+  },
+  "disabled_channels": [
+    "x",
+    "tiktok",
+    "dcard",
+    "note"
+  ],
+  "limits": {
+    "public_searches_per_channel": 30,
+    "login_searches_per_channel": 14,
+    "posts_per_search": 8,
+    "total_minutes": 25,
+    "official_pages_per_run": 40,
+    "per_channel": {
+      "naver_blog": 12,
+      "naver_cafe": 12,
+      "naver_news": 12,
+      "youtube": 20,
+      "reddit": 12,
+      "yahoo_rt": 10,
+      "chiebukuro": 10,
+      "ptt": 10,
+      "pantip": 8,
+      "ameblo": 10
+    }
+  },
+  "instagram": {
+    "_help": "병원 공식 계정(각 병원 공식 홈페이지 링크에서 확인, 2026-10-19). 계정을 찾지 못한 병원은 빈 목록.",
+    "VIEW": [
+      "view_plastic_surgery",
+      "viewplastic"
+    ],
+    "ID": [
+      "idhospital"
+    ],
+    "DA": [
+      "daplasticsurgery_korea",
+      "daclinic_en"
+    ],
+    "NANA": [
+      "nanahospital_jp",
+      "nanahospital_eng",
+      "nanaprs"
+    ],
+    "BANOBAGI": [
+      "banobagi_ps"
+    ],
+    "BRAUN": [
+      "braunpskr",
+      "braunps_official"
+    ],
+    "WONJIN": [],
+    "AB": [
+      "ab_plasticsurgery_eng",
+      "ab_plasticsurgery_kr"
+    ],
+    "DREAM": []
+  },
+  "official_pages": {
+    "_help": "병원 공식 사이트의 공지·칼럼·이벤트 목록 주소(2026-10-19 확인). 수집기가 열어서 새 글 링크를 찾는다. 원진·드림은 일본 공식 사이트·계정을 아직 못 찾음. (에이전시)는 일본 한국성형 중개사이트 상담회 목록.",
+    "VIEW": [
+      "https://www.viewplasticsurgery.com/community/notice/index.html",
+      "https://viewplasticsurgery.com/jp/board/notice/",
+      "https://viewplasticsurgery.com/th/board/notice/",
+      "https://viewplasticsurgery.com/id/",
+      "https://www.viewclinic.com/"
+    ],
+    "ID": [
+      "https://www.idhospital.com/jp",
+      "https://www.idhospital.com/en",
+      "https://www.idhospital.com/"
+    ],
+    "DA": [
+      "https://daclinicmd.com/en",
+      "https://daclinicmd.com/en/community/column",
+      "https://daclinicmd.com/en/cases",
+      "https://www.daprseng.com/"
+    ],
+    "NANA": [
+      "https://jp.nanahospital.com/myboard/nanablog",
+      "https://en.nanahospital.com/myboard/news",
+      "https://en.nanahospital.com/myboard/nanaevent",
+      "https://note.com/nanahospital",
+      "https://ameblo.jp/nanahospital"
+    ],
+    "BANOBAGI": [
+      "https://www.banobagi.com/",
+      "https://th.banobagi.com/"
+    ],
+    "BRAUN": [
+      "https://www.braunps.com/",
+      "https://braunps.com/jp",
+      "https://braunps.com/th"
+    ],
+    "AB": [
+      "https://abplasticsurgerykorea.com/k-medi",
+      "https://abplasticsurgerykorea.com/about-ab/medical-column/",
+      "https://jp.abplasticsurgerykorea.com/",
+      "https://th.abplasticsurgerykorea.com/",
+      "https://www.abps.co.kr/"
+    ],
+    "WONJIN": [
+      "https://ameblo.jp/wonjinbeautyjpn"
+    ],
+    "DREAM": [],
+    "(에이전시)": [
+      "https://kankoku-seikei-navi.com/"
+    ]
+  },
+  "sitemaps": {
+    "_help": "공식 사이트 sitemap.xml 또는 robots.txt 주소(2026-10-19 확인). lastmod 가 조사 기간 안인 URL 만 수집한다.",
+    "VIEW": [
+      "https://www.viewplasticsurgery.com/sitemap.xml"
+    ],
+    "ID": [
+      "https://www.idhospital.com/sitemap-index.xml"
+    ],
+    "DA": [
+      "https://www.daprseng.com/sitemap.xml",
+      "https://daclinicmd.com/sitemap.xml"
+    ],
+    "NANA": [
+      "https://jp.nanahospital.com/robots.txt",
+      "https://en.nanahospital.com/robots.txt",
+      "https://www.nanahospital.com/robots.txt"
+    ],
+    "BANOBAGI": [
+      "https://www.banobagi.com/robots.txt"
+    ],
+    "BRAUN": [
+      "https://www.braunps.com/sitemap.xml"
+    ],
+    "AB": [
+      "https://abplasticsurgerykorea.com/sitemap.xml",
+      "https://jp.abplasticsurgerykorea.com/sitemap.xml",
+      "https://th.abplasticsurgerykorea.com/sitemap.xml"
+    ]
+  },
+  "channel_order": [
+    "official",
+    "instagram",
+    "naver_news",
+    "yahoo_rt",
+    "youtube",
+    "ameblo",
+    "reddit",
+    "chiebukuro",
+    "ptt",
+    "pantip",
+    "naver_blog",
+    "naver_cafe"
+  ]
+}
