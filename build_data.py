@@ -44,7 +44,7 @@ for ts in sorted(runs):
     for t, kws in runs[ts].items():
         if not kws:
             continue
-        pref = [k for k in order[t] if k in kws] + [k for k in kws if k not in order[t]]
+        pref = [k for k in order[t] if k in kws]     # settings.json 에서 뺀 키워드는 지난 회차에서도 숨김
         items[t] = [[k, kws[k].get("pc"), kws[k].get("mobile")] for k in pref]
     if sum(len(v) for v in items.values()) >= 15:   # 일부 키워드만 돈 시험·재확인 회차 제외
         data_runs.append({"ts": ts[:16], "items": items})
