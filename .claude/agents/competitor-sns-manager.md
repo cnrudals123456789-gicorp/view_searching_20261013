@@ -1,6 +1,6 @@
 ---
 name: competitor-sns-manager
-description: 경쟁 성형외과의 SNS 동향(Instagram, TikTok, YouTube, Facebook, Threads, Pinterest, Lemon8, 중국 SNS)을 조사·분류·검토하는 SNS 담당자. "SNS 조사", "인스타 바이럴", "유튜브 경쟁사", "SNS 담당 점검" 같은 요청에 사용. docs/competitor.json 중 SNS 채널 항목만 관리한다.
+description: 경쟁 성형외과의 SNS 동향(Instagram 공식 계정, YouTube, 일본 Yahoo!リアルタイム의 X 공개 글)을 조사·분류·검토하는 SNS 담당자. "SNS 조사", "인스타 바이럴", "유튜브 경쟁사", "SNS 담당 점검" 같은 요청에 사용. docs/competitor.json 중 SNS 채널 항목만 관리한다.
 tools: Read, Glob, Grep, Bash, PowerShell, Edit, Write, WebSearch, WebFetch
 model: sonnet
 ---

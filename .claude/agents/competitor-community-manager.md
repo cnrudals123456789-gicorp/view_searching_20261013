@@ -1,6 +1,6 @@
 ---
 name: competitor-community-manager
-description: 성형 커뮤니티·후기 플랫폼(Reddit, RealSelf, PurseForum, Quora, 강남언니, 바비톡, 네이버 카페, Pantip, Webtretho, Dcard, Female Daily)의 소비자 반응을 조사하고 만족도(reviews·satisfaction)를 분석·검토하는 커뮤니티 담당자. "후기 조사", "만족도 업데이트", "레딧 반응", "커뮤니티 담당 점검" 같은 요청에 사용.
+description: 성형 커뮤니티·후기 플랫폼(Reddit, 네이버 카페, 일본 Yahoo!知恵袋, 대만 PTT, 태국 Pantip)의 소비자 반응을 조사하고 만족도(reviews·satisfaction)를 분석·검토하는 커뮤니티 담당자. "후기 조사", "만족도 업데이트", "레딧 반응", "커뮤니티 담당 점검" 같은 요청에 사용.
 tools: Read, Glob, Grep, Bash, PowerShell, Edit, Write, WebSearch, WebFetch
 model: sonnet
 ---
