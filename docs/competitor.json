@@ -1,6 +1,6 @@
 {
   "_schema": "months[YYYY-MM] = {top:[문장], items:[{id,date(게시일),found(처음 발견·조사일),last_seen(마지막 재확인일),hospital,channel,country,kind,title,detail,why,view,source,url,hl,hl_reason}], coverage:{채널:'날짜 확인·N건'}, runs:[{date,added,updated,skipped_dup,note}], reviews:[{date,found,last_seen,hospital,platform,country,procedure,sentiment,topics,summary,url,author_key}], satisfaction:{병원:{n,pos,neu,neg,score,good,bad,prev_score}}}. hl = industry(업계 최초) | hospital(그 병원 첫 시도) | null. kind = 프로모션|바이럴|SNS콘텐츠|상품브랜딩|해외유입|SEO|후기신뢰|기타. 같은 URL 은 모든 달을 통틀어 1건만 둔다(다시 보이면 last_seen 만 갱신).",
-  "updated": "2026-11-02 19:30",
+  "updated": "2026-11-02 20:10",
   "hospitals": [
     "VIEW",
     "ID",
@@ -16,13 +16,114 @@
   "months": {
     "2026-11": {
       "top": [
+        "AB가 일본 도쿄 주일한국문화원 K-Beauty Week(10/28~29)에서 세미나와 대표원장 직접 상담을 운영해, 에이전시 상담회가 아닌 공공 문화행사 안의 대면 접점을 만들었다.",
+        "ID가 영문 YouTube에서 화제 드라마 출연진 얼굴 분석 시리즈(Beyond Beauty 시즌2)를 시작해, NANA 일본이 쓰던 문화 이슈 연계 방식이 영어권으로 번지고 있다.",
+        "바비톡이 일본어에 영어·중국어를 더해 4개 언어로 확대하고 첫 방한 이벤트를 열어, 병원 밖 플랫폼을 통한 미국·중화권 유입 경로가 열렸다.",
         "NANA 일본은 연예인 얼굴 '분석'에서 한 걸음 나아가, K-pop 그룹 콘텐츠에 나온 인물을 실제 환자로 데려와 거상·코 수술 결정 과정을 Ameblo에 연재하기 시작했다.",
         "ID는 20년 임상 데이터를 내세운 AI 얼굴 분석 'id FACECODE AI'를 영문 사이트 첫 화면에 올리고, 자체 지수와 STAGE 1~4 단계로 시술 계획을 정하는 진단형 입구를 만들었다.",
         "일본 에이전시 상담회는 DA 나고야·오사카(11/7·8)·도쿄(12/5·6), DREAM 도쿄(11/29)로 이어지며, DA는 최대 30% 할인과 도쿄 치과 실밥 제거 제휴를 함께 내걸었다.",
-        "강남구 공동관이 인도네시아(10/1~3)에서 상담 117건·현지 에이전시 협약 12건, 미국 LA·OC 설명회에서 상담 510건을 기록해, 지자체를 통한 동남아·미주 유입 경로가 커지고 있다.",
-        "외국인 미용성형 부가세 환급 특례를 2029년 말까지 다시 적용하는 개정안이 8월 발의돼(이전 4월 발의안과 별개), 환급 재도입 여부가 가격 경쟁의 변수로 남아 있다."
+        "강남구 공동관이 인도네시아(10/1~3)에서 상담 117건·현지 에이전시 협약 12건, 미국 LA·OC 설명회에서 상담 510건을 기록해, 지자체를 통한 동남아·미주 유입 경로가 커지고 있다."
       ],
       "items": [
+        {
+          "id": "2026-11-ab-jp-tokyo-kbeauty-week",
+          "date": "2026-10-28",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "AB",
+          "channel": "Yahoo리얼타임",
+          "country": "일본",
+          "kind": "해외유입",
+          "title": "AB 일본, 도쿄 주일한국문화원 'K-Beauty Week'에서 세미나와 대표원장 직접 상담 운영(10/28~29)",
+          "detail": "AB 일본 공식 X 계정은 10월 28일 도쿄 주일한국문화원 2층에서 열린 K-Beauty Week 행사에서 대표원장이 직접 상담하는 시간을 10월 29일(목)까지 운영한다고 알렸고(예약 없이도 가능, 29일 16시 30분까지), 같은 행사 참가 후기 게시물에는 15시 30분 AB 세미나를 들었다는 내용이 있다. 윤곽·코 상담 중심이다. 상담 신청 규모와 이후 방한 전환 여부는 확인되지 않았다.",
+          "why": "AB는 그동안 일본에서 모니터 모집과 일본어 블로그 중심이었는데, 이번에는 한국 정부 문화시설에서 열린 K-뷰티 행사에 세미나와 대표원장 상담을 올려 일본 현지 대면 접점을 만들었다.",
+          "view": "에이전시 상담회가 아니라 공공 문화행사 안에 들어가는 방식이라 참가 조건과 비용을 확인해 볼 만하다. VIEW는 일본어 상담 인력과 의료진 방문 가능성을 함께 검토할 수 있다.",
+          "source": "공식",
+          "url": "https://x.com/ABPRS_JP/status/2115334185703587946",
+          "hl": "hospital",
+          "hl_reason": "AB에는 처음 확인된 일본 현지 대면 상담이지만, DA·DREAM·NANA는 이미 일본 상담회를 해 왔다(기존 전술 기록).",
+          "novelty": "new_market",
+          "novelty_reason": "AB는 일본 모니터 모집은 해 왔지만, 도쿄 한국문화원 행사에서 세미나와 대표원장 직접 상담을 연 것은 처음이다(기존 전술 기록·이전 항목에 없음)."
+        },
+        {
+          "id": "2026-11-babitalk-global-4lang",
+          "date": "2026-10-20",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "업계",
+          "channel": "뉴스",
+          "country": "미국·중화권",
+          "kind": "해외유입",
+          "title": "바비톡, 일본에 이어 영어·중국어(간체·번체) 지원 추가해 4개 언어로 확대, 'Your First Korea Beauty Trip' 이벤트",
+          "detail": "이데일리 보도(2026-10-20)에 따르면 성형·미용 후기 플랫폼 바비톡은 기존 일본어에 영어와 중국어(간체·번체)를 추가해 4개 언어를 지원한다. 신규 언어 지원을 기념해 영어·중국어권 이용자 대상 'Your First Korea Beauty Trip' 프로모션과 경품 이벤트를 진행한다. 이벤트 기간·경품 내용은 기사에 없다. 같은 기사에 외국인 환자 국내 의료업종 카드 이용액 전년 대비 38.6% 증가, 피부과·성형외과 비중 72.1%라는 수치가 함께 실렸다.",
+          "why": "해외 환자가 병원을 찾는 입구 플랫폼이 일본 외에 미국·중화권 언어로 넓어져, 병원 단독 해외 마케팅 외에 플랫폼 안 노출이 새 유입 경로가 된다.",
+          "view": "바비톡 영어·중국어 페이지에서 경쟁 병원 노출 여부를 확인하고, VIEW도 플랫폼 입점·후기 번역 대응을 검토할 수 있다.",
+          "source": "언론",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04204966645614888&mediaCodeNo=257",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "new_market",
+          "novelty_reason": "일본 중심이던 바비톡이 영어·중화권 언어와 첫 방한 이벤트를 붙여 미국·중화권 유입 경로를 연 것은 처음이다(기존 전술 기록·이전 항목에 없음). 병원이 아닌 플랫폼의 움직임이다."
+        },
+        {
+          "id": "2026-11-id-beyond-beauty-drama-cast",
+          "date": "2026-11-02",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "ID",
+          "channel": "YouTube",
+          "country": "글로벌(영어권)",
+          "kind": "SNS콘텐츠",
+          "title": "ID 영문 YouTube 'Beyond Beauty' 시즌2 시작, 웹소설 원작 드라마 출연진 얼굴 분석 콘텐츠",
+          "detail": "ID 영문 YouTube 채널이 11월 2일 'Beyond Beauty Season 2 EP01'로 '재혼 황후' 실사 드라마 화제에 맞춰 출연 배우들이 원작 인물과 맞는지 분석하는 영상을 올렸다(조회 196, 게시 19시간 후 기준). 영상의 분석 내용과 시술 연결 여부는 설명문만으로는 확인하지 못했다. NANA 일본 Ameblo가 같은 드라마를 10월 28~29일 여성 편·남성 편으로 분석한 것과 같은 소재다.",
+          "why": "ID는 영문 채널에서 시술 정보 위주였는데, 화제 드라마 출연진 분석이라는 문화 이슈 연계 시리즈를 시즌제로 시작했다. 같은 소재를 일본(NANA)과 영어권(ID)이 동시에 쓰고 있다.",
+          "view": "VIEW도 화제 드라마·K-pop 연계 콘텐츠를 영문으로 만들 수 있으나, 외모 평가 형식은 의료광고 기준과 출연자 초상 문제를 먼저 확인해야 한다.",
+          "source": "공식",
+          "url": "https://www.youtube.com/watch?v=3kbZrChdJf4",
+          "hl": "hospital",
+          "hl_reason": "ID에는 처음이지만, 연예인·드라마 얼굴 분석은 NANA 일본이 먼저 해 왔다(기존 전술 기록).",
+          "novelty": "new_method",
+          "novelty_reason": "ID는 시술·진단 콘텐츠 위주였으나 화제 드라마 출연진 얼굴 분석을 영문 시즌제 시리즈로 시작한 것은 처음이다. 같은 방식은 NANA가 먼저 했다(기존 전술 기록)."
+        },
+        {
+          "id": "2026-11-view-skinlab-seoul-beauty-week",
+          "date": "2026-10-30",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "VIEW",
+          "channel": "YouTube",
+          "country": "글로벌(영어권)",
+          "kind": "SNS콘텐츠",
+          "title": "VIEW 영문 YouTube, DDP '2026 서울 뷰티위크' 현장 'Skin Lab on the Go' 이동형 피부 고민 상담 영상",
+          "detail": "VIEW 영문 채널이 10월 30일 서울 DDP 2026 Seoul Beauty Week 현장에서 'Skin Lab on the Go'를 운영하며 일반 방문객의 피부 고민을 묻고 의사 관점으로 답하는 영상을 올렸다(조회 900). 현장 운영 규모와 상담 건수는 설명문에서 확인되지 않았다.",
+          "why": "병원 안 상담이 아니라 도심 뷰티 행사에 이동형 상담 부스를 내고 그 과정을 영문 콘텐츠로 만든 점이 기존 VIEW 영상과 다르다.",
+          "view": "행사 현장 영상은 외국인 관광객 접점 확대에 쓸 수 있다. 상담 후 예약·방문 전환을 어떻게 측정했는지 내부 자료로 확인해 두면 좋다.",
+          "source": "공식",
+          "url": "https://www.youtube.com/watch?v=nsrJobSyb-0",
+          "hl": "hospital",
+          "hl_reason": "VIEW의 이전 항목에는 없던 현장 부스형 콘텐츠다. 다른 병원의 유사 사례(AB 도쿄 K-Beauty Week)는 해외 행사다.",
+          "novelty": "new_method",
+          "novelty_reason": "VIEW가 서울 뷰티 행사에 이동형 피부 상담 부스를 열고 영문 콘텐츠로 만든 것은 이전 항목과 기존 전술 기록에 없다."
+        },
+        {
+          "id": "2026-11-view-foodgod-visit",
+          "date": "2026-10-28",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "VIEW",
+          "channel": "Instagram",
+          "country": "미국",
+          "kind": "바이럴",
+          "title": "VIEW 공식 Instagram, 미국 푸드·라이프스타일 인플루언서 방문 소식 게시",
+          "detail": "VIEW 공식 Instagram이 10월 28일 미국의 유명 푸드·라이프스타일 인플루언서(Foodgod)가 병원을 방문했다고 환영 글을 올렸다(좋아요 27). 방문 목적, 시술 여부, 협찬 관계는 글에 없다.",
+          "why": "해외 인플루언서 방문을 공식 계정에 알리는 방식으로, VIEW의 기존 셀럽·인플루언서 콘텐츠의 연장이다.",
+          "view": "방문 이후 인플루언서 자체 채널 콘텐츠가 나오는지 확인해 도달 효과를 비교한다.",
+          "source": "공식",
+          "url": "https://www.instagram.com/viewplastic/p/DfD3MaymXCo/",
+          "hl": null,
+          "hl_reason": "",
+          "novelty": "continuation"
+        },
         {
           "id": "2026-11-nana-jp-kpop-related-patient-series",
           "date": "2026-10-26",
@@ -33,7 +134,7 @@
           "country": "일본",
           "kind": "바이럴",
           "title": "NANA 일본 Ameblo, K-pop 그룹 YouTube에 출연한 멤버의 서예 선생님이 NANA에서 거상·코 수술을 받기로 한 과정 연재 시작",
-          "detail": "NANA 공식 Ameblo 글은 걸그룹 RESCENE 멤버의 서예 선생님으로 그룹 YouTube 콘텐츠에 나와 성형 이야기를 했던 인물이 NANA 상담 후 안면거상·목거상·전체 균형에 맞춘 코 수술을 받기로 했다고 소개하고, 이후 경과를 올리겠다고 예고했다. 아직 수술 전 단계이며, 협찬이나 비용 지원 여부는 글에 표시되지 않았다. 공식 LINE·일본어 사이트·Instagram·X로 상담을 유도한다. 작성일 표기가 없어 이미지 경로 날짜(2026-10-26)를 게시일로 적었다. 같은 시기(이미지 경로 2026-10-27) NANA는 일본어 홈페이지(jp.nanahospital.com)를 개편해 증례 사진, 회복 경과, 사후관리 정보를 보강했다고 Ameblo에 알렸다.",
+          "detail": "NANA 공식 Ameblo 글은 걸그룹 RESCENE 멤버의 서예 선생님으로 그룹 YouTube 콘텐츠에 나와 성형 이야기를 했던 인물이 NANA 상담 후 안면거상·목거상·전체 균형에 맞춘 코 수술을 받기로 했다고 소개하고, 이후 경과를 올리겠다고 예고했다. 아직 수술 전 단계이며, 협찬이나 비용 지원 여부는 글에 표시되지 않았다. 공식 LINE·일본어 사이트·Instagram·X로 상담을 유도한다. 작성일 표기가 없어 이미지 경로 날짜(2026-10-26)를 게시일로 적었다. 10월 30일에는 NANA 한국어 YouTube가 같은 인물의 내원 영상(조회 약 8.7만)을, NANA 일본 X가 일본인 실장이 통역·지원하는 상담 장면 영상을 올려 Ameblo 연재가 영상으로 확장됐다. 같은 시기(이미지 경로 2026-10-27) NANA는 일본어 홈페이지(jp.nanahospital.com)를 개편해 증례 사진, 회복 경과, 사후관리 정보를 보강했다고 Ameblo에 알렸다.",
           "why": "NANA 일본은 그동안 연예인 얼굴을 제3자 입장에서 분석해 왔는데, 이번에는 아이돌 콘텐츠로 알려진 인물을 실제 환자로 데려와 결정 → 수술 → 경과로 이어지는 연재를 시작했다. 아이돌 팬층의 관심을 실제 사례로 연결하고, 거상처럼 중장년층 수술도 함께 보여 준다.",
           "view": "VIEW의 Real Story·셀럽 연계 콘텐츠와 직접 겹친다. NANA 글은 경제적 관계를 밝히지 않아 후기 신뢰 면에서 약점이 있으므로, VIEW는 출연자 협찬 여부와 실제 경과 기간(1개월·6개월·1년)을 명시하면 차별화된다.",
           "source": "공식",
@@ -110,13 +211,13 @@
         "Note": "확인불가(이번 실행에서 열람하지 못함)",
         "네이버블로그": "확인불가(이번 실행에서 수집기를 돌리지 않았고 웹검색으로 기간 내 글을 확인하지 못함)",
         "네이버카페": "확인불가(이번 실행에서 수집기를 돌리지 않음)",
-        "Instagram": "확인불가(이번 실행에서 수집기를 돌리지 않음)",
-        "YouTube": "확인불가(이번 실행에서 수집기를 돌리지 않았고 웹검색으로 기간 내 영상을 확인하지 못함)",
-        "Yahoo리얼타임": "확인불가(이번 실행에서 수집기를 돌리지 않음)",
-        "知恵袋": "2026-10-19 수집분 확인·0건(6건 모두 병원명 없는 일반 질문이라 제외)",
-        "PTT": "확인불가(웹검색으로 기간 내 글을 찾지 못함)",
-        "Pantip": "확인불가(이번 실행에서 열람하지 못함)",
-        "Reddit": "확인불가(웹검색으로 기간 내 글을 찾지 못함)"
+        "Instagram": "2026-11-02 확인·1건 신규(VIEW 인플루언서 방문). 일부 계정은 차단 감지로 중단",
+        "YouTube": "2026-11-02 확인·2건 신규(ID Beyond Beauty, VIEW Skin Lab), NANA 영상은 기존 항목 갱신",
+        "Yahoo리얼타임": "2026-11-02 확인·1건 신규(AB 도쿄 K-Beauty Week), 일본 후기 3건은 만족도 반영",
+        "知恵袋": "2026-11-02 확인·0건(병원명 없는 일반 질문 위주라 제외)",
+        "PTT": "2026-11-02 확인·0건(병원명 언급 없음)",
+        "Pantip": "확인불가(수집 시간 초과, 병원명 언급 글 없음)",
+        "Reddit": "2026-11-02 확인·1건(BRAUN 부정 개인 게시물). 일부 검색은 로그인 요구로 중단"
       },
       "runs": [
         {
@@ -129,10 +230,121 @@
             "to": "2026-11-02"
           },
           "note": "NANA 일본 실제 환자 연재, ID AI 얼굴 분석, 강남구 해외 설명회 결과, 부가세 환급 재도입 법안 4건 추가. DA·DREAM 일본 상담회, AB 칼럼, NANA 연예인 분석, 원진 모니터 모집 등 기존 항목 7건 갱신. 수집기 원자료가 10-19분뿐이라 SNS·커뮤니티는 대부분 확인불가."
+        },
+        {
+          "date": "2026-11-02",
+          "added": 5,
+          "updated": 1,
+          "skipped_dup": 3,
+          "period": {
+            "from": "2026-10-20",
+            "to": "2026-11-02"
+          },
+          "note": "수집기(11-02 19:36) 기반. AB 도쿄 K-Beauty Week, 바비톡 4개 언어, ID Beyond Beauty, VIEW Skin Lab·인플루언서 방문 5건 추가, 리뷰 4건·만족도 갱신. NANA 청담 이전 보도는 2025-07 글이라 제외, DA 명동 센터·일본 상담회는 기존 항목과 중복."
         }
       ],
-      "reviews": [],
-      "satisfaction": {}
+      "reviews": [
+        {
+          "date": "2026-11-02",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "BRAUN",
+          "platform": "Reddit",
+          "country": "글로벌(영어권)",
+          "procedure": "미확인",
+          "sentiment": "부정",
+          "topics": [
+            "결과",
+            "상담"
+          ],
+          "summary": "r/SeoulPlasticSurgery에 BRAUN 경험이 실망스러웠다는 개인 게시물이 올라왔다(제목 기준, 투표 19·댓글 23, 본문은 열람하지 못해 구체 불만 내용은 미확인).",
+          "url": "https://www.reddit.com/r/SeoulPlasticSurgery/comments/1xlcvdk/my_disappointing_experience_with_braun_plastic/",
+          "author_key": "rd-braun-1xlcvdk"
+        },
+        {
+          "date": "2026-10-21",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "VIEW",
+          "platform": "Yahoo리얼타임",
+          "country": "일본",
+          "procedure": "가슴 재수술(실리콘)",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "집도의"
+          ],
+          "summary": "VIEW에서 실리콘 가슴 재수술을 받고 모양과 부드러움에 크게 만족한다는 일본 이용자의 개인 게시물(협찬 표시 없음).",
+          "url": "https://x.com/hanngyodonn_mi/status/2112710116688777388",
+          "author_key": "x-879b8d1e93"
+        },
+        {
+          "date": "2026-10-29",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "VIEW",
+          "platform": "Yahoo리얼타임",
+          "country": "일본",
+          "procedure": "가슴 실리콘+팔 지방흡입",
+          "sentiment": "긍정",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "가슴 수술 1주 후 모양이 예쁘고 통증이 거의 없다고 적었고, 팔은 붓기·멍이 남아 있다는 일본 이용자의 경과 게시물.",
+          "url": "https://x.com/k_atc6/status/2115753438902624390",
+          "author_key": "x-8dd94e4e33"
+        },
+        {
+          "date": "2026-10-31",
+          "found": "2026-11-02",
+          "last_seen": "2026-11-02",
+          "hospital": "VIEW",
+          "platform": "Yahoo리얼타임",
+          "country": "일본",
+          "procedure": "이마 축소+모발이식",
+          "sentiment": "중립",
+          "topics": [
+            "결과",
+            "회복"
+          ],
+          "summary": "이마 축소와 모발이식 10개월 후 길이는 만족하지만 이식 모발 밀도가 옅어 헤어 파운데이션으로 가린다는 일본 이용자의 개인 게시물.",
+          "url": "https://x.com/15RNPZ24RCRZ/status/2116512549810393483",
+          "author_key": "x-da435e7db3"
+        }
+      ],
+      "satisfaction": {
+        "VIEW": {
+          "n": 3,
+          "pos": 2,
+          "neu": 1,
+          "neg": 0,
+          "score": 4.3,
+          "good": [
+            "가슴 수술 결과와 부드러움",
+            "통증이 적은 초기 회복"
+          ],
+          "bad": [
+            "이식 모발 밀도 아쉬움(1명)",
+            "팔 지방흡입 부위 붓기·멍(1명)"
+          ],
+          "prev_score": 5.0
+        },
+        "BRAUN": {
+          "n": 1,
+          "pos": 0,
+          "neu": 0,
+          "neg": 1,
+          "score": 1.0,
+          "good": [
+            "(이번 달 확인된 칭찬 없음)"
+          ],
+          "bad": [
+            "Reddit에 실망스러운 경험이라는 개인 게시물(본문 미열람, 표본 1명)"
+          ],
+          "prev_score": 4.8
+        }
+      }
     },
     "2026-10": {
       "top": [
@@ -1486,6 +1698,287 @@
     }
   },
   "seen_urls": {},
-  "manual_check": [],
-  "manual_check_at": "2026-10-19 15:18"
+  "manual_check": [
+    {
+      "channel": "instagram",
+      "hospital": "NANA",
+      "query": "nanahospital_jp",
+      "url": "https://www.instagram.com/nanahospital_jp/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "NANA",
+      "query": "nanahospital_eng",
+      "url": "https://www.instagram.com/nanahospital_eng/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "NANA",
+      "query": "nanaprs",
+      "url": "https://www.instagram.com/nanaprs/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "BANOBAGI",
+      "query": "banobagi_ps",
+      "url": "https://www.instagram.com/banobagi_ps/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "BRAUN",
+      "query": "braunpskr",
+      "url": "https://www.instagram.com/braunpskr/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "BRAUN",
+      "query": "braunps_official",
+      "url": "https://www.instagram.com/braunps_official/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "AB",
+      "query": "ab_plasticsurgery_eng",
+      "url": "https://www.instagram.com/ab_plasticsurgery_eng/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "instagram",
+      "hospital": "AB",
+      "query": "ab_plasticsurgery_kr",
+      "url": "https://www.instagram.com/ab_plasticsurgery_kr/",
+      "reason": "blocked",
+      "at": "2026-11-02 19:22"
+    },
+    {
+      "channel": "reddit",
+      "hospital": "(일반)",
+      "query": "Korea plastic surgery clinic review",
+      "url": "https://www.reddit.com/search/?q=%22Korea%20plastic%20surgery%20clinic%20review%22&sort=new&t=month",
+      "reason": "login_required",
+      "at": "2026-11-02 19:30"
+    },
+    {
+      "channel": "reddit",
+      "hospital": "(일반)",
+      "query": "Korean plastic surgery revision",
+      "url": "https://www.reddit.com/search/?q=%22Korean%20plastic%20surgery%20revision%22&sort=new&t=month",
+      "reason": "login_required",
+      "at": "2026-11-02 19:31"
+    },
+    {
+      "channel": "pantip",
+      "hospital": "WONJIN",
+      "query": "Wonjin Plastic Surgery เกาหลี ศัลยกรรม",
+      "url": "https://pantip.com/search?q=Wonjin%20Plastic%20Surgery%20%E0%B9%80%E0%B8%81%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B5%20%E0%B8%A8%E0%B8%B1%E0%B8%A5%E0%B8%A2%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "VIEW",
+      "query": "뷰성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EB%B7%B0%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "VIEW",
+      "query": "VIEW Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=VIEW%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "ID",
+      "query": "아이디병원",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EC%95%84%EC%9D%B4%EB%94%94%EB%B3%91%EC%9B%90&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "ID",
+      "query": "ID Hospital Korea",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=ID%20Hospital%20Korea&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "DA",
+      "query": "디에이성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EB%94%94%EC%97%90%EC%9D%B4%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "DA",
+      "query": "DA Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=DA%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "NANA",
+      "query": "나나성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EB%82%98%EB%82%98%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "NANA",
+      "query": "NANA Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=NANA%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "BANOBAGI",
+      "query": "바노바기성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EB%B0%94%EB%85%B8%EB%B0%94%EA%B8%B0%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "BANOBAGI",
+      "query": "Banobagi",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=Banobagi&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "BRAUN",
+      "query": "브라운성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=%EB%B8%8C%EB%9D%BC%EC%9A%B4%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_blog",
+      "hospital": "BRAUN",
+      "query": "Braun Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_opt&query=Braun%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "VIEW",
+      "query": "뷰성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EB%B7%B0%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "VIEW",
+      "query": "VIEW Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=VIEW%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "ID",
+      "query": "아이디병원",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EC%95%84%EC%9D%B4%EB%94%94%EB%B3%91%EC%9B%90&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "ID",
+      "query": "ID Hospital Korea",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=ID%20Hospital%20Korea&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "DA",
+      "query": "디에이성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EB%94%94%EC%97%90%EC%9D%B4%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "DA",
+      "query": "DA Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=DA%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "NANA",
+      "query": "나나성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EB%82%98%EB%82%98%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "NANA",
+      "query": "NANA Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=NANA%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "BANOBAGI",
+      "query": "바노바기성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EB%B0%94%EB%85%B8%EB%B0%94%EA%B8%B0%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "BANOBAGI",
+      "query": "Banobagi",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=Banobagi&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "BRAUN",
+      "query": "브라운성형외과",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=%EB%B8%8C%EB%9D%BC%EC%9A%B4%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    },
+    {
+      "channel": "naver_cafe",
+      "hospital": "BRAUN",
+      "query": "Braun Plastic Surgery",
+      "url": "https://search.naver.com/search.naver?ssc=tab.cafe.all&sm=tab_opt&query=Braun%20Plastic%20Surgery&nso=so%3Add%2Cp%3Afrom20261020to20261102",
+      "reason": "timeout",
+      "at": "2026-11-02 19:36"
+    }
+  ],
+  "manual_check_at": "2026-11-02 19:36"
 }
