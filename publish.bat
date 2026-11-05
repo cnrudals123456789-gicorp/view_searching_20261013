@@ -22,16 +22,24 @@ if errorlevel 1 (
 )
 git add docs/data.json >> "%LOG%" 2>&1
 git diff --cached --quiet
-if %ERRORLEVEL%==0 (
-  echo [%date% %time%] no change >> "%LOG%"
-  exit /b 0
-)
+REM No new data: still push in case an earlier push failed (unpushed commits).
+if %ERRORLEVEL%==0 goto nochange
 git commit -m "rank update %date% %time:~0,5%" >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [%date% %time%] git commit failed >> "%LOG%"
   exit /b 1
 )
-git push >> "%LOG%" 2>&1
+goto dopush
+:nochange
+git rev-list --count origin/main..HEAD | findstr /x "0" >nul
+if not errorlevel 1 (
+  echo [%date% %time%] no change >> "%LOG%"
+  exit /b 0
+)
+echo [%date% %time%] no new data, pushing earlier unpushed commits >> "%LOG%"
+:dopush
+REM Force the Windows-stored account for this repo, even if gh CLI is logged in as another GitHub account.
+git -c credential.https://github.com.helper= -c credential.https://github.com.helper=manager push origin main >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [%date% %time%] git push failed >> "%LOG%"
   exit /b 1

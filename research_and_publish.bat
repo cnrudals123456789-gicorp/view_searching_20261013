@@ -48,7 +48,7 @@ if errorlevel 1 (
   echo [%date% %time%] git commit failed >> "%LOG%"
   exit /b 1
 )
-git push >> "%LOG%" 2>&1
+git -c credential.https://github.com.helper= -c credential.https://github.com.helper=manager push origin main >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [%date% %time%] git push failed >> "%LOG%"
   exit /b 1
